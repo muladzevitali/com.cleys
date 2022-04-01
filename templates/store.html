@@ -1,0 +1,197 @@
+{% load static %}
+{% load paginator_tags %}
+
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Aanbod</title>
+    <meta name="description" content="">
+    <!--font, css, js -->
+    {% include 'includes/head.html' %}
+</head>
+
+<body>
+<div class="wrapper offer-page">
+
+    <header id="header-menu">
+        {% include 'includes/header-menu.html' %}
+    </header>
+
+    <main>
+
+        <section class="header-img --small">
+            <img src="{% static 'images/header-img-1.jpg' %}" alt="">
+        </section>
+
+        <section class="offer --logo-bg">
+            <div class="container">
+                <div class="offer__inner">
+
+                    <div class="offer__menu-trigger js-offer__menu-trigger"><i class="far fa-bars"></i></div>
+
+                    <div class="offer__menu js-offer__menu">
+                        <div class="offer__menu-close close-btn js-offer__menu-close"><i class="far fa-times"></i></div>
+                        <h3>Aanbod</h3>
+                        <ul>
+                            <li><a href="{% url 'store-index' %}">Alle producten</a></li>
+                            {% for category in categories %}
+                                {% is_category_active category view.kwargs.category_slug as is_active %}
+                                <li class="dropdown js-dropdown {% if is_active %}open{% endif %}">
+                                <a href="{% url 'store-products-by-category' category_slug=category.slug %}"
+                                   class="dropdown__trigger js-dropdown__trigger">{{ category.name }}</a>
+                                <ul class="dropdown__menu js-dropdown__menu {% if is_active %}focus{% endif %}"
+                                    {% if is_active %}style="display: block;"{% endif %}>
+                                    {% for subcategory in category.subcategories.all %}
+                                        <li>
+                                            <a href="{% url 'store-products-by-category' category_slug=subcategory.slug %}">{{ subcategory.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endfor %}
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="offer__content">
+                        <div class="offer__header">
+                            <div class="offer__tetle">
+                                <h2>Spuitkurk</h2>
+                            </div>
+                            <div class="offer__sort">
+                                <form action="?ordering=" method="get">
+                                    <div class="offer__sort-row">
+                                        <label for="offer-sort">Sorteren op:</label>
+                                        <select name="ordering" id="offer-sort" onchange="this.form.submit()">
+                                            <option value="populair"
+                                                    {% if request.GET.ordering == 'popular' %}selected{% endif %}>
+                                                Populair
+                                            </option>
+                                            <option value="pk" {% if request.GET.ordering == 'pk' %}selected{% endif %}>
+                                                Nieuw
+                                            </option>
+                                            <option value="price"
+                                                    {% if request.GET.ordering == 'price' %}selected{% endif %}>Prijs
+                                                oplopend
+                                            </option>
+                                            <option value="-price"
+                                                    {% if request.GET.ordering == '-price' %}selected{% endif %}>Prijs
+                                                aflopend
+                                            </option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        {% if page_obj %}
+                            <div class="offer__list">
+                                {% for product in object_list %}
+                                    <a href="/product-detail.php"
+                                       class="product-single {% if product.sale %} --with-label --label-promo {% endif %}">
+                                        {% if product.sale %}
+                                            <div class="product-single__label">Promo</div>
+                                        {% endif %}
+                                        <div class="product-single__img">
+                                            <img src="{{ product.image.url }}" alt="">
+                                        </div>
+                                        <div class="product-single__title">
+                                            <h3 class="like-h5">{{ product.name }}</h3>
+                                        </div>
+                                        <div class="product-single__info">{{ product.info }}</div>
+                                        <div class="product-single__price">
+                                            <span class="cur-price">€ {{ product.get_final_price }}</span>
+                                            {% if product.sale > 0 %}
+                                                <span class="old-price">€ {{ product.price }}</span>
+                                            {% endif %}
+
+                                        </div>
+                                    </a>
+                                {% endfor %}
+
+                            </div>
+                            <nav role="navigation" aria-label="Pagination Navigation">
+                                <ul class="pagination">
+                                    {% get_proper_elided_page_range paginator page_obj.number 2 2 as page_range %}
+                                    {% if page_obj.has_previous %}
+                                        <li class="prev">
+                                            <a href="?page={{ page_obj.previous_page_number }}"
+                                               aria-label="Previous Page"><i
+                                                    class="far fa-chevron-left"></i></a>
+                                        </li>
+                                    {% else %}
+                                        <li class="prev">
+                                            <a href="?page=1"
+                                               aria-label="Previous Page"><i
+                                                    class="far fa-chevron-left"></i></a>
+                                        </li>
+                                    {% endif %}
+                                    {% for page_num in page_range %}
+                                        {% if page_obj.number == page_num %}
+                                            <li class="active"><a href="#" aria-current="true">{{ page_num }}</a></li>
+                                        {% else %}
+                                            {% if page_num == paginator.ELLIPSIS %}
+                                                <li>
+                                                    <span>...</span>
+                                                </li>
+                                            {% else %}
+                                                <li>
+                                                    <a href="?page={{ page_num }}">{{ page_num }}</a>
+                                                </li>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    <li class="next">
+                                        {% if page_obj.has_next %}
+                                            <a href="?page={{ page_obj.next_page_number }}" aria-label="Next Page"><i
+                                                    class="far fa-chevron-right"></i>
+                                            </a>
+                                        {% else %}
+                                            <a href="?page={{ page_obj.paginator.num_pages }}" aria-label="Next Page"><i
+                                                    class="far fa-chevron-right"></i>
+                                            </a>
+                                        {% endif %}
+                                    </li>
+
+                                </ul>
+                            </nav>
+                            </div>
+                        {% else %}
+                            <h3>No products</h3>
+                        {% endif %}
+                </div>
+            </div>
+        </section>
+
+        <section class="category-desc --light-blue-bg">
+            <div class="container">
+                <div class="category-desc__inner --content">
+                    <h3>Spuitkurk</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus
+                        vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque
+                        suscipit dolor, in feugiat nulla velit sit amet justo. Maecenas vel mauris eu dui lacinia tempus
+                        sed nec lectus.</p>
+                    <h3>Spuitkurk gereedschappen, toebehoren en materialen</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus
+                        vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque
+                        suscipit dolor, in feugiat nulla velit sit amet justo. Maecenas vel mauris eu dui lacinia tempus
+                        sed nec lectus. Pellentesque placerat varius dolor, ac pellentesque lectus suscipit nec.</p>
+                    <h3>Cleys webshop</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus
+                        vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque
+                        suscipit dolor, in feugiat nulla velit sit amet justo. Maecenas vel mauris eu dui lacinia tempus
+                        sed nec lectus. Pellentesque placerat varius dolor, ac pellentesque lectus suscipit nec.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer-page">
+        {% include 'includes/footer.html' %}
+    </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+[
+  {
+    "model": "category.Category",
+    "pk": 1,
+    "fields": {
+      "name": "Spuitkurk",
+      "slug": "Spuitkurk",
+      "parent": null
+    }
+  },
+  {
+    "model": "category.Category",
+    "pk": 2,
+    "fields": {
+      "name": "Spuitkurk",
+      "slug": "Spuitkurk-sub",
+      "parent": 1
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 3,
+    "fields": {
+      "name": "Voorbehandeling",
+      "slug": "Voorbehandeling-1",
+      "parent": 1
+    }
+  },
+  {
+    "model": "category.Category",
+    "pk": 4,
+    "fields": {
+      "name": "Tapes en afdekmaterialen",
+      "slug": "tapes-en-afdekmaterialen-Spuitkurk",
+      "parent": 1
+    }
+  },
+  {
+    "model": "category.Category",
+    "pk": 5,
+    "fields": {
+      "name": "Gereedschap en toebehoren",
+      "slug": "gereedschap-en-toebehoren-1",
+      "parent": 1
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 6,
+    "fields": {
+      "name": "Etics gevelisolatie",
+      "slug": "etics-gevelisolatie",
+      "parent": null
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 7,
+    "fields": {
+      "name": "Etics gevelisolatie",
+      "slug": "etics-gevelisolatie-sub",
+      "parent": 6
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 8,
+    "fields": {
+      "name": "EPS perimeter isolatie",
+      "slug": "eps-perimeter-isolatie",
+      "parent": 6
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 9,
+    "fields": {
+      "name": "Isolatiepluggen",
+      "slug": "isolatiepluggen",
+      "parent": 6
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 10,
+    "fields": {
+      "name": "Sokkelprofiel",
+      "slug": "sokkelprofiel",
+      "parent": 6
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 11,
+    "fields": {
+      "name": "Bevestigingsmateriaal",
+      "slug": "bevestigingsmateriaal",
+      "parent": 6
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 12,
+    "fields": {
+      "name": "Gereedschap en toebehoren",
+      "slug": "gereedschap-en-toebehoren-2",
+      "parent": 6
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 13,
+    "fields": {
+      "name": "Etics buitenbepleistering",
+      "slug": "etics-buitenbepleistering",
+      "parent": null
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 14,
+    "fields": {
+      "name": "Wapening en profielen",
+      "slug": "wapening-en_profielen",
+      "parent": 13
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 15,
+    "fields": {
+      "name": "Voorbehandeling",
+      "slug": "voorbehandeling-2",
+      "parent": 13
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 16,
+    "fields": {
+      "name": "Tapes en afdekmaterialen",
+      "slug": "tapes-en-afdekmaterialen-etics-buitenbepleistering",
+      "parent": 13
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 17,
+    "fields": {
+      "name": "Uitvlakkingsmortel",
+      "slug": "uitvlakkingsmortel",
+      "parent": 13
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 18,
+    "fields": {
+      "name": "Sierpleister / crepi",
+      "slug": "sierpleister-crepi",
+      "parent": 13
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 19,
+    "fields": {
+      "name": "Gereedschap en toebehoren",
+      "slug": "gereedschap-en-toebehoren-3",
+      "parent": 13
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 20,
+    "fields": {
+      "name": "Tapes en afdekmaterialen",
+      "slug": "tapes-en-afdekmaterialen-category",
+      "parent": null
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 21,
+    "fields": {
+      "name": "Tape en masking tape",
+      "slug": "tape-en-masking-tape",
+      "parent": 20
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 22,
+    "fields": {
+      "name": "Afdekfolies",
+      "slug": "afdekfolies",
+      "parent": 20
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 23,
+    "fields": {
+      "name": "Voorbehandeling",
+      "slug": "voorbehandeling-3",
+      "parent": null
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 24,
+    "fields": {
+      "name": "Oude / slechte muren",
+      "slug": "oude-slechte-muren",
+      "parent": 23
+    }
+  },
+    {
+    "model": "category.Category",
+    "pk": 25,
+    "fields": {
+      "name": "Voorstrijk sierpleister / crepi",
+      "slug": "Voorstrijk-sierpleister-crepi",
+      "parent": 23
+    }
+  }
+]

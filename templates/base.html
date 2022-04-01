@@ -122,21 +122,21 @@
                         <div class="showcase__slider-dots"></div>
                         <div class="showcase__link-row">
 
-                            <a href="/aanbod.php" class="showcase__link-col --title">
+                            <a href="{% url 'store-index' %}" class="showcase__link-col --title">
                                 <h2>Shop nu<i class="fas fa-arrow-right"></i></h2>
                             </a>
 
-                            <a href="#" class="showcase__link-col --link">
+                            <a href="{% url 'store-products-by-category' category_slug='Spuitkurk'%}" class="showcase__link-col --link">
                                 <img src="{% static 'images/link-category-1.jpg' %}" alt="">
                                 <h5>Spuitkurk</h5>
                             </a>
 
-                            <a href="#" class="showcase__link-col --link">
+                            <a href="{% url 'store-products-by-category' category_slug='etics-gevelisolatie'%}" class="showcase__link-col --link">
                                 <img src="{% static 'images/link-category-2.jpg' %}" alt="">
                                 <h5>Gevelisolatie</h5>
                             </a>
 
-                            <a href="#" class="showcase__link-col --link">
+                            <a href="{% url 'store-products-by-category' category_slug='etics-buitenbepleistering'%}" class="showcase__link-col --link">
                                 <img src="{% static 'images/link-category-3.jpg' %}" alt="">
                                 <h5>Buitenbepleistering</h5>
                             </a>
@@ -249,7 +249,7 @@
                         </a>
 
                     </div>
-                    <a href="/aanbod.php" class="spotlight__btn btn --btn-orange">Bekijk volledig aanbod</a>
+                    <a href="{% url 'store-index' %}" class="spotlight__btn btn --btn-orange">Bekijk volledig aanbod</a>
                 </div>
             </div>
         </section>
