@@ -1,0 +1,149 @@
+{% load static %}
+
+<div class="logo hide-desktop"><a href="/" aria-label="cleys"><img src="{% static 'images/logo-cleys.svg' %}" alt="cleys"></a></div>
+
+<nav class="header-nav">
+
+    <div class="header-nav__top">
+        <div class="container">
+            <div class="left">
+                <ul class="header-nav__top-contact">
+                    <li>Vragen? <a href="mailto:shop@cleys.be">shop@cleys.be</a></li>
+                    <li>Whatsapp <a href="https://wa.me/320412345678">+32 (0)412 345 678</a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <ul class="header-nav__top-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/veelgestelde-vragen.php">Veelgestelde vragen</a></li>
+                    <li><a href="/contact.php">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-nav__bottom">
+        <div class="container">
+            <div class="logo hide-mobile"><a href="/" aria-label="cleys"><img src="{% static 'images/logo-cleys.svg' %}" alt="cleys"></a></div>
+            <div class="header-nav__search">
+                <div class="search-form">
+                    <form method="" action="">
+                        <div class="search-row">
+                            <input type="search" name="search" placeholder="Zoek product…" id="search" required="">
+                            <button type="submit" class="search-row__btn btn" aria-label="search"><i class="far fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <ul class="main-menu">
+                <li class="submenu">
+                    <a href="/aanbod.php">Aanbod</a>
+                    <div class="submenu-child">
+                        <div class="submenu-child__row">
+
+                            <div class="submenu-child__col">
+                                <ul>
+                                    <li><a href="#">Spuitkurk</a></li>
+                                    <li><a href="#">Spuitkurk</a></li>
+                                    <li><a href="#">Voorbehandeling</a></li>
+                                    <li><a href="#">Tapes en afdekmaterialen</a></li>
+                                    <li><a href="#">Gereedschap en toebehoren</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="submenu-child__col">
+                                <ul>
+                                    <li><a href="#">Etics gevelisolatie</a></li>
+                                    <li><a href="#">Etics gevelisolatie</a></li>
+                                    <li><a href="#">EPS perimeter isolatie</a></li>
+                                    <li><a href="#">Isolatiepluggen</a></li>
+                                    <li><a href="#">Sokkelprofiel</a></li>
+                                    <li><a href="#">Bevestigingsmateriaal</a></li>
+                                    <li><a href="#">Gereedschap en toebehoren</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="submenu-child__col">
+                                <ul>
+                                    <li><a href="#">Etics buitenbepleistering</a></li>
+                                    <li><a href="#">Wapening en profielen</a></li>
+                                    <li><a href="#">Voorbehandeling</a></li>
+                                    <li><a href="#">Tapes en afdekmaterialen</a></li>
+                                    <li><a href="#">Uitvlakkingsmortel</a></li>
+                                    <li><a href="#">Sierpleister / crepi</a></li>
+                                    <li><a href="#">Gereedschap en toebehoren</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="submenu-child__col">
+                                <ul>
+                                    <li><a href="#">Tapes en afdekmaterialen</a></li>
+                                    <li><a href="#">Tape en masking tape</a></li>
+                                    <li><a href="#">Afdekfolies</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">Voorbehandeling</a></li>
+                                    <li><a href="#">Oude / slechte muren</a></li>
+                                    <li><a href="#">Voorstrijk sierpleister / crepi</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/inspiratie-overzicht.php">Inspiratie</a></li>
+                <li><a href="/academy.php">Spuitkurk Academy</a></li>
+            </ul>
+            <div class="login-cart hide-mobile">
+                <div class="login-top js-login-top">
+                    <div class="login-top__trigger"></div>
+                    <div class="login-top__content js-login-top__content">
+                        <div class="login-top__user-info">
+                            <h3>Mijn account</h3>
+                            <ul>
+                                <li><a href="/mijn-account-overzicht.php">Overzicht</a></li>
+                                <li><a href="/mijn-account-mijn-bestellingen.php">Mijn bestellingen</a></li>
+                                <li><a href="/mijn-account-mijn-gegevens.php">Mijn gegevens</a></li>
+                                <li><a href="#">Uitloggen</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="cart-top">
+                    <span>6</span>
+                    <i class="far fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<div class="login-cart hide-desktop">
+    <div class="login-top js-login-top">
+        <div class="login-top__trigger"></div>
+        <div class="login-top__content js-login-top__content">
+            <div class="login-top__user-info">
+                <h3>Mijn account</h3>
+                <ul>
+                    <li><a href="/mijn-account-overzicht.php">Overzicht</a></li>
+                    <li><a href="/mijn-account-mijn-bestellingen.php">Mijn bestellingen</a></li>
+                    <li><a href="/mijn-account-mijn-gegevens.php">Mijn gegevens</a></li>
+                    <li><a href="#">Uitloggen</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="cart-top">
+        <span>6</span>
+        <i class="far fa-shopping-cart"></i>
+    </a>
+</div>
+
+<div id="hamburger" aria-haspopup="true" aria-label="Show Menu">                
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div id="menu-overlay" class="overlay"></div>

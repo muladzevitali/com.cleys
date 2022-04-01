@@ -1,0 +1,11 @@
+/*reset.css*/
+@import url('/static/css/thirdparty/reset.css');
+
+/*fontawesome styles*/
+@import url('/static/css/thirdparty/all.min.css');
+
+/*slick slider styles*/
+@import url('/static/css/thirdparty/slick.css');
+
+/*main template file (should be last in list)*/
+@import url('/static/css/_template.css');

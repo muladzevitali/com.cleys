@@ -11,6 +11,7 @@
 </head>
 
 <body>
+	<!-- TODO for <div class="wrapper"> add clas="in-login" if user logged in -->
 	<div class="wrapper home-page">
 
 		<header id="header-menu">
@@ -18,212 +19,292 @@
 		</header>
 			
 		<main>
-			
+
 			<section class="showcase">
-				<div class="showcase__img">
-					<img src="/images/showcase__img.jpg" alt="">
-				</div>
-				<div class="container">
-					<div class="showcase__content">
-						<div class="event-list">
+				
+				<div class="showcase__slider flex-slider js-showcase-slider">
 
-							<a href="/event-detail-volzet.php" class="event-list__item">
-								<span class="event-list__full-length">volzet</span>
-								<div class="event-list__day">vrijdag</div>
-								<div class="event-list__date">11 februari</div>
-								<h2 class="event-list__title">That’s so 90’s Dinner & Dance ✨</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">zaterdag</div>
-								<div class="event-list__date">12 februari</div>
-								<h2 class="event-list__title">Valentijn Dinner & Dance ❤</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">vrijdag</div>
-								<div class="event-list__date">18 februari</div>
-								<h2 class="event-list__title">Dinner & Dance</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">zaterdag</div>
-								<div class="event-list__date">19 februari</div>
-								<h2 class="event-list__title">Dinner & Dance</h2>
-							</a>
-
+					<div class="showcase__slider-item">
+						<div class="showcase__slider-img">
+							<img src="/images/showcase-slider-img-1.jpg" alt="">
 						</div>
-					</div>
-				</div>
-				<a href="#activity" class="showcase__scroll-down scroll-down js-scroll-to">scroll</a>
-			</section>
-
-			<section id="activity" class="activity">
-				<div class="container">
-					<div class="activity__content">
-						<div class="activity__header">
-							<h2>Dinner & Dance</h2>
-							<p>Beleef een gezellige avond met je vrienden, collega’s of familie. Eerst lekker dineren om daarna alles los te gooien op onze dansvloer.</p>
-						</div>
-						<div class="activity__column">
-
-							<div class="col">
-								<h3>Concept</h3>
-								<ul class="music-list">
-									<li><strong>Deuren open: 19u30</strong></li>
-									<li><strong>Einde: 3u30</strong></li>
-									<li>Tijdens het diner wijnen, cava & frisdranken</li>
-									<li>Vanaf het dansfeest ook bieren van lage en hoge gisting</li>
-									<li>Ambiancemuziek voor iedereen
-										<ul>
-											<li>Op bepaalde data organiseren wij een thema-Dinner & Dance, dit staat steeds aangegeven bij de desbetreffende datum.</li>
-										</ul>
-									</li>
-									<li>De afrekening gebeurt voordien, lees hiervoor zeker onze <a href="#">voorwaarden</a> </li>
-								</ul>
+						<div class="container">
+							<div class="showcase__slider-content">
+								<h1>Spuitkurkshop voor professionals</h1>
+								<div class="intro">Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten. Ecologisch , dampdoorlatend.</div>
+								<a href="#" class="btn --btn-orange">Bekijk aanbods</a>
 							</div>
+						</div>
+					</div>
 
-							<div class="col">
-								<h3>Formule</h3>
-								<ul class="check-list">
-									<li>Ontvangst met <strong>bubbels</strong> en <strong>amuses</strong></li>
-									<li>Een fijn <strong>visgerechtje</strong> aan tafel geserveerd</li>
-									<li><strong>Buffet</strong> van vis- en vleesspecialiteiten</li>
-									<li>Parade van <strong>dessertjes</strong> op buffet</li>
-									<li><strong>Koffie</strong> of <strong>thee</strong></li>
-									<li>Meesterlijke <strong>kaasplank</strong></li>
-									<li>Late-night <strong>snack</strong></li>
-								</ul>
+					<div class="showcase__slider-item">
+						<div class="showcase__slider-img">
+							<img src="/images/showcase-slider-img-1.jpg" alt="">
+						</div>
+						<div class="container">
+							<div class="showcase__slider-content">
+								<h1>2</h1>
+								<div class="intro">Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten. Ecologisch , dampdoorlatend.</div>
+								<a href="#" class="btn --btn-orange">Bekijk aanbods</a>
 							</div>
-
 						</div>
-						<a href="#events" class="activity__btn btn --btn-yellow js-scroll-to">Bekijk evenementen</a>
+					</div>
+
+					<div class="showcase__slider-item">
+						<div class="showcase__slider-img">
+							<img src="/images/showcase-slider-img-1.jpg" alt="">
+						</div>
+						<div class="container">
+							<div class="showcase__slider-content">
+								<h1>3</h1>
+								<div class="intro">Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten. Ecologisch , dampdoorlatend.</div>
+								<a href="#" class="btn --btn-orange">Bekijk aanbods</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="showcase__slider-item">
+						<div class="showcase__slider-img">
+							<img src="/images/showcase-slider-img-1.jpg" alt="">
+						</div>
+						<div class="container">
+							<div class="showcase__slider-content">
+								<h1>4</h1>
+								<div class="intro">Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten. Ecologisch , dampdoorlatend.</div>
+								<a href="#" class="btn --btn-orange">Bekijk aanbods</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="showcase__slider-item">
+						<div class="showcase__slider-img">
+							<img src="/images/showcase-slider-img-1.jpg" alt="">
+						</div>
+						<div class="container">
+							<div class="showcase__slider-content">
+								<h1>5</h1>
+								<div class="intro">Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten. Ecologisch , dampdoorlatend.</div>
+								<a href="#" class="btn --btn-orange">Bekijk aanbods</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="showcase__slider-item">
+						<div class="showcase__slider-img">
+							<img src="/images/showcase-slider-img-1.jpg" alt="">
+						</div>
+						<div class="container">
+							<div class="showcase__slider-content">
+								<h1>6</h1>
+								<div class="intro">Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten. Ecologisch , dampdoorlatend.</div>
+								<a href="#" class="btn --btn-orange">Bekijk aanbods</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="showcase__link">
+					<div class="container">
+						<div class="showcase__link-inner">
+							<div class="showcase__slider-dots"></div>
+							<div class="showcase__link-row">
+
+								<a href="/aanbod.php" class="showcase__link-col --title">
+									<h2>Shop nu<i class="fas fa-arrow-right"></i></h2>
+								</a>
+
+								<a href="#" class="showcase__link-col --link">
+									<img src="/images/link-category-1.jpg" alt="">
+									<h5>Spuitkurk</h5>
+								</a>
+
+								<a href="#" class="showcase__link-col --link">
+									<img src="/images/link-category-2.jpg" alt="">
+									<h5>Gevelisolatie</h5>
+								</a>
+
+								<a href="#" class="showcase__link-col --link">
+									<img src="/images/link-category-3.jpg" alt="">
+									<h5>Buitenbepleistering</h5>
+								</a>
+
+							</div>
+						</div>
 					</div>
 				</div>
+
 			</section>
 
-			<section id="events" class="events">
-				<div class="events__img">
-					<img src="/images/events__img.jpg" alt="">
-				</div>
+			<section class="promo">
 				<div class="container">
-					<div class="events__content">
-						<div class="event-list">
-
-							<a href="/event-detail-volzet.php" class="event-list__item">
-								<div class="event-list__day">vrijdag</div>
-								<div class="event-list__date">11 februari</div>
-								<h2 class="event-list__title">That’s so 90’s Dinner & Dance ✨</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">zaterdag</div>
-								<div class="event-list__date">12 februari</div>
-								<h2 class="event-list__title">Valentijn Dinner & Dance ❤</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">vrijdag</div>
-								<div class="event-list__date">18 februari</div>
-								<h2 class="event-list__title">Dinner & Dance</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">zaterdag</div>
-								<div class="event-list__date">19 februari</div>
-								<h2 class="event-list__title">Dinner & Dance</h2>
-							</a>
-
-							<a href="/event-detail-volzet.php" class="event-list__item">
-								<div class="event-list__day">vrijdag</div>
-								<div class="event-list__date">11 februari</div>
-								<h2 class="event-list__title">That’s so 90’s Dinner & Dance ✨</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">zaterdag</div>
-								<div class="event-list__date">12 februari</div>
-								<h2 class="event-list__title">Valentijn Dinner & Dance ❤</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">vrijdag</div>
-								<div class="event-list__date">18 februari</div>
-								<h2 class="event-list__title">Dinner & Dance</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">zaterdag</div>
-								<div class="event-list__date">19 februari</div>
-								<h2 class="event-list__title">Dinner & Dance</h2>
-							</a>
-
-							<a href="/event-detail-volzet.php" class="event-list__item">
-								<div class="event-list__day">vrijdag</div>
-								<div class="event-list__date">11 februari</div>
-								<h2 class="event-list__title">That’s so 90’s Dinner & Dance ✨</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">zaterdag</div>
-								<div class="event-list__date">12 februari</div>
-								<h2 class="event-list__title">Valentijn Dinner & Dance ❤</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">vrijdag</div>
-								<div class="event-list__date">18 februari</div>
-								<h2 class="event-list__title">Dinner & Dance</h2>
-							</a>
-
-							<a href="/event-detail.php" class="event-list__item">
-								<div class="event-list__day">zaterdag</div>
-								<div class="event-list__date">19 februari</div>
-								<h2 class="event-list__title">Dinner & Dance</h2>
-							</a>
-
-						</div>
-						<ul class="pagination">
-							<li class="prev"><a href="#" aria-label="Previous Page"><img src="/assets/images/icon-angle-left-white.svg" alt=""></a></li>
-							<li class="active"><a href="#" aria-current="true">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><span>...</span></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">6</a></li>
-							<li class="next"><a href="#" aria-label="Next Page"><img src="/assets/images/icon-angle-right-white.svg" alt=""></a></li>
-						</ul>
-					</div>
-				</div>
-			</section>
-
-			<section class="subscrib --subscrib-with-border">
-				<div class="container">
-					<div class="subscrib__inner">
-						<div class="subscrib__title">
-							<h2>Blijf als eerste op de hoogte van onze evenementen!</h2>
-						</div>
-						<div class="subscrib__form">
-							<form action="" method="">
-								<div class="subscrib__form-row">
-									<div class="col">
-										<input type="email" name="email" id="subscrib-mail" placeholder="e-mailadres" required="">
-									</div>
-									<div class="col col-submit">
-										<button type="submit" class="btn --btn-yellow">Schrijf me in</button>
-									</div>
-									<div class="col col-1">
-										<input type="checkbox" name="privacy" id="subscrib-privacy" value="" required="">
-										<label for="subscrib-privacy">Ik ga akkoord met de <a href="#">privacyverklaring</a>.*</label>
-									</div>
+					<div class="promo__inner">
+						<div class="promo__list col-2-list">
+							<a href="#" class="promo__item">
+								<div class="promo__img">
+									<img src="/images/promo__img-1.jpg" alt="">
 								</div>
-							</form>
+								<div class="promo__title">
+									<h3>Zomerpromo! Bekijk de aanbiedingen</h3>
+								</div>
+							</a>
+							<a href="#" class="promo__item">
+								<div class="promo__img">
+									<img src="/images/promo__img-2.jpg" alt="">
+								</div>
+								<div class="promo__title">
+									<h3>Professional? Ontdek hier de voordelen</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="spotlight">
+				<div class="container">
+					<div class="spotlight__inner">
+						<div class="section-title text-center">
+							<h2>Producten in de kijker</h2>
+						</div>
+						<div class="spotlight__list col-4-list">
+							
+							<!-- NOTE for promo required class="--with-label --label-promo", and added blocks product-single__label, old-price (block exist on aanbod.php page) -->
+							<!-- <a href="/product-detail.php" class="product-single --with-label --label-promo">
+								<div class="product-single__label">Promo</div>
+								<div class="product-single__img">
+									<img src="/images/product-single__img-1.jpg" alt="">
+								</div>
+								<div class="product-single__title">
+									<h3 class="like-h5">Spuitkurk - Normale korrel - 20 kleuren</h3>
+								</div>
+								<div class="product-single__info">Corticyte - 15 L</div>
+								<div class="product-single__price">
+									<span class="cur-price">€ 29,65</span>
+									<span class="old-price">€ 29,65</span>
+								</div>
+							</a> -->
+							
+							<a href="/product-detail.php" class="product-single">
+								<div class="product-single__img">
+									<img src="/images/product-single__img-1.jpg" alt="">
+								</div>
+								<div class="product-single__title">
+									<h3 class="like-h5">Spuitkurk - Normale korrel - 20 kleuren</h3>
+								</div>
+								<div class="product-single__info">Corticyte - 15 L</div>
+								<div class="product-single__price">
+									<span class="cur-price">€ 29,65</span>
+								</div>
+							</a>
+
+							<a href="/product-detail.php" class="product-single">
+								<div class="product-single__img">
+									<img src="/images/product-single__img-2.jpg" alt="">
+								</div>
+								<div class="product-single__title">
+									<h3 class="like-h5">Kleurboek - 20 kleuren</h3>
+								</div>
+								<div class="product-single__info">Corticyte</div>
+								<div class="product-single__price">
+									<span class="cur-price">€ 29,65</span>
+								</div>
+							</a>
+
+							<a href="/product-detail.php" class="product-single">
+								<div class="product-single__img">
+									<img src="/images/product-single__img-3.jpg" alt="">
+								</div>
+								<div class="product-single__title">
+									<h3 class="like-h5">PVC Afdekfolie</h3>
+								</div>
+								<div class="product-single__price">
+									<span class="cur-price">€ 16,65</span>
+								</div>
+							</a>
+
+							<a href="/product-detail.php" class="product-single">
+								<div class="product-single__img">
+									<img src="/images/product-single__img-4.jpg" alt="">
+								</div>
+								<div class="product-single__title">
+									<h3 class="like-h5">Compressor 10 bar</h3>
+								</div>
+								<div class="product-single__info">Michelin</div>
+								<div class="product-single__price">
+									<span class="cur-price">€ 949,85</span>
+								</div>
+							</a>
+
+						</div>
+						<a href="/aanbod.php" class="spotlight__btn btn --btn-orange">Bekijk volledig aanbod</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="academy-slider">
+				<div class="container">
+					<div class="section-title text-center">
+						<h2>Spuitkurk Academy</h2>
+					</div>
+				</div>
+				<div class="academy-slider__slider flex-slider js-academy-slider">
+
+					<div class="academy-slider__item">
+						<a href="/academy-detail.php" class="academy-single --video">
+							<div class="academy-single__img">
+								<div class="academy-single__label">video’s</div>
+								<img src="/images/academy-single__img-2.jpg" alt="">
+							</div>
+							<div class="academy-single__title">
+								<h3>Hoe spuitkurk aanbrengen?</h3>
+							</div>
+						</a>
+					</div>
+					
+					<div class="academy-slider__item">
+						<a href="/academy-detail.php" class="academy-single">
+							<div class="academy-single__img">
+								<div class="academy-single__label">Tips & Tricks</div>
+								<img src="/images/academy-single__img-1.jpg" alt="">
+							</div>
+							<div class="academy-single__title">
+								<h3>Voordelen van spuitkurk</h3>
+							</div>
+						</a>
+					</div>
+
+					<div class="academy-slider__item">
+						<a href="/academy-detail.php" class="academy-single --video">
+							<div class="academy-single__img">
+								<div class="academy-single__label">video’s</div>
+								<img src="/images/academy-single__img-1.jpg" alt="">
+							</div>
+							<div class="academy-single__title">
+								<h3>Voordelen van spuitkurk</h3>
+							</div>
+						</a>
+					</div>
+
+				</div>
+			</section>
+
+			<section class="cta">
+				<div class="container">
+					<div class="cta__inner">
+						<div class="cta__title">
+							<h2>Vragen over spuitkurk? <br>Of ondersteuning nodig?</h2>
+						</div>
+						<div class="cta__btn btn-block">
+							<a href="/veelgestelde-vragen.php" class="btn --btn-orange">Bekijk onze FAQ</a>
+							<a href="/contact.php" class="btn --btn-white-border">Contacteer ons</a>
 						</div>
 					</div>
 				</div>
 			</section>
 
 		</main>
-
+			
 		<footer id="footer-page">
 			<?php include '_includes/footer.html';?>
 		</footer>
