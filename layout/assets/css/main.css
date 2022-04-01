@@ -1,0 +1,5 @@
+/*reset.css*/
+@import url('thirdparty/reset.css');
+
+/*main template file (should be last in list)*/
+@import url('_template.css'); 
