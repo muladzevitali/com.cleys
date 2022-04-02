@@ -11,11 +11,14 @@
 </head>
 
 <body>
-<!-- TODO for <div class="wrapper"> add clas="in-login" if user logged in -->
-<div class="wrapper home-page">
+<div class="wrapper home-page {% if request.user.is_authenticated %} in-login{% endif %}">
 
     <header id="header-menu">
-        {% include 'includes/header-menu.html' %}
+        {% if request.user.is_authenticated %}
+            {% include 'includes/header-menu-logged-in.html' %}
+        {% else %}
+            {% include 'includes/header-menu.html' %}
+        {% endif %}
     </header>
 
     <main>
@@ -126,17 +129,20 @@
                                 <h2>Shop nu<i class="fas fa-arrow-right"></i></h2>
                             </a>
 
-                            <a href="{% url 'store-products-by-category' category_slug='Spuitkurk'%}" class="showcase__link-col --link">
+                            <a href="{% url 'store-products-by-category' category_slug='Spuitkurk' %}"
+                               class="showcase__link-col --link">
                                 <img src="{% static 'images/link-category-1.jpg' %}" alt="">
                                 <h5>Spuitkurk</h5>
                             </a>
 
-                            <a href="{% url 'store-products-by-category' category_slug='etics-gevelisolatie'%}" class="showcase__link-col --link">
+                            <a href="{% url 'store-products-by-category' category_slug='etics-gevelisolatie' %}"
+                               class="showcase__link-col --link">
                                 <img src="{% static 'images/link-category-2.jpg' %}" alt="">
                                 <h5>Gevelisolatie</h5>
                             </a>
 
-                            <a href="{% url 'store-products-by-category' category_slug='etics-buitenbepleistering'%}" class="showcase__link-col --link">
+                            <a href="{% url 'store-products-by-category' category_slug='etics-buitenbepleistering' %}"
+                               class="showcase__link-col --link">
                                 <img src="{% static 'images/link-category-3.jpg' %}" alt="">
                                 <h5>Buitenbepleistering</h5>
                             </a>

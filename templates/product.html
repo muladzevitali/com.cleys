@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Aanbod – {{ object.name|capfirst }}</title>
+    <meta name="description" content="">
+    <!--font, css, js -->
+    {% include 'includes/head.html' %}
+</head>
+
+<body>
+<div class="wrapper product-detail-page {% if request.user.is_authenticated %} in-login {% endif %}">
+
+    <header id="header-menu">
+        {% if request.user.is_authenticated %}
+            {% include 'includes/header-menu-logged-in.html' %}
+        {% else %}
+            {% include 'includes/header-menu.html' %}
+        {% endif %}
+    </header>
+
+    <main>
+
+        <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+            <div class="container">
+                <ul aria-label="breadcrumbs">
+                    <li><a href="{% url 'store-index' %}">Aanbod</a></li>
+                    <li>
+                        <a href="{% url 'store-products-by-category' category_slug=object.category.slug %}">{{ object.category.name|capfirst }}</a>
+                    </li>
+                    <li><a href="#" aria-current="page">{{ object.name }}</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="product-detail --logo-bg">
+            <div class="container">
+                <div class="product-detail__inner">
+                    <div class="product-detail__slider">
+                        <div class="product-detail__slider-big js-product-detail__slider-for">
+                            <div class="img">
+                                <div class="inner">
+                                    <img src="{{ object.image.url }}" alt="">
+                                </div>
+                            </div>
+                            {% for image in object.images.all %}
+                                <div class="img">
+                                    <div class="inner">
+                                        <img src="{{ image.image.url }}" alt="">
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="product-detail__slider-nav js-product-detail__slider-nav">
+                            <div class="img"><img src="{{ object.image.url }}" alt=""></div>
+                            {% for image in object.images.all %}
+                                <div class="img"><img src="{{ image.image.url }}" alt=""></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="product-detail__right">
+                        <form action="" method="">
+                            <div class="product-detail__title">
+                                <h1 class="like-h2">{{ object.name }}</h1>
+                            </div>
+                            <div class="product-detail__info">{{ object.info }}</div>
+                            <div class="product-detail__price">
+                                <div class="cur-price --orange"><span>€ {{ object.get_final_price }}</span> incl. BTW
+                                </div>
+                                {% if object.sale > 0 %}
+                                    <div class="price-label">{{ object.sale|floatformat:0 }}% korting</div>
+                                    <div class="old-price">€ {{ object.price }} incl. BTW</div>
+                                {% endif %}
+                            </div>
+                            {% if product.variations.all %}
+                                <div class="product-detail__extra-options">
+                                    <select name="extra-options">
+                                        {% for variation in product.variations.colors.all %}
+                                            <option value="{{ variation.pk }}">{{ variation.name }}</option>
+                                        {% endfor %}
+
+                                    </select>
+                                </div>
+                            {% endif %}
+                            {% if object.stock > 0 and object.stock > 10 %}
+                                <div class="product-detail__stock stock --green"><i class="fas fa-check"></i> Op
+                                    voorraad:
+                                    {{ object.stock }}
+                                </div>
+                            {% elif object.stock > 0 and object.stock <= 10 %}
+                                <div class="product-detail__stock stock --orange"><i
+                                        class="fas fa-exclamation-triangle"></i> Beperkte voorraad
+                                </div>
+                            {% else %}
+                                <div class="product-detail__stock stock --red"><i class="fas fa-times"></i> Out of stock
+                                </div>
+                            {% endif %}
+                            {% if not request.user.is_authenticated %}
+                                <div class="product-detail__for-pro">
+                                    <h5><i class="fal fa-hard-hat"></i>Professional met BTW nummer?</h5>
+                                    <div><a href="#">Maak een account</a> en bekijk onze <strong>prijzen voor
+                                        professionals</strong>, alsook tal van andere <strong>voordelen</strong>!
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="product-detail__submit">
+                                <div class="col col-1 js-like-number like-number">
+                                    <div class="like-number__m" data-minval="0"><i class="far fa-minus"></i></div>
+                                    <input type="text" name="amount" value="1" pattern="^[ 0-9]+$">
+                                    <div class="like-number__p"><i class="far fa-plus"></i></div>
+                                </div>
+                                <button type="submit" class="btn --btn-orange">Voeg toe aan winkelwagen</button>
+                            </div>
+                            {% if product.volume_of_unit and product.usage_per_unit %}
+                                <div class="product-detail__popup-link">
+                                    <a href="#" class="js-popup-open" data-popupid="#product-detail-popup">Hoeveel
+                                        materiaal
+                                        heb ik nodig?</a>
+                                </div>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-info --light-blue-bg">
+            <div class="container">
+                <div class="product-info__row">
+                    <div class="product-info__col --content">
+                        <h3>Beschrijving</h3>
+                        <p>Spuitkurk op basis van natuurlijke kurkkorrels en acrylaat bindmiddel voor binnen- en
+                            buitentoepassing.</p>
+                        <p>• korrelgrootte: 0,5 - 1mm</p>
+                        <p>Verbruik: 2 L/m2 in 3 lagen. <br>Verwerking: spuitkop 6mm op 4,5 bar.</p>
+                    </div>
+                    <div class="product-info__col --content">
+                        <h3>Levering of afhalen</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non felis non dolor viverra
+                            cursus. Quisque et rutrum augue. Morbi ac pellentesque risus. Phasellus pellentesque blandit
+                            metus, vitae vestibulum lorem scelerisque vel.</p>
+                    </div>
+                    <div class="product-info__col --downloads">
+                        <h3>Downloads</h3>
+                        <a href="#"><i class="far fa-file-pdf"></i>Technische fiche Corticyte Normale korrel</a>
+                        <a href="#"><i class="far fa-file-pdf"></i>Handleiding spuitkurk voorbereiden</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="interesting-articles">
+            <div class="container">
+                <div class="section-title --blue-title">
+                    <h2>Interessante artikels</h2>
+                </div>
+                <div class="interesting-articles__list col-2-list">
+
+                    <a href="/academy-detail.php" class="academy-single --video">
+                        <div class="academy-single__img">
+                            <div class="academy-single__label">video’s</div>
+                            <img src="/images/academy-single__img-2.jpg" alt="">
+                        </div>
+                        <div class="academy-single__title">
+                            <h3>Hoe spuitkurk aanbrengen?</h3>
+                        </div>
+                    </a>
+
+                    <a href="/academy-detail.php" class="academy-single">
+                        <div class="academy-single__img">
+                            <div class="academy-single__label">Tips &amp; Tricks</div>
+                            <img src="/images/academy-single__img-1.jpg" alt="">
+                        </div>
+                        <div class="academy-single__title">
+                            <h3>Voordelen van spuitkurk</h3>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="related-products --light-blue-bg">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Gerelateerde producten</h2>
+                </div>
+                <div class="related-products__list col-4-list">
+                    {% for product in related_products %}
+                        <a href="{{ product.url }}" class="product-single">
+                            <div class="product-single__img">
+                                <img src="{{ product.image.url }}" alt="">
+                            </div>
+                            <div class="product-single__title">
+                                <h3 class="like-h5">{{ product.name }}</h3>
+                            </div>
+                            <div class="product-single__info">{{ product.info }}</div>
+                            <div class="product-single__price">
+                                <span class="cur-price">€ {{ product.get_final_price }}</span>
+                                {% if product.sale > 0 %}
+                                    <span class="old-price">€ {{ product.price }}</span>
+                                {% endif %}
+                            </div>
+                        </a>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer-page">
+        {% include 'includes/footer.html' %}
+    </footer>
+
+    <div id="product-detail-popup" class="js-popup-content popup-content">
+        <h3>Hoeveel materiaal heb ik nodig?</h3>
+        <div class="prod-calc">
+            <form action="{% url 'store-product-quantity-calculation' product_uuid=object.uuid %}" method="post"
+                  class="prod-calc-form">
+                {% csrf_token %}
+                <div class="prod-calc__form-row">
+                    <label for="prod-calc-field">De muurdelen hebben een totale oppervlakte van:</label>
+                    <div class="field-span">
+                        <input type="text" id="prod-calc-field" name="surface" value="20">
+                        <span>m<sup>2</sup></span>
+                    </div>
+                    <button type="submit" class="btn --btn-orange">Bereken</button>
+                </div>
+            </form>
+            <div class="prod-calc__title">
+                <div class="like-h5">{{ object.name }}</div>
+                <div class="like-h5">Emmer(s) van {{ object.volume_of_unit }}L</div>
+            </div>
+            <div class="prod-calc__results">
+                <div class="prod-calc__results-row surface-row">
+                    <div>Oppervlakte:</div>
+                    <div>20 <span>m<sup>2</sup></span></div>
+                </div>
+                <div class="prod-calc__results-row usage-row">
+                    <div>Gemiddeld verbruik per m<sup>2</sup> (alle 3 lagen incl.):</div>
+                    <div>{{ object.usage_per_unit }} L</div>
+                </div>
+                <div class="prod-calc__results-row volume-row">
+                    <div>Totaal verbruik:</div>
+                    <div>{{ object.default_volume }} L</div>
+                </div>
+            </div>
+            <div class="like-h5 ">Bestel <span class="quantity-row">{{ object.default_quantity }} emmer(s)</span> {{ object.name }}</div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

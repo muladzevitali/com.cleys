@@ -12,6 +12,8 @@ class Command(BaseCommand):
         self._create_admin_if_not_exist()
         call_command('loaddata', 'media/initial_data/categories.json')
         call_command('loaddata', 'media/initial_data/products.json')
+        call_command('loaddata', 'media/initial_data/products_gallery.json')
+        call_command('loaddata', 'media/initial_data/products_variations.json')
 
     def _create_admin_if_not_exist(self):
         admin_email = 'admin@example.com'

@@ -8,10 +8,12 @@
       "info": "Corticyte - 15 L",
       "image": "photos/products/product-single__img-1.jpg",
       "price": 29.65,
-      "sale": 0,
+      "sale": 5,
       "stock": 100,
       "is_available": true,
-      "category": 1
+      "category": 1,
+      "usage_per_unit": 2,
+      "volume_of_unit": 15
     }
   },
   {
@@ -19,14 +21,16 @@
     "pk": 2,
     "fields": {
       "name": "Kleurboek - 20 kleuren",
-      "slug": "spuitkurk-normale-korrel-20-kleuren",
+      "slug": "Kleurboek-20-kleuren",
       "info": "Corticyte",
       "image": "photos/products/product-single__img-2.jpg",
       "price": 29.65,
       "sale": 0,
       "stock": 30,
       "is_available": true,
-      "category": 2
+      "category": 2,
+      "usage_per_unit": 3,
+      "volume_of_unit": 20
     }
   },
   {
@@ -48,7 +52,7 @@
     "pk": 4,
     "fields": {
       "name": "Spuitkurk - Normale korrel - 20 kleuren",
-      "slug": "spuitkurk-normale-korrel-20-kleuren",
+      "slug": "spuitkurk-normale-korrel-20-kleuren-3",
       "info": "Corticyte - 15 L",
       "image": "photos/products/product-single__img-3.jpg",
       "price": 29.65,
@@ -63,7 +67,7 @@
     "pk": 5,
     "fields": {
       "name": "Compressor 10 bar",
-      "slug": "compressor-10-bar",
+      "slug": "compressor-10-bar-2",
       "info": "Michelin",
       "image": "photos/products/product-single__img-4.jpg",
       "price": 29.65,
@@ -78,7 +82,7 @@
     "pk": 6,
     "fields": {
       "name": "Compressor 10 bar",
-      "slug": "compressor-10-bar",
+      "slug": "compressor-10-bar-1",
       "info": "Michelin",
       "image": "photos/products/product-single__img-4.jpg",
       "price": 949.85,
@@ -93,7 +97,7 @@
     "pk": 7,
     "fields": {
       "name": "Spuitkurk - Normale korrel - 20 kleuren",
-      "slug": "spuitkurk-normale-korrel-20-kleuren",
+      "slug": "spuitkurk-normale-korrel-20-kleuren-3",
       "info": "Corticyte - 15 L",
       "image": "photos/products/product-single__img-1.jpg",
       "price": 29.65,
@@ -108,7 +112,7 @@
     "pk": 8,
     "fields": {
       "name": "Kleurboek - 20 kleuren",
-      "slug": "spuitkurk-normale-korrel-20-kleuren",
+      "slug": "spuitkurk-normale-korrel-20-kleuren-423",
       "info": "Corticyte",
       "image": "photos/products/product-single__img-2.jpg",
       "price": 29.65,
@@ -123,7 +127,7 @@
     "pk": 9,
     "fields": {
       "name": "PVC Afdekfolie",
-      "slug": "pvc-afdekfolie",
+      "slug": "pvc-afdekfolie-234",
       "image": "photos/products/product-single__img-3.jpg",
       "price": 16.65,
       "sale": 0,
@@ -137,7 +141,7 @@
     "pk": 10,
     "fields": {
       "name": "Spuitkurk - Normale korrel - 20 kleuren",
-      "slug": "spuitkurk-normale-korrel-20-kleuren",
+      "slug": "spuitkurk-normale-korrel-20-kleuren-52",
       "info": "Corticyte - 15 L",
       "image": "photos/products/product-single__img-3.jpg",
       "price": 29.65,
@@ -152,7 +156,7 @@
     "pk": 11,
     "fields": {
       "name": "Compressor 10 bar",
-      "slug": "compressor-10-bar",
+      "slug": "compressor-10-bar-45",
       "info": "Michelin",
       "image": "photos/products/product-single__img-4.jpg",
       "price": 29.65,
@@ -167,7 +171,7 @@
     "pk": 12,
     "fields": {
       "name": "Compressor 10 bar",
-      "slug": "compressor-10-bar",
+      "slug": "compressor-10-bar-57",
       "info": "Michelin",
       "image": "photos/products/product-single__img-4.jpg",
       "price": 949.85,
@@ -182,7 +186,7 @@
     "pk": 13,
     "fields": {
       "name": "Spuitkurk - Normale korrel - 20 kleuren",
-      "slug": "spuitkurk-normale-korrel-20 kleuren",
+      "slug": "spuitkurk-normale-korrel-20-kleuren-563",
       "info": "Corticyte - 15 L",
       "image": "photos/products/product-single__img-1.jpg",
       "price": 29.65,
@@ -197,7 +201,7 @@
     "pk": 14,
     "fields": {
       "name": "Kleurboek - 20 kleuren",
-      "slug": "spuitkurk-normale-korrel-20 kleuren",
+      "slug": "spuitkurk-normale-korrel-20-kleuren-2613",
       "info": "Corticyte",
       "image": "photos/products/product-single__img-2.jpg",
       "price": 29.65,
@@ -212,7 +216,7 @@
     "pk": 15,
     "fields": {
       "name": "PVC Afdekfolie",
-      "slug": "pvc-afdekfolie",
+      "slug": "pvc-afdekfolie-45sf",
       "image": "photos/products/product-single__img-3.jpg",
       "price": 16.65,
       "sale": 0,
@@ -226,7 +230,7 @@
     "pk": 16,
     "fields": {
       "name": "Spuitkurk - Normale korrel - 20 kleuren",
-      "slug": "spuitkurk-normale-korrel-20-kleuren",
+      "slug": "spuitkurk-normale-korrel-20-kleuren-adfg32",
       "info": "Corticyte - 15 L",
       "image": "photos/products/product-single__img-3.jpg",
       "price": 29.65,
@@ -241,7 +245,7 @@
     "pk": 17,
     "fields": {
       "name": "Compressor 10 bar",
-      "slug": "compressor-10-bar",
+      "slug": "compressor-10-bar-345afg",
       "info": "Michelin",
       "image": "photos/products/product-single__img-4.jpg",
       "price": 29.65,
@@ -256,7 +260,7 @@
     "pk": 18,
     "fields": {
       "name": "Compressor 10 bar",
-      "slug": "compressor-10-bar",
+      "slug": "compressor-10-bar-4-2345safg",
       "info": "Michelin",
       "image": "photos/products/product-single__img-4.jpg",
       "price": 949.85,

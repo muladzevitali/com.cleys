@@ -1,0 +1,122 @@
+[
+  {
+    "model": "store.ProductGallery",
+    "pk": 1,
+    "fields": {
+      "image": "photos/products/product-single__img-1.jpg",
+      "product": 1
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 2,
+    "fields": {
+      "image": "photos/products/product-single__img-2.jpg",
+      "product": 1
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 3,
+    "fields": {
+      "image": "photos/products/product-single__img-3.jpg",
+      "product": 1
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 4,
+    "fields": {
+      "image": "photos/products/product-single__img-4.jpg",
+      "product": 1
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 5,
+    "fields": {
+      "image": "photos/products/product-single__img-3.jpg",
+      "product": 1
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 6,
+    "fields": {
+      "image": "photos/products/product-single__img-1.jpg",
+      "product": 2
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 7,
+    "fields": {
+      "image": "photos/products/product-single__img-2.jpg",
+      "product": 2
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 8,
+    "fields": {
+      "image": "photos/products/product-single__img-3.jpg",
+      "product": 2
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 9,
+    "fields": {
+      "image": "photos/products/product-single__img-4.jpg",
+      "product": 2
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 10,
+    "fields": {
+      "image": "photos/products/product-single__img-3.jpg",
+      "product": 2
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 11,
+    "fields": {
+      "image": "photos/products/product-single__img-1.jpg",
+      "product": 3
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 12,
+    "fields": {
+      "image": "photos/products/product-single__img-2.jpg",
+      "product": 3
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 13,
+    "fields": {
+      "image": "photos/products/product-single__img-3.jpg",
+      "product": 3
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 14,
+    "fields": {
+      "image": "photos/products/product-single__img-4.jpg",
+      "product": 3
+    }
+  },
+  {
+    "model": "store.ProductGallery",
+    "pk": 15,
+    "fields": {
+      "image": "photos/products/product-single__img-3.jpg",
+      "product": 3
+    }
+  }
+]

@@ -16,7 +16,11 @@
 <div class="wrapper offer-page">
 
     <header id="header-menu">
-        {% include 'includes/header-menu.html' %}
+        {% if request.user.is_authenticated %}
+            {% include 'includes/header-menu-logged-in.html' %}
+        {% else %}
+            {% include 'includes/header-menu.html' %}
+        {% endif %}
     </header>
 
     <main>
@@ -87,7 +91,7 @@
                         {% if page_obj %}
                             <div class="offer__list">
                                 {% for product in object_list %}
-                                    <a href="/product-detail.php"
+                                    <a href="{{ product.url }}"
                                        class="product-single {% if product.sale %} --with-label --label-promo {% endif %}">
                                         {% if product.sale %}
                                             <div class="product-single__label">Promo</div>

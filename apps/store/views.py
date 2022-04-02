@@ -1,7 +1,15 @@
+import math
+import uuid
+from random import sample
+
+from django.core.exceptions import ValidationError
 from django.db.models import Q
-from django.views.generic import ListView
-from apps.store import models
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from django.views.generic import ListView, DetailView
+
 from apps.category.models import Category
+from apps.store import models
 
 
 class StoreListView(ListView):
@@ -30,3 +38,40 @@ class StoreListView(ListView):
         if ordering not in self.valid_ordering_columns:
             return 'pk',
         return ordering,
+
+
+class ProductDetailView(DetailView):
+    template_name = 'product.html'
+    model = models.Product
+    queryset = models.Product.objects.all()
+
+    def get_random_items(self, num_items):
+        total_objects = self.model.objects.count()
+        num_items = min(total_objects, num_items)
+        object_ids = sample(range(1, total_objects + 1), num_items)
+        return object_ids
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        random_product_ids = self.get_random_items(4)
+        context['related_products'] = self.model.objects.filter(pk__in=random_product_ids)
+        return context
+
+    def get_queryset(self):
+        queryset = self.model.objects
+        queryset = queryset.filter(uuid=self.kwargs['product_uuid'])
+        return queryset
+
+
+def calculate_required_product_volume(request, product_uuid: uuid.UUID):
+    product = get_object_or_404(models.Product, uuid=product_uuid)
+
+    if not (product.volume_of_unit or product.usage_per_unit):
+        raise ValidationError('Not valid product')
+
+    surface = float(request.POST['surface'])
+    total_amount = surface * product.usage_per_unit
+    product_quantity = math.ceil(total_amount / product.volume_of_unit)
+    data = dict(total_amount=total_amount, product_quantity=product_quantity)
+
+    return JsonResponse(data=data)
