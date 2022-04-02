@@ -79,8 +79,8 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="cart-top">
-                    <span>6</span>
+                <a href="{% url 'cart-index' %}" class="cart-top">
+                    <span {% if num_items_in_cart <= 0 %}class=empty"{% endif %}>{{ num_items_in_cart }}</span>
                     <i class="far fa-shopping-cart"></i>
                 </a>
             </div>
@@ -104,8 +104,8 @@
             </div>
         </div>
     </div>
-    <a href="#" class="cart-top">
-        <span>6</span>
+    <a href="{% url 'cart-index' %}" class="cart-top">
+        <span {% if num_items_in_cart <= 0 %}class=empty"{% endif %}>{{ num_items_in_cart }}</span>
         <i class="far fa-shopping-cart"></i>
     </a>
 </div>

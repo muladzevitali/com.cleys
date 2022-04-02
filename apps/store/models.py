@@ -1,6 +1,8 @@
 import math
 import uuid
 
+from ckeditor.fields import RichTextField
+from django.conf import settings
 from django.core.validators import (MinValueValidator, MaxValueValidator)
 from django.db import models
 from django.urls import reverse
@@ -11,7 +13,8 @@ class Product(TimeStampedModel):
     uuid = models.UUIDField(editable=False, default=uuid.uuid4, unique=True)
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
-    info = models.TextField(max_length=500, blank=True)
+    info = models.CharField(max_length=100, blank=True)
+    description = RichTextField(max_length=500, blank=True)
     image = models.ImageField(upload_to='photos/products', max_length=255)
     price = models.DecimalField(verbose_name='price', max_digits=8, decimal_places=2)
     sale = models.DecimalField(default=0, max_digits=8, decimal_places=2,
@@ -34,15 +37,24 @@ class Product(TimeStampedModel):
         return round(self.price - self.price * self.sale / 100, 2)
 
     @property
+    def logged_in_price(self):
+        excluded_btw = self.price - self.price * settings.TAX
+        return round(excluded_btw - self.price * self.sale / 100, 2)
+
+    @property
     def url(self):
         return reverse('store-product-detail', args=(self.category.slug, self.slug, self.uuid))
 
     @property
     def default_quantity(self):
+        if not self.usage_per_unit:
+            return
         return math.ceil(self.default_volume / self.volume_of_unit)
 
     @property
     def default_volume(self):
+        if not self.usage_per_unit:
+            return
         return self.usage_per_unit * 20
 
 

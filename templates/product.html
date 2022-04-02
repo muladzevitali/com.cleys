@@ -62,65 +62,78 @@
                         </div>
                     </div>
                     <div class="product-detail__right">
-                        <form action="" method="">
+                        <form action="{% url 'cart-add' product_uuid=object.uuid %}" method="post">
+                            {% csrf_token %}
                             <div class="product-detail__title">
                                 <h1 class="like-h2">{{ object.name }}</h1>
                             </div>
                             <div class="product-detail__info">{{ object.info }}</div>
                             <div class="product-detail__price">
-                                <div class="cur-price --orange"><span>€ {{ object.get_final_price }}</span> incl. BTW
+                                {% if request.user.is_authenticated %}
+                                    <div class="cur-price --orange"><span>€ {{ object.logged_in_price }}</span> excl.
+                                    BTW
+                                    <div class="old-price">€ {{ object.price }} incl. BTW</div>
+                                {% else %}
+                                    <div class="cur-price --orange"><span>€ {{ object.get_final_price }}</span> incl.
+                                    BTW
+                                {% endif %}
                                 </div>
                                 {% if object.sale > 0 %}
                                     <div class="price-label">{{ object.sale|floatformat:0 }}% korting</div>
-                                    <div class="old-price">€ {{ object.price }} incl. BTW</div>
+                                    {% if not request.user.is_authenticated %}
+                                        <div class="old-price">€ {{ object.price }} incl. BTW</div>
+                                    {% endif %}
                                 {% endif %}
-                            </div>
-                            {% if product.variations.all %}
-                                <div class="product-detail__extra-options">
-                                    <select name="extra-options">
-                                        {% for variation in product.variations.colors.all %}
-                                            <option value="{{ variation.pk }}">{{ variation.name }}</option>
-                                        {% endfor %}
 
-                                    </select>
                                 </div>
-                            {% endif %}
-                            {% if object.stock > 0 and object.stock > 10 %}
-                                <div class="product-detail__stock stock --green"><i class="fas fa-check"></i> Op
-                                    voorraad:
-                                    {{ object.stock }}
-                                </div>
-                            {% elif object.stock > 0 and object.stock <= 10 %}
-                                <div class="product-detail__stock stock --orange"><i
-                                        class="fas fa-exclamation-triangle"></i> Beperkte voorraad
-                                </div>
-                            {% else %}
-                                <div class="product-detail__stock stock --red"><i class="fas fa-times"></i> Out of stock
-                                </div>
-                            {% endif %}
-                            {% if not request.user.is_authenticated %}
-                                <div class="product-detail__for-pro">
-                                    <h5><i class="fal fa-hard-hat"></i>Professional met BTW nummer?</h5>
-                                    <div><a href="#">Maak een account</a> en bekijk onze <strong>prijzen voor
-                                        professionals</strong>, alsook tal van andere <strong>voordelen</strong>!
+                                {% if product.variations.all %}
+                                    <div class="product-detail__extra-options">
+                                        <select name="variation">
+                                            {% for variation in product.variations.colors.all %}
+                                                <option value="{{ variation.pk }}">{{ variation.name }}</option>
+                                            {% endfor %}
+
+                                        </select>
                                     </div>
+                                {% endif %}
+                                {% if object.stock > 0 and object.stock > 10 %}
+                                    <div class="product-detail__stock stock --green"><i class="fas fa-check"></i> Op
+                                        voorraad:
+                                        {{ object.stock }}
+                                    </div>
+                                {% elif object.stock > 0 and object.stock <= 10 %}
+                                    <div class="product-detail__stock stock --orange"><i
+                                            class="fas fa-exclamation-triangle"></i> Beperkte voorraad
+                                    </div>
+                                {% else %}
+                                    <div class="product-detail__stock stock --red"><i class="fas fa-times"></i> Out of
+                                        stock
+                                    </div>
+                                {% endif %}
+                                {% if not request.user.is_authenticated %}
+                                    <div class="product-detail__for-pro">
+                                        <h5><i class="fal fa-hard-hat"></i>Professional met BTW nummer?</h5>
+                                        <div><a href="#">Maak een account</a> en bekijk onze <strong>prijzen voor
+                                            professionals</strong>, alsook tal van andere <strong>voordelen</strong>!
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="product-detail__submit">
+                                    <div class="col col-1 js-like-number like-number">
+                                        <div class="like-number__m like-number___m" data-minval="0"><i
+                                                class="far fa-minus"></i></div>
+                                        <input type="text" name="quantity" value="1" pattern="^[ 0-9]+$">
+                                        <div class="like-number__p like-number___p"><i class="far fa-plus"></i></div>
+                                    </div>
+                                    <button type="submit" class="btn --btn-orange">Voeg toe aan winkelwagen</button>
                                 </div>
-                            {% endif %}
-                            <div class="product-detail__submit">
-                                <div class="col col-1 js-like-number like-number">
-                                    <div class="like-number__m" data-minval="0"><i class="far fa-minus"></i></div>
-                                    <input type="text" name="amount" value="1" pattern="^[ 0-9]+$">
-                                    <div class="like-number__p"><i class="far fa-plus"></i></div>
-                                </div>
-                                <button type="submit" class="btn --btn-orange">Voeg toe aan winkelwagen</button>
-                            </div>
-                            {% if product.volume_of_unit and product.usage_per_unit %}
-                                <div class="product-detail__popup-link">
-                                    <a href="#" class="js-popup-open" data-popupid="#product-detail-popup">Hoeveel
-                                        materiaal
-                                        heb ik nodig?</a>
-                                </div>
-                            {% endif %}
+                                {% if product.volume_of_unit and product.usage_per_unit %}
+                                    <div class="product-detail__popup-link">
+                                        <a href="#" class="js-popup-open" data-popupid="#product-detail-popup">Hoeveel
+                                            materiaal
+                                            heb ik nodig?</a>
+                                    </div>
+                                {% endif %}
                         </form>
                     </div>
                 </div>
@@ -132,10 +145,7 @@
                 <div class="product-info__row">
                     <div class="product-info__col --content">
                         <h3>Beschrijving</h3>
-                        <p>Spuitkurk op basis van natuurlijke kurkkorrels en acrylaat bindmiddel voor binnen- en
-                            buitentoepassing.</p>
-                        <p>• korrelgrootte: 0,5 - 1mm</p>
-                        <p>Verbruik: 2 L/m2 in 3 lagen. <br>Verwerking: spuitkop 6mm op 4,5 bar.</p>
+                        {{ object.description|safe }}
                     </div>
                     <div class="product-info__col --content">
                         <h3>Levering of afhalen</h3>
@@ -250,7 +260,8 @@
                     <div>{{ object.default_volume }} L</div>
                 </div>
             </div>
-            <div class="like-h5 ">Bestel <span class="quantity-row">{{ object.default_quantity }} emmer(s)</span> {{ object.name }}</div>
+            <div class="like-h5 ">Bestel <span
+                    class="quantity-row">{{ object.default_quantity }} emmer(s)</span> {{ object.name }}</div>
         </div>
     </div>
 

@@ -114,12 +114,12 @@ jQuery(document).ready(function ($) {
 
     //form
     //number
-    $('.js-like-number .like-number__p').click(function (e) {
+    $('.js-like-number .like-number___p').click(function (e) {
         e.preventDefault();
         let curValue = $(this).prev('input').val();
         $(this).prev('input').val(++curValue);
     });
-    $('.js-like-number .like-number__m').click(function (e) {
+    $('.js-like-number .like-number___m').click(function (e) {
         e.preventDefault();
         let curValue = $(this).next('input').val(),
             minValue = $(this).data('minval');
@@ -241,12 +241,7 @@ jQuery(document).ready(function ($) {
         percentPosition: true,
     });
 
-    //cart remove product
-    $('.js-cart-item-remove').click(function (e) {
-        e.preventDefault();
-        $(this).prev('.js-like-number').children('input').val(0);
-        $('#checkout-cart').submit();
-    });
+
 
     //cart update qty
     $('#checkout-cart .js-like-number input').change(function (e) {

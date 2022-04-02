@@ -1,10 +1,13 @@
 from pathlib import Path
+import decimal
 
 from config.env import env
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env('DJANGO_SECRET_KEY')
+CONTEXT = decimal.getcontext()
+CONTEXT.prec = 2
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DJANGO_DEBUG')
@@ -20,9 +23,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'apps.user',
     'apps.category',
     'apps.store',
+    'apps.cart'
 
 ]
 
@@ -50,6 +55,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'apps.category.context_processors.categories_list',
+                'apps.cart.context_processors.cart_item_counter',
             ],
         },
     },
@@ -95,5 +101,20 @@ STATICFILES_DIRS = (BASE_DIR.joinpath('config/static'),)
 STATIC_ROOT = BASE_DIR.joinpath('static')
 MEDIA_ROOT = BASE_DIR.joinpath('media')
 MEDIA_URL = 'media/'
-
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'skin': 'moono',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'BGColor', 'TextColor', 'FontSize'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft',
+             'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ],
+    }
+}
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+TAX = round(decimal.Decimal(env.float('TAX'), CONTEXT), 2)

@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Winkelwagen</title>
+    <meta name="description" content="">
+    {% include 'includes/head.html' %}
+</head>
+
+<body>
+<div class="wrapper checkout-step1-page">
+
+    <header id="header-menu">
+        {% if request.user.is_authenticated %}
+            {% include 'includes/header-menu-logged-in.html' %}
+        {% else %}
+            {% include 'includes/header-menu.html' %}
+        {% endif %}
+    </header>
+
+    <main>
+
+        <section class="step-nav">
+            <div class="container">
+                <ul class="step-nav__steps step-1">
+                    <li class="active">Winkelwagen</li>
+                    <li>gegevens</li>
+                    <li>Overzicht</li>
+                    <li>Bedankt!</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="checkout --step-1">
+            <div class="container">
+                <h1 class="like-h2">Winkelwagen</h1>
+
+                <form action="" method="post" id="checkout-cart">
+                    <div class="checkout__wrapper">
+                        <div class="checkout__left">
+
+                            <div class="cart-items">
+
+                                <div class="cart-items__row --title">
+                                    <div class="cart-items__col">Product</div>
+                                    <div class="cart-items__col text-center">Aaantal</div>
+                                    <div class="cart-items__col text-right">Prijs</div>
+                                </div>
+                                `                       {% for cart_item in cart_items %}
+                                <div class="cart-items__row">
+                                    <div class="cart-items__col">
+                                        <div class="cart-items__mobiletitle">Product</div>
+                                        <div class="cart-items__product">
+                                            <div href="{{ cart_item.product.url }}" class="img">
+                                                <img src="{{ cart_item.product.image.url }}" alt="">
+                                            </div>
+                                            <div class="content">
+                                                <a href="{{ cart_item.product.url }}" class="title">
+                                                    <h5>{{ cart_item.product.name }}</h5>
+                                                </a>
+                                                {% if cart_item.variation %}
+                                                    <div class="extra-option">{{ cart_item.variation.name }}</div>
+                                                {% endif %}
+                                                {{ object.stock }}
+                                                {% if  cart_item.product.stock > 10 %}
+                                                    <div class="stock --green"><i class="fas fa-check"></i> Op voorraad
+                                                    </div>
+                                                {% elif cart_item.product.stock < 10 and cart_item.product.stock > 0 %}
+                                                    <div class="stock --orange"><i
+                                                            class="fas fa-exclamation-triangle"></i>
+                                                        Beperkte voorraad
+                                                    </div>
+                                                {% else %}
+                                                    <div class="stock --red"><i
+                                                            class="fas fa-exclamation-triangle"></i>
+                                                        Out of stock
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-items__col text-center">
+                                        <div class="cart-items__mobiletitle">Aaantal</div>
+                                        <div class="js-like-number like-number">
+                                            <div class="like-number__m" data-minval="0">
+                                                <a href="{% url 'cart-decrement-item'  cart_item_id=cart_item.pk %}"><i
+                                                        class="far fa-minus"></i></a>
+
+                                            </div>
+                                            <input type="text" name="amount" value="{{ cart_item.quantity }}"
+                                                   pattern="^[ 0-9]+$">
+                                            <div class="like-number__p">
+                                                <a href="{% url 'cart-increment-item'  cart_item_id=cart_item.pk %}">
+                                                    <i class="far fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="{% url 'cart-remove-item' cart_item_id=cart_item.pk %}"
+                                           class="cart-item__remove js-cart-item-remove"
+                                           data-cart-row="1">Verwijderen</a>
+                                    </div>
+                                    <div class="cart-items__col text-right">
+                                        <div class="cart-items__mobiletitle">Prijs</div>
+                                        {% if request.user.is_authenticated %}
+                                            <div class="price">€ {{ cart_item.product.logged_in_price }}</div>
+                                        {% else %}
+                                            <div class="price">€ {{ cart_item.product.get_final_price }}</div>
+
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            </div>
+
+                        </div>
+                        <div class="checkout__right">
+                            <div class="checkout__right-inner --with-shadow">
+                                <div class="subtotal">
+                                    <div class="subtotal__row">
+                                        <div class="subtotal__col">Subtotaal (excl. BTW)</div>
+                                        <div class="subtotal__col">€ {{ total|floatformat:2 }}</div>
+                                    </div>
+                                    <div class="subtotal__row">
+                                        <div class="subtotal__col">21% BTW</div>
+                                        <div class="subtotal__col">€ {{ tax|floatformat:2 }}</div>
+                                    </div>
+                                    <div class="subtotal__row --total">
+                                        <div class="subtotal__col">Totaal (incl. BTW)</div>
+                                        <div class="subtotal__col">€ {{ grand_total|floatformat:2 }}</div>
+                                    </div>
+                                    <div class="subtotal__buttons">
+                                        <a href="{% url 'store-index' %}" class="btn --btn-orange-border">Opslaan als
+                                            offerte</a>
+                                        <!-- TODO Link only for demo layout. Replace to submit button for production -->
+                                        <a href="checkout-step2.php" class="btn --btn-orange">Naar checkout</a>
+                                        <!-- <button type="submit" class="btn --btn-orange">Naar checkout</button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer-page">
+        {% include 'includes/footer.html' %}
+    </footer>
+
+</div>
+</body>
+</html>

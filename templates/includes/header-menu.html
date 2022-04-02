@@ -49,9 +49,13 @@
                             {% for category in categories %}
                                 <div class="submenu-child__col">
                                     <ul>
-                                        <li><a href="{% url 'store-products-by-category' category_slug=category.slug %}">{{ category.name }}</a></li>
+                                        <li>
+                                            <a href="{% url 'store-products-by-category' category_slug=category.slug %}">{{ category.name }}</a>
+                                        </li>
                                         {% for sub_category in category.subcategories.all %}
-                                            <li><a href="{% url 'store-products-by-category' category_slug=sub_category.slug %}">{{ sub_category.name }}</a></li>
+                                            <li>
+                                                <a href="{% url 'store-products-by-category' category_slug=sub_category.slug %}">{{ sub_category.name }}</a>
+                                            </li>
                                         {% endfor %}
                                     </ul>
                                 </div>
@@ -103,10 +107,8 @@
                         </div> -->
                     </div>
                 </div>
-                <a href="#" class="cart-top">
-                    <!-- NOTE if cart is empty, for span add class "empty"-->
-                    <!-- <span class="empty"></span> -->
-                    <span>6</span>
+                <a href="{% url 'cart-index' %}" class="cart-top">
+                    <span {% if num_items_in_cart <= 0 %}class=empty"{% endif %}>{{ num_items_in_cart }}</span>
                     <i class="far fa-shopping-cart"></i>
                 </a>
             </div>
@@ -142,22 +144,11 @@
                     </div>
                 </form>
             </div>
-            <!-- NOTE show this div only for users who logged in (and hide for guests) -->
-            <!-- <div class="login-top__user-info">
-                <h3>Mijn account</h3>
-                <ul>
-                    <li><a href="/mijn-account-overzicht.php">Overzicht</a></li>
-                    <li><a href="/mijn-account-mijn-bestellingen.php">Mijn bestellingen</a></li>
-                    <li><a href="/mijn-account-mijn-gegevens.php">Mijn gegevens</a></li>
-                    <li><a href="#">Uitloggen</a></li>
-                </ul>
-            </div> -->
+
         </div>
     </div>
-    <a href="#" class="cart-top">
-        <!-- NOTE if cart is empty, for span add class "empty"-->
-        <!-- <span class="empty"></span> -->
-        <span>6</span>
+    <a href="{% url 'cart-index' %}" class="cart-top">
+        <span {% if num_items_in_cart <= 0 %}class=empty"{% endif %}>{{ num_items_in_cart }}</span>
         <i class="far fa-shopping-cart"></i>
     </a>
 </div>

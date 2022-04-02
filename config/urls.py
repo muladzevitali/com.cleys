@@ -8,7 +8,8 @@ from config import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('store/', include('apps.store.urls'))
+    path('store/', include('apps.store.urls')),
+    path('cart/', include('apps.cart.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
