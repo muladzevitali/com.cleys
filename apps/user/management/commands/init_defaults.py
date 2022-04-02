@@ -1,6 +1,7 @@
+from django.core.management import call_command
 from django.core.management.base import BaseCommand
 from django.db.models import ObjectDoesNotExist
-from django.core.management import call_command
+
 from apps.user.models import User, UserManager
 
 
@@ -14,6 +15,7 @@ class Command(BaseCommand):
         call_command('loaddata', 'media/initial_data/products.json')
         call_command('loaddata', 'media/initial_data/products_gallery.json')
         call_command('loaddata', 'media/initial_data/products_variations.json')
+        call_command('loaddata', 'media/initial_data/countries.json')
 
     def _create_admin_if_not_exist(self):
         admin_email = 'admin@example.com'
