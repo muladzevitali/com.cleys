@@ -68,7 +68,7 @@
                                     <div class="offer__sort-row">
                                         <label for="offer-sort">Sorteren op:</label>
                                         <select name="ordering" id="offer-sort" onchange="this.form.submit()">
-                                            <option value="populair"
+                                            <option value="-views__count"
                                                     {% if request.GET.ordering == 'popular' %}selected{% endif %}>
                                                 Populair
                                             </option>

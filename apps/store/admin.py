@@ -1,5 +1,5 @@
-from django.contrib import admin
 import admin_thumbnails
+from django.contrib import admin
 
 from .models import (Product, ProductGallery, ProductVariation)
 
@@ -17,9 +17,16 @@ class ProductVariationInline(admin.TabularInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'stock', 'category', 'modified', 'is_available']
+    list_display = ['name', 'price', 'stock', 'category', 'modified', 'is_available', 'get_views']
+    list_editable = ('is_available',)
     prepopulated_fields = {'slug': ('name',)}
     inlines = (ProductGalleryInline, ProductVariationInline)
+    search_fields = ('name',)
+
+    def get_views(self, obj):
+        return obj.views.count
+
+    get_views.short_description = 'Product views'
 
 
 @admin.register(ProductVariation)
@@ -28,8 +35,3 @@ class VariationAdmin(admin.ModelAdmin):
     list_editable = ('is_active',)
     search_fields = ('product',)
     list_filter = ('product', 'category', 'name',)
-
-
-@admin.register(ProductGallery)
-class ProductGalleryAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'product')

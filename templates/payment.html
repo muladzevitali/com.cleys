@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Checkout - 2. Gegevens</title>
+    <title>Checkout - 3. Overzicht</title>
     <meta name="description" content="">
+    <!--font, css, js -->
     {% include 'includes/head.html' %}
 </head>
 
 <body>
-<div class="wrapper checkout-step2-page">
+<div class="wrapper checkout-step3-page">
 
     <header id="header-menu">
         {% if request.user.is_authenticated %}
@@ -24,99 +25,108 @@
 
         <section class="step-nav">
             <div class="container">
-                <ul class="step-nav__steps step-2">
+                <ul class="step-nav__steps step-3">
                     <li class="checked">Winkelwagen</li>
-                    <li class="active">gegevens</li>
-                    <li>Overzicht</li>
+                    <li class="checked">gegevens</li>
+                    <li class="active">Overzicht</li>
                     <li>Bedankt!</li>
                 </ul>
             </div>
         </section>
 
-        <section class="checkout --step-2">
+        <section class="checkout --step-3">
             <div class="container">
-                <h1 class="like-h2">Gegevens</h1>
+                <h1 class="like-h2">Overzicht</h1>
 
-                <form action="{% url 'order-index' %}" method="post" id="checkout-form">
-                    {% csrf_token %}
+                <form action="{% url 'order-payment' order_number=order.order_number%}" method="post" id="checkout-overview">
+                {% csrf_token %}
                     <div class="checkout__wrapper">
                         <div class="checkout__left">
 
                             <div class="fieldset">
+                                <h3 class="legend">Betalingsmethode</h3>
+                                <div class="form-row">
+                                    <div class="col col-1 radio-col payment-method-input">
+                                        <input type="radio" name="payment_method" id="payment_method" value="2" checked>
+                                        <label for="payment_method">Online betalen
+                                            <div class="pay-option__list">
+                                                <img src="{% static 'images/pay-option-bancontact.svg' %}"
+                                                     alt="bancontact">
+                                                <img src="{% static 'images/pay-option-paypal.svg' %}" alt="paypal">
+                                                <img src="{% static 'images/pay-option-mastercard.svg' %}"
+                                                     alt="mastercard">
+                                                <img src="{% static 'images/pay-option-visa.svg' %}" alt="visa">
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="fieldset --ro">
                                 <h3 class="legend">Je contactgegevens</h3>
                                 <div class="form-row">
-
                                     <div class="col col-2">
-                                        <label for="c_name" class="label">Naam*</label>
-                                        <input type="text" name="first_name" placeholder="Naam" required="" id="c_name">
+                                        <span class="label">Naam*</span>
+                                        <span class="input-text">{{ order.first_name }}</span>
                                     </div>
 
                                     <div class="col col-2">
-                                        <label for="c_surname" class="label">Voornaam*</label>
-                                        <input type="text" name="last_name" placeholder="Voornaam" required=""
-                                               id="c_surname">
+                                        <span class="label">Voornaam*</span>
+                                        <span class="input-text">{{ order.last_name }}</span>
                                     </div>
 
                                     <div class="col col-2">
-                                        <label for="c_email" class="label">E-mailadres*</label>
-                                        <input type="text" name="email" placeholder="E-mailadres" required=""
-                                               id="c_email">
+                                        <span class="label">E-mailadres*</span>
+                                        <span class="input-text">{{ order.email }}</span>
                                     </div>
 
                                     <div class="col col-2">
-                                        <label for="c_phone" class="label">Telefoonnummer*</label>
-                                        <input type="text" name="phone" placeholder="Telefoonnummer" required=""
-                                               id="c_phone">
+                                        <span class="label">Telefoonnummer*</span>
+                                        <span class="input-text">{{ order.phone }}</span>
                                     </div>
 
                                 </div>
                             </div>
 
-                            <div class="fieldset">
+                            <div class="fieldset --ro">
                                 <h3 class="legend">Je facturatiegegevens</h3>
                                 <div class="form-row">
+                                    {% if order.company_name %}
+                                        <div class="col col-2">
+                                            <span class="label">Bedrijfsnaam</span>
+                                            <span class="input-text">{{ order.company_name }}</span>
+                                        </div>
+                                    {% endif %}
+                                    {% if order.vat_number %}
+                                        <div class="col col-2">
+                                            <span class="label">BTW-nummer</span>
+                                            <span class="input-text">BE0000000000</span>
+                                        </div>
+                                    {% endif %}
 
                                     <div class="col col-2">
-                                        <label for="f_company" class="label">Bedrijfsnaam</label>
-                                        <input type="text" name="company" placeholder="Naam" id="f_company">
+                                        <span class="label">E-Straatnaam*</span>
+                                        <span class="input-text">{{ order.street_name }}</span>
                                     </div>
 
                                     <div class="col col-2">
-                                        <label for="f_btw" class="label">BTW-nummer</label>
-                                        <input type="text" name="vat_number" placeholder="BTW-nummer" id="f_btw">
+                                        <span class="label">Huisnummer*</span>
+                                        <span class="input-text">{{ order.house_number }}</span>
                                     </div>
 
-                                    <div class="col col-70">
-                                        <label for="f_street" class="label">Straatnaam*</label>
-                                        <input type="text" name="street_name" placeholder="Straatnaam" required=""
-                                               id="f_street">
+                                    <div class="col col-2">
+                                        <span class="label">Postcode*</span>
+                                        <span class="input-text">{{ order.postal_code }}</span>
                                     </div>
 
-                                    <div class="col col-30">
-                                        <label for="f_housenr" class="label">Huisnummer*</label>
-                                        <input type="text" name="house_number" placeholder="Huisnummer" required=""
-                                               id="f_housenr">
+                                    <div class="col col-2">
+                                        <span class="label">Gemeente*</span>
+                                        <span class="input-text">{{ order.city }}</span>
                                     </div>
 
-                                    <div class="col col-30">
-                                        <label for="f_zip" class="label">Postcode*</label>
-                                        <input type="text" name="postal_code" placeholder="Postcode" required=""
-                                               id="f_zip">
-                                    </div>
-
-                                    <div class="col col-70">
-                                        <label for="f_city" class="label">Gemeente*</label>
-                                        <input type="text" name="city" placeholder="Gemeente" required="" id="f_city">
-                                    </div>
-
-                                    <div class="col col-1">
-                                        <label for="f_country" class="label">Land*</label>
-                                        <select name="country" id="f_country">
-                                            <option></option>
-                                            {% for country in form.country.field.queryset %}
-                                                <option value="{{ country.pk }}">{{ country.name }}</option>
-                                            {% endfor %}
-                                        </select>
+                                    <div class="col col-2">
+                                        <span class="label">Land*</span>
+                                        <span class="input-text">{{ order.country }}</span>
                                     </div>
 
                                 </div>
@@ -125,20 +135,22 @@
                             <div class="fieldset">
                                 <h3 class="legend">Je order:</h3>
                                 <div class="form-row">
+
                                     <div class="col col-1 radio-col">
-                                        <input type="radio" name="order_type" id="in_store" value="in_store"
-                                               required="" checked>
-                                        <label for="delivery_type1">Afhalen in ons magazijn in Waasmunster<br>
-                                            <span><i class="fas fa-check"></i> direct beschikbaar</span> tijdens
-                                            openingsuren (07u00-17u00)
-                                        </label>
+                                        {% if order.order_type == 'in_store' %}
+                                            <div class="input-text">Afhalen in ons magazijn in Waasmunster<br>
+                                                <span><i class="fas fa-check"></i> direct beschikbaar</span> tijdens
+                                                openingsuren (07u00-17u00)
+                                            </div>
+
+                                        {% else %}
+                                            <div class="input-text">Laten leveren (1-5 werkdagen)</div>
+                                        {% endif %}
                                     </div>
-                                    <div class="col col-1 radio-col">
-                                        <input type="radio" name="order_type" id="delivery_type2" value="delivery">
-                                        <label for="delivery_type2">Laten leveren (1-5 werkdagen)</label>
-                                    </div>
+
                                 </div>
                             </div>
+
 
                         </div>
                         <div class="checkout__right">
@@ -146,6 +158,7 @@
                                 <div class="mini-cart">
                                     <h3>Winkelwagen</h3>
                                     <div class="mini-cart__items">
+
                                         {% for cart_item in cart_items %}
                                             <div class="mini-cart__row">
                                                 <div class="mini-cart__col">
@@ -210,21 +223,16 @@
                                         <div class="subtotal__col">Totaal (incl. BTW)</div>
                                         <div class="subtotal__col">€ {{ grand_total|floatformat:2 }}</div>
                                     </div>
+
                                     <div class="subtotal__buttons">
-                                        <div class="form-row">
-                                            <div class="col col-1 checkbox-col">
-                                                <input type="checkbox" name="user_agreement" id="user_agr" value="2"
-                                                       required="">
-                                                <label for="user_agr">Ik ga akkoord met de <a href="#" target="_blank">privacy
-                                                    policy</a>.*</label>
-                                            </div>
-                                        </div>
+{#                                        <!-- TODO Link only for demo layout. Replace to submit button for production -->#}
+{#                                        <a href="checkout-step4.php" class="btn --btn-orange">Naar checkout</a>#}
                                         <button type="submit" class="btn --btn-orange">Naar checkout</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__right-inner">
-                                <a href="{% url 'cart-index' %}" class="btn --btn-orange-border --btn-full">Vorige
+                                <a href="{% url 'order-index' %}" class="btn --btn-orange-border --btn-full">Vorige
                                     stap</a>
                             </div>
                         </div>

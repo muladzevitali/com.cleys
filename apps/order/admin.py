@@ -27,10 +27,8 @@ class PaymentInline(admin.StackedInline):
 @admin.register(models.Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('order_number', 'full_name', 'email', 'order_total', 'tax', 'status', 'ip')
+    readonly_fields = ('order_number',)
     list_filter = ('status', 'is_ordered',)
     search_fields = ('order_number', 'first_name', 'last_name', 'email',)
     list_per_page = 50
     inlines = (OrderProductInline, PaymentInline,)
-
-
-admin.site.register(models.OrderProduct)

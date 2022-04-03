@@ -35,7 +35,7 @@ def add_to_cart(request, product_uuid):
                 item.quantity += 1
                 item.save()
 
-                return redirect('cart')
+                return redirect('cart-index')
 
         CartItem.from_request(request, product=product, variation=variation,
                               quantity=form.cleaned_data['quantity'],

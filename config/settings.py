@@ -1,5 +1,5 @@
-from pathlib import Path
 import decimal
+from pathlib import Path
 
 from config.env import env
 
@@ -118,4 +118,12 @@ CKEDITOR_CONFIGS = {
     }
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env.int('EMAIL_PORT')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
+EMAIL_CONTACT_FORM_RECEIVER = env('EMAIL_CONTACT_FORM_RECEIVER')
+
+MOLLIE_CLIENT_API = env('MOLLIE_CLIENT_API')
 TAX = round(decimal.Decimal(env.float('TAX'), CONTEXT), 2)

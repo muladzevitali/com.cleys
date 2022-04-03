@@ -27,7 +27,7 @@ def get_cart_info(request):
     tax = settings.TAX * total
     grand_total = total + tax
 
-    context = dict(cart_items=cart_items, total=total, quantity=quantity, tax=tax, grand_total=grand_total)
+    context = dict(cart_items=cart_items, total=total, quantity=quantity, tax=tax, grand_total=grand_total, cart=cart)
 
     return context
 

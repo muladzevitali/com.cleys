@@ -87,3 +87,15 @@ class ProductVariation(TimeStampedModel):
 
     def __str__(self):
         return f'{self.product} - {self.category} - {self.name}'
+
+
+class ProductView(TimeStampedModel):
+    product = models.OneToOneField('store.Product', on_delete=models.CASCADE, related_name='views')
+    count = models.PositiveBigIntegerField(default=0)
+
+    def increase_by_one(self):
+        self.count += 1
+        self.save()
+
+    def __str__(self):
+        return f'{self.product} - {self.count}'

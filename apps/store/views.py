@@ -3,7 +3,7 @@ import uuid
 from random import sample
 
 from django.core.exceptions import ValidationError
-from django.db.models import Q
+from django.db.models import Q, F
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
@@ -16,7 +16,7 @@ class StoreListView(ListView):
     template_name = 'store.html'
     queryset = models.Product.objects.all().order_by('pk')
     paginate_by = 9
-    valid_ordering_columns = ('pk', 'created', 'price', '-price')
+    valid_ordering_columns = ('pk', '-views__count', 'pop''created', 'price', '-price')
 
     def get_queryset(self):
         if self.kwargs.get("category_slug"):
@@ -34,7 +34,7 @@ class StoreListView(ListView):
         return self.queryset.filter(is_available=True)
 
     def get_ordering(self):
-        ordering = self.request.GET.get('ordering', '-created')
+        ordering = self.request.GET.get('ordering', '-views__count')
         if ordering not in self.valid_ordering_columns:
             return 'pk',
         return ordering,
@@ -55,6 +55,10 @@ class ProductDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         random_product_ids = self.get_random_items(4)
         context['related_products'] = self.model.objects.filter(pk__in=random_product_ids)
+
+        product_views, _ = models.ProductView.objects.get_or_create(product=self.object)
+        product_views.increase_by_one()
+
         return context
 
     def get_queryset(self):

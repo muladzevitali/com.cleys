@@ -10,7 +10,7 @@ class MollieClient:
 
     @staticmethod
     def __redirect_url(request, order_number):
-        return request.build_absolute_uri(reverse('post-payment', args=(order_number,)))
+        return request.build_absolute_uri(reverse('order-post-payment', args=(order_number,)))
 
     def __enter__(self):
         return self
@@ -19,12 +19,12 @@ class MollieClient:
         return
 
     def create_payment(self, request, order):
-        metadata = dict(order_number=order.order_number, first_name=order.client_first_name,
-                        last_name=order.client_last_name, email=order.client_email)
+        metadata = dict(order_number=order.order_number, first_name=order.first_name,
+                        last_name=order.last_name, email=order.email)
         payment = self.__client.payments.create(
             {
                 "amount": {"currency": "EUR", "value": str(float(order.order_total))},
-                "description": order.order_address,
+                "description": order.address,
                 "redirectUrl": self.__redirect_url(request, order.order_number),
                 "metadata": metadata,
             }

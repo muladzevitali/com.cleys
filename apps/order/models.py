@@ -1,4 +1,4 @@
-import uuid
+import secrets
 
 from django.db import models
 from django.db.models.signals import post_save
@@ -38,7 +38,7 @@ class Payment(TimeStampedModel):
         payment.description = meta.description
         payment.checkout_url = meta.checkout_url
         payment.status = meta.status
-        payment.amount = meta.amount["value"]
+        payment.amount_paid = meta.amount["value"]
         payment.ccy = meta.amount['currency']
         payment.order = order
         payment.save()
@@ -55,7 +55,11 @@ class Order(TimeStampedModel):
         COMPLETED = 'completed'
         CANCELED = 'canceled'
 
-    order_number = models.CharField(max_length=20)
+    class OrderTypeChoices(models.TextChoices):
+        IN_STORE = 'in_store'
+        DELIVERY = 'delivery'
+
+    order_number = models.CharField(max_length=50)
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -69,6 +73,7 @@ class Order(TimeStampedModel):
     postal_code = models.CharField(max_length=20)
     country = models.ForeignKey('order.Country', on_delete=models.CASCADE, related_name='country_client_orders')
 
+    order_type = models.CharField(max_length=50, choices=OrderTypeChoices.choices)
     order_note = models.TextField(null=True, blank=True)
     order_total = models.DecimalField(max_digits=8, decimal_places=2)
     tax = models.DecimalField(max_digits=8, decimal_places=2)
@@ -80,6 +85,10 @@ class Order(TimeStampedModel):
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
 
+    @property
+    def address(self):
+        return f'{self.country.name}, {self.city}, {self.street_name}, {self.house_number}'
+
     def __str__(self):
         return f'Order({self.id}) - {self.order_number}'
 
@@ -88,13 +97,16 @@ class Order(TimeStampedModel):
         if instance.order_number:
             return
 
-        instance.order_number = f'ORD{uuid.uuid4().hex.upper()}'
+        instance.order_number = f'ORD-{secrets.token_hex(5).upper()}'
         instance.save()
 
 
-class OrderProduct(models.Model):
+class OrderProduct(TimeStampedModel):
     order = models.ForeignKey('order.Order', on_delete=models.CASCADE, related_name='order_products')
     product = models.ForeignKey('store.Product', on_delete=models.CASCADE, related_name='product_orders')
+    variation = models.ForeignKey('store.ProductVariation', on_delete=models.DO_NOTHING, related_name='order_products',
+                                  blank=True, null=True)
+    user = models.ForeignKey('user.User', on_delete=models.DO_NOTHING, null=True, blank=True)
     quantity = models.SmallIntegerField()
     product_price = models.DecimalField(max_digits=8, decimal_places=2)
     is_ordered = models.BooleanField(default=False)
