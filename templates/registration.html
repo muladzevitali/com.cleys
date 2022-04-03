@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Registreren</title>
+	<meta name="description" content="">
+	<!--font, css, js -->
+	{% include 'includes/head.html' %}
+</head>
+
+<body>
+	<div class="wrapper registration-page">
+
+		<header id="header-menu">
+            {% include 'includes/header-menu.html' %}
+		</header>
+
+		<main>
+
+			<section class="header-img --small">
+                <img src="{% static 'images/registration-header.jpg' %}" alt="">
+			</section>
+
+			<section class="registration-section --logo-bg --bg-low">
+				<div class="container">
+					<h1 class="like-h2 --color-dark">Account maken</h1>
+
+					<form action="" method="post" id="registration-form">
+						{% csrf_token %}
+						<div class="registration__wrapper">
+							<div class="registration__left">
+								<p>Ben je een professional met een actief BTW nummer? <br>Registreer je dan via dit formulier om toegang te krijgen tot tal van voordelen voor jouw bedrijf.</p>
+								<p class="--color-orange">Jouw voordelen!</p>
+								<ul class="check-list">
+									<li>Professionele prijzen</li>
+									<li>Historiek van je bestellingen</li>
+									<li>Snelle checkout</li>
+									<li>Whatsapp ondersteuning</li>
+									<li>Bespreekbare wensen op maat van jouw bedrijf</li>
+								</ul>
+							</div>
+							<div class="registration__right">
+								<div class="registration__form">
+
+									<div class="fieldset">
+										<h3 class="legend">Je bedrijfsgegevens</h3>
+										<div class="form-row">
+
+											<div class="col col-2">
+												<label for="f_company" class="label">Bedrijfsnaam</label>
+												<input type="text" placeholder="Bedrijfsnaam" id="f_company" name="{{ form.company_name.name }}" value="{{ form.company_name.value|default_if_none:'' }}">
+											</div>
+
+											<div class="col col-2">
+												<label for="f_btw" class="label">BTW-nummer</label>
+												<input type="text" placeholder="BTW-nummer"  required="" id="f_btw" name="{{ form.vat_number.name }}" value="{{ form.vat_number.value|default_if_none:'' }}">
+											</div>
+
+											<div class="col col-70">
+												<label for="f_street" class="label">Straatnaam*</label>
+												<input type="text" placeholder="Straatnaam"  required="" id="f_street" name="{{ form.street_name.name }}" value="{{ form.street_name.value|default_if_none:'' }}">
+											</div>
+
+											<div class="col col-30">
+												<label for="f_housenr" class="label">Huisnummer*</label>
+												<input type="text" placeholder="Huisnummer"  required="" id="f_housenr" name="{{ form.house_number.name }}" value="{{ form.house_number.value|default_if_none:'' }}">
+											</div>
+
+											<div class="col col-30">
+												<label for="f_zip" class="label">Postcode*</label>
+												<input type="text" placeholder="Postcode"  required="" id="f_zip" name="{{ form.postal_code.name }}" value="{{ form.postal_code.value|default_if_none:'' }}">
+											</div>
+
+											<div class="col col-70">
+												<label for="f_city" class="label">Gemeente*</label>
+												<input type="text" placeholder="Gemeente"  required="" id="f_city" name="{{ form.township.name }}" value="{{ form.township.value|default_if_none:'' }}">
+											</div>
+
+											<div class="col col-1">
+												<label for="f_country" class="label">Land*</label>
+												<select name="{{ form.country.name }}" id="f_country">
+													<option value="be">België</option>
+													<option value="nl">Netherland</option>
+												</select>
+											</div>
+
+										</div>
+									</div>
+
+									<div class="fieldset">
+										<h3 class="legend">Je contactgegevens</h3>
+										<div class="form-row">
+
+											<div class="col col-2">
+												<label for="c_name" class="label">Naam*</label>
+												<input type="text" placeholder="Naam"  required="" id="c_name" name="{{ form.name.name }}" value="{{ form.name.value|default_if_none:'' }}">
+											</div>
+
+											<div class="col col-2">
+												<label for="c_surname" class="label">Voornaam*</label>
+												<input type="text" placeholder="Voornaam"  required="" id="c_surname" name="{{ form.first_name.name }}" value="{{ form.first_name.value|default_if_none:'' }}">
+											</div>
+
+											<div class="col col-2">
+												<label for="c_phone" class="label">Telefoonnummer*</label>
+												<input type="text" placeholder="Telefoonnummer"  required="" id="c_phone" name="{{ form.phone_number.name }}" value="{{ form.phone_number.value|default_if_none:'' }}">
+											</div>
+
+										</div>
+									</div>
+
+									<div class="fieldset">
+										<h3 class="legend">Je logingegevens</h3>
+										<div class="form-row">
+
+											<div class="col col-2">
+												<label for="c_email" class="label">E-mailadres*</label>
+												<input type="text" placeholder="E-mailadres" required="" id="c_email" name="{{ form.email.name }}" value="{{ form.email.value|default_if_none:'' }}">
+											</div>
+
+											<div class="col col-2">
+												<label for="c_password" class="label">Wachtwoord*</label>
+												<input type="password" name="{{ form.password.name }}" placeholder="Wachtwoord"  required="" id="c_password">
+											</div>
+
+											<div class="col col-1 checkbox-col">
+												<input type="checkbox" name="user_agr" id="user_agr" value="1" required>
+												<label for="user_agr">Ik ga akkoord met de <a href="#" target="_blank">privacy policy</a>.*</label>
+											</div>
+
+											<div class="col col-1 submit-col">
+												<button type="submit" class="btn --btn-orange">Registreer</button>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</section>
+
+		</main>
+
+		<footer id="footer-page">
+            {% include 'includes/footer.html' %}
+		</footer>
+
+	</div>
+</body>
+</html>
