@@ -7,7 +7,7 @@
             <div class="footer-top__col pay-option">
                 <h5 class="like-h5">Veilig online betalen</h5>
                 <div class="pay-option__list">
-                    <img src="{% static 'images/pay-option-bancontact.svg'%}" alt="bancontact">
+                    <img src="{% static 'images/pay-option-bancontact.svg' %}" alt="bancontact">
                     <img src="{% static 'images/pay-option-paypal.svg' %}" alt="paypal">
                     <img src="{% static 'images/pay-option-mastercard.svg' %}" alt="mastercard">
                     <img src="{% static 'images/pay-option-visa.svg' %}" alt="visa">
@@ -21,7 +21,7 @@
 
             <div class="footer-top__col icon-text">
                 <i class="fas fa-crown"></i>
-                <h5 class="like-h5"><a href="/registreren.php">Voordelen voor professionals</a> </h5>
+                <h5 class="like-h5"><a href="/registreren.php">Voordelen voor professionals</a></h5>
             </div>
 
         </div>
@@ -63,7 +63,7 @@
             <div class="footer-center__col f-menu">
                 <h5 class="like-h5">Klantenservice</h5>
                 <ul class="f-menu">
-                    <li><a href="#">Veelgestelde vragen</a></li>
+                    <li><a href="{% url 'faq-index' %}">Veelgestelde vragen</a></li>
                     <li><a href="#">Verkoopvoorwaarden</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -77,7 +77,8 @@
             <li><a href="#">Privacy policy</a></li>
             <li><a href="#">Cookiestatement</a></li>
         </ul>
-        <div class="codelines">made by <a href="https://codelines.be" target="_blank" rel="noopener noreferrer">Codelines</a></div>
+        <div class="codelines">made by <a href="https://codelines.be" target="_blank" rel="noopener noreferrer">Codelines</a>
+        </div>
     </div>
 </div>
 

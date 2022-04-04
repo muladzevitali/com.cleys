@@ -1,0 +1,74 @@
+[
+  {
+    "model": "faq.FAQ",
+    "pk": 1,
+    "fields": {
+      "question": "Hoelang blijft sluitkurk verwerkbaar?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo",
+      "category": 1
+    }
+  },
+  {
+    "model": "faq.FAQ",
+    "pk": 2,
+    "fields": {
+      "question": "Hoeveel en in hoeveel lagen moet ik spuitkurk aanbrengen?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.",
+      "category": 1
+    }
+  },
+  {
+    "model": "faq.FAQ",
+    "pk": 3,
+    "fields": {
+      "question": "Waarom moet ik 3 lagen spuitkurk aanbrengen?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.",
+      "category": 1
+    }
+  },
+  {
+    "model": "faq.FAQ",
+    "pk": 4,
+    "fields": {
+      "question": "Op hoeveel druk/bar moet ik de compressor instellen?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.",
+      "category": 1
+    }
+  },
+  {
+    "model": "faq.FAQ",
+    "pk": 5,
+    "fields": {
+      "question": "Hoelang blijft sluitkurk verwerkbaar?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo",
+      "category": 2
+    }
+  },
+  {
+    "model": "faq.FAQ",
+    "pk": 6,
+    "fields": {
+      "question": "Hoeveel en in hoeveel lagen moet ik spuitkurk aanbrengen?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.",
+      "category": 2
+    }
+  },
+  {
+    "model": "faq.FAQ",
+    "pk": 7,
+    "fields": {
+      "question": "Waarom moet ik 3 lagen spuitkurk aanbrengen?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.",
+      "category": 4
+    }
+  },
+  {
+    "model": "faq.FAQ",
+    "pk": 8,
+    "fields": {
+      "question": "Op hoeveel druk/bar moet ik de compressor instellen?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.",
+      "category": 3
+    }
+  }
+]

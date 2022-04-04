@@ -10,7 +10,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('store/', include('apps.store.urls')),
     path('cart/', include('apps.cart.urls')),
-    path('order/', include('apps.order.urls'))
+    path('order/', include('apps.order.urls')),
+    path('faq/', include('apps.faq.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

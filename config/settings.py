@@ -9,12 +9,10 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 CONTEXT = decimal.getcontext()
 CONTEXT.prec = 2
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DJANGO_DEBUG')
 
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -28,7 +26,8 @@ INSTALLED_APPS = [
     'apps.category',
     'apps.store',
     'apps.cart',
-    'apps.order'
+    'apps.order',
+    'apps.faq',
 
 ]
 

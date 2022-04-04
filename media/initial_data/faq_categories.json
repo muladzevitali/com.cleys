@@ -1,0 +1,34 @@
+[
+  {
+    "model": "faq.FAQCategory",
+    "pk": 1,
+    "fields": {
+      "name": "Spuitkurk",
+      "slug": "spuitkurk"
+    }
+  },
+  {
+    "model": "faq.FAQCategory",
+    "pk": 2,
+    "fields": {
+      "name": "Gevelisolatie",
+      "slug": "gevelisolatie"
+    }
+  },
+  {
+    "model": "faq.FAQCategory",
+    "pk": 3,
+    "fields": {
+      "name": "Buitenbepleistering",
+      "slug": "buitenbepleistering"
+    }
+  },
+  {
+    "model": "faq.FAQCategory",
+    "pk": 4,
+    "fields": {
+      "name": "Webshop",
+      "slug": "webshop"
+    }
+  }
+]

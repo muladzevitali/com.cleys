@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Veelgestelde vragen</title>
+    <meta name="description" content="">
+    <!--font, css, js -->
+    {% include 'includes/head.html' %}
+</head>
+
+<body>
+<div class="wrapper faq-page">
+
+    <header id="header-menu">
+        {% if request.user.is_authenticated %}
+            {% include 'includes/header-menu-logged-in.html' %}
+        {% else %}
+            {% include 'includes/header-menu.html' %}
+        {% endif %}
+    </header>
+
+    <main>
+
+        <section class="header-img --small">
+            <img src="{% static 'images/header-faq.jpg' %}" alt="">
+        </section>
+
+        <section class="faq --logo-bg --bg-low">
+            <div class="container">
+
+                <div class="faq__wrapper">
+                    <div class="faq__left">
+                        <h3>Onderwerpen</h3>
+                        <nav>
+                            <ul>
+                                <li {% if category.slug ==  'spuitkurk' %}class="active"{% endif %}><a
+                                        href="{% url 'faq-by-category' category_slug='spuitkurk' %}">Spuitkurk</a>
+                                </li>
+                                <li {% if category.slug ==  'gevelisolatie' %}class="active"{% endif %}>
+                                    <a href="{% url 'faq-by-category' category_slug='gevelisolatie' %}">Gevelisolatie</a>
+                                </li>
+                                <li {% if category.slug ==  'buitenbepleistering' %}class="active"{% endif %}>
+                                    <a href="{% url 'faq-by-category' category_slug='buitenbepleistering' %}">Buitenbepleistering</a>
+                                </li>
+                                <li {% if category.slug == 'webshop' %}class="active"{% endif %}>
+                                    <a href="{% url 'faq-by-category' category_slug='webshop' %}">Webshop</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="faq__right">
+
+                        <h1 class="like-h2 --color-dar">Veelgestelde vragen</h1>
+                        <h3 class="--color-orange">{{ category.name|capfirst }}</h3>
+                        <div class="js-accordion">
+                            {% for faq in object_list %}
+                                <div class="acc-row">
+                                    <div class="acc-head js-acc-head active">{{ faq.question }}</div>
+                                    <div class="acc-body js-acc-body">
+                                        <p>{{ faq.answer|safe }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer-page">
+        {% include 'includes/footer.html' %}
+    </footer>
+
+</div>
+</body>
+</html>
