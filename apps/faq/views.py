@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-
+from django.shortcuts import render
 from apps.faq import models
 
 
@@ -21,3 +21,7 @@ class FAQListView(ListView):
         self.queryset = self.queryset.filter(category__slug=category_slug)
 
         return self.queryset
+
+
+def contact_index(request):
+    return render(request, 'contact.html')
