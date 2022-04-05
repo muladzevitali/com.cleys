@@ -98,7 +98,7 @@
                                         </select>
                                     </div>
                                 {% endif %}
-                            {% settings_value 'LIMITED_QUANTITY' as thresh%}
+                                {% settings_value 'LIMITED_QUANTITY' as thresh %}
                                 {% if object.stock > 0 and object.stock > thresh %}
                                     <div class="product-detail__stock stock --green"><i class="fas fa-check"></i> Op
                                         voorraad:
@@ -158,8 +158,9 @@
                     </div>
                     <div class="product-info__col --downloads">
                         <h3>Downloads</h3>
-                        <a href="#"><i class="far fa-file-pdf"></i>Technische fiche Corticyte Normale korrel</a>
-                        <a href="#"><i class="far fa-file-pdf"></i>Handleiding spuitkurk voorbereiden</a>
+                        {% for attachment in object.attachments.all %}
+                            <a href="{{ attachment.file.url }}"><i class="far fa-file-pdf"></i>{{ attachment.name }}</a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
