@@ -1,4 +1,7 @@
 {% load static %}
+{% load product_price %}
+{% load settings_value %}
+
 <!DOCTYPE HTML>
 <html lang="nl">
 <head>
@@ -63,8 +66,9 @@
                                                 {% if cart_item.variation %}
                                                     <div class="extra-option">{{ cart_item.variation.name }}</div>
                                                 {% endif %}
-                                                {{ object.stock }}
-                                                {% if  cart_item.product.stock > 10 %}
+
+                                                {% settings_value 'LIMITED_QUANTITY' as thresh %}
+                                                {% if  cart_item.product.stock > thresh %}
                                                     <div class="stock --green"><i class="fas fa-check"></i> Op voorraad
                                                     </div>
                                                 {% elif cart_item.product.stock < 10 and cart_item.product.stock > 0 %}
@@ -103,6 +107,8 @@
                                     </div>
                                     <div class="cart-items__col text-right">
                                         <div class="cart-items__mobiletitle">Prijs</div>
+                                        {% product_price request cart_item.product.pk as price %}
+                                    {{ price }}
                                         {% if request.user.is_authenticated %}
                                             <div class="price">€ {{ cart_item.product.logged_in_price }}</div>
                                         {% else %}

@@ -1,6 +1,7 @@
 from django.conf import settings
 
 from apps.cart.models import (Cart, CartItem)
+from apps.store.utils import get_product_price
 
 
 def get_cart(request):
@@ -26,10 +27,3 @@ def get_cart_info(request):
     context = dict(cart_items=cart_items, total=total, quantity=quantity, tax=tax, grand_total=grand_total, cart=cart)
 
     return context
-
-
-def get_product_price(request, product):
-    if request.user.is_authenticated:
-        return product.logged_in_price
-
-    return product.get_final_price

@@ -10,7 +10,6 @@ class Command(BaseCommand):
     help = 'Initialize default data: admin_user'
 
     def handle(self, *args, **options):
-        self._create_admin_if_not_exist()
         call_command('loaddata', 'media/initial_data/categories.json')
         call_command('loaddata', 'media/initial_data/products.json')
         call_command('loaddata', 'media/initial_data/products_gallery.json')
@@ -18,6 +17,7 @@ class Command(BaseCommand):
         call_command('loaddata', 'media/initial_data/countries.json')
         call_command('loaddata', 'media/initial_data/faq_categories.json')
         call_command('loaddata', 'media/initial_data/faq.json')
+        self._create_admin_if_not_exist()
 
     def _create_admin_if_not_exist(self):
         admin_email = 'admin@example.com'
@@ -34,7 +34,16 @@ class Command(BaseCommand):
                 email=admin_email,
                 password="admin1234",
                 first_name=admin_name,
-                last_name=admin_name
+                last_name=admin_name,
+                username='admin',
+                company_name='cley',
+                vat_number='000000',
+                street_name='House',
+                house_number='12',
+                city='Warsaw',
+                postal_code='1122',
+                country_id=1,
+                phone_number='00000'
             )
 
             user_manager.create_superuser(**admin_data)

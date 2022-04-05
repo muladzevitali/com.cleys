@@ -1,4 +1,6 @@
 {% load static %}
+{% load settings_value %}
+
 <!DOCTYPE HTML>
 <html lang="nl">
 <head>
@@ -78,8 +80,8 @@
                                     BTW
                                 {% endif %}
                                 </div>
-                                {% if object.sale > 0 %}
-                                    <div class="price-label">{{ object.sale|floatformat:0 }}% korting</div>
+                                {% if request.user.sale > 0 %}
+                                    <div class="price-label">{{ request.user.sale|floatformat:0 }}% korting</div>
                                     {% if not request.user.is_authenticated %}
                                         <div class="old-price">€ {{ object.price }} incl. BTW</div>
                                     {% endif %}
@@ -96,12 +98,13 @@
                                         </select>
                                     </div>
                                 {% endif %}
-                                {% if object.stock > 0 and object.stock > 10 %}
+                            {% settings_value 'LIMITED_QUANTITY' as thresh%}
+                                {% if object.stock > 0 and object.stock > thresh %}
                                     <div class="product-detail__stock stock --green"><i class="fas fa-check"></i> Op
                                         voorraad:
                                         {{ object.stock }}
                                     </div>
-                                {% elif object.stock > 0 and object.stock <= 10 %}
+                                {% elif object.stock > 0 and object.stock <= thresh %}
                                     <div class="product-detail__stock stock --orange"><i
                                             class="fas fa-exclamation-triangle"></i> Beperkte voorraad
                                     </div>
