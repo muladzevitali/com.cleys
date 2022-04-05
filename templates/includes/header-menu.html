@@ -1,7 +1,6 @@
 {% load static %}
 
-<div class="logo hide-desktop"><a href="/" aria-label="cleys"><img src="{% static 'images/logo-cleys.svg' %}"
-                                                                   alt="cleys"></a></div>
+<div class="logo hide-desktop"><a href="/" aria-label="cleys"><img src="{% static 'images/logo-cleys.svg' %}" alt="cleys"></a></div>
 
 <nav class="header-nav">
 
@@ -21,22 +20,20 @@
                     <li><a href="/contact.php">Contact</a></li>
                 </ul>
                 <!-- NOTE show this btn only for guest users -->
-                <a href="/registreren.php" class="header-nav__top-btn btn --btn-orange">Account maken</a>
+                <a href="{% url 'registration' %}" class="header-nav__top-btn btn --btn-orange">Account maken</a>
             </div>
         </div>
     </div>
 
     <div class="header-nav__bottom">
         <div class="container">
-            <div class="logo hide-mobile"><a href="/" aria-label="cleys"><img src="{% static 'images/logo-cleys.svg' %}"
-                                                                              alt="cleys"></a></div>
+            <div class="logo hide-mobile"><a href="/" aria-label="cleys"><img src="{% static 'images/logo-cleys.svg' %}" alt="cleys"></a></div>
             <div class="header-nav__search">
                 <div class="search-form">
                     <form method="" action="">
                         <div class="search-row">
                             <input type="search" name="search" placeholder="Zoek product…" id="search" required="">
-                            <button type="submit" class="search-row__btn btn" aria-label="search"><i
-                                    class="far fa-search"></i></button>
+                            <button type="submit" class="search-row__btn btn" aria-label="search"><i class="far fa-search"></i></button>
                         </div>
                     </form>
                 </div>
@@ -47,8 +44,8 @@
                     <div class="submenu-child">
                         <div class="submenu-child__row">
                             {% for category in categories %}
-                                <div class="submenu-child__col">
-                                    <ul>
+                            <div class="submenu-child__col">
+                                <ul>
                                         <li>
                                             <a href="{% url 'store-products-by-category' category_slug=category.slug %}">{{ category.name }}</a>
                                         </li>
@@ -57,8 +54,8 @@
                                                 <a href="{% url 'store-products-by-category' category_slug=sub_category.slug %}">{{ sub_category.name }}</a>
                                             </li>
                                         {% endfor %}
-                                    </ul>
-                                </div>
+                                </ul>
+                            </div>
                             {% endfor %}
 
                         </div>
@@ -70,41 +67,41 @@
             <div class="login-cart hide-mobile">
                 <div class="login-top js-login-top">
                     <div class="login-top__trigger"></div>
-                    <div class="login-top__content js-login-top__content">
+                    <div class="login-top__content js-login-top__content ">
                         <!-- NOTE show div below only for guest users -->
                         <div class="login-top__form">
-                            <form method="" action="">
+                            <form method="post" action="{% url 'login' %}">
+                                {% csrf_token %}
                                 <h3>Inloggen</h3>
                                 <div class="form-row">
                                     <div class="col col-1">
-                                        <input type="text" name="email" placeholder="E-mailadres" required=""
-                                               autocomplete="username">
+                                        <input type="text" name="email" placeholder="E-mailadres" required="" autocomplete="username">
                                     </div>
                                     <div class="col col-1">
-                                        <input type="password" name="password" placeholder="Wachtwoord"
-                                               autocomplete="current-password" required="">
+                                        <input type="password" name="password" placeholder="Wachtwoord" autocomplete="current-password" required="">
                                         <p class="small text-right"><a href="#">Wachtwoord vergeten?</a></p>
                                     </div>
                                     <div class="col col-1 submit-col">
                                         <button type="submit" class="btn --btn-orange --btn-full">Inloggen</button>
                                     </div>
                                     <div class="col col-1">
-                                        <p class="small text-center">Reeds gereserveerd? <a href="/login.php">Maak
-                                            account</a></p>
+                                        <p class="small text-center">Reeds gereserveerd? <a href="{% url 'registration' %}">Maak account</a></p>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        {% if user.is_authenticated %}
                         <!-- NOTE show this div only for users who logged in (and hide for guests) -->
-                        <!-- <div class="login-top__user-info">
+                         <div class="login-top__user-info">
                             <h3>Mijn account</h3>
                             <ul>
                                 <li><a href="/mijn-account-overzicht.php">Overzicht</a></li>
                                 <li><a href="/mijn-account-mijn-bestellingen.php">Mijn bestellingen</a></li>
                                 <li><a href="/mijn-account-mijn-gegevens.php">Mijn gegevens</a></li>
-                                <li><a href="#">Uitloggen</a></li>
+                                <li><a href="{% url 'logout' %}">Uitloggen</a></li>
                             </ul>
-                        </div> -->
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
                 <a href="{% url 'cart-index' %}" class="cart-top">
@@ -127,12 +124,10 @@
                     <h3>Inloggen</h3>
                     <div class="form-row">
                         <div class="col col-1">
-                            <input type="text" name="email" placeholder="E-mailadres" required=""
-                                   autocomplete="username">
+                            <input type="text" name="email" placeholder="E-mailadres" required="" autocomplete="username">
                         </div>
                         <div class="col col-1">
-                            <input type="password" name="password" placeholder="Wachtwoord"
-                                   autocomplete="current-password" required="">
+                            <input type="password" name="password" placeholder="Wachtwoord" autocomplete="current-password" required="">
                             <p class="small text-right"><a href="#">Wachtwoord vergeten?</a></p>
                         </div>
                         <div class="col col-1 submit-col">

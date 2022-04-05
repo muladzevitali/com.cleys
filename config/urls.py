@@ -8,6 +8,7 @@ from config import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('user/', include('apps.user.urls')),
     path('store/', include('apps.store.urls')),
     path('cart/', include('apps.cart.urls')),
     path('order/', include('apps.order.urls')),

@@ -37,9 +37,20 @@ class UserManager(BaseUserManager):
 class User(AbstractUser, PermissionsMixin):
     DEFAULT_TIMEZONE = "UTC+4"
 
-    email = models.EmailField(unique=True)
-    first_name = models.CharField(max_length=100, null=True, blank=True)
+    company_name = models.CharField(max_length=150, null=True)
+    vat_number = models.CharField(max_length=150)
+    street_name = models.CharField(max_length=100)
+    house_number = models.CharField(max_length=50)
+    postal_code = models.CharField(max_length=10)
+    township = models.CharField(max_length=50)
+    country = models.ForeignKey('order.Country', on_delete=models.DO_NOTHING, related_name='users', null=True)
+
+    first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=100, null=True, blank=True)
+    phone_number = models.CharField(max_length=25)
+
+    password = models.CharField(max_length=20)
+    email = models.EmailField(unique=True)
     timezone = models.CharField(default=DEFAULT_TIMEZONE, max_length=10)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
