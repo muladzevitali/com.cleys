@@ -3,7 +3,7 @@ import uuid
 from random import sample
 
 from django.core.exceptions import ValidationError
-from django.db.models import Q, F
+from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
@@ -27,6 +27,9 @@ class StoreListView(ListView):
                     query_filter = query_filter | Q(category__id=subcategory.pk)
 
             self.queryset = self.queryset.filter(query_filter)
+
+        if self.request.GET.get('search'):
+            self.queryset = self.queryset.filter(name__icontains=self.request.GET.get('search'))
 
         ordering = self.get_ordering()
         if ordering:

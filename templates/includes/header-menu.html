@@ -30,7 +30,7 @@
             <div class="logo hide-mobile"><a href="/" aria-label="cleys"><img src="{% static 'images/logo-cleys.svg' %}" alt="cleys"></a></div>
             <div class="header-nav__search">
                 <div class="search-form">
-                    <form method="" action="">
+                    <form method="get" action="{% url 'store-index' %}">
                         <div class="search-row">
                             <input type="search" name="search" placeholder="Zoek product…" id="search" required="">
                             <button type="submit" class="search-row__btn btn" aria-label="search"><i class="far fa-search"></i></button>
