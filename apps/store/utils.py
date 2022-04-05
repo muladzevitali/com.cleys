@@ -5,7 +5,6 @@ def get_product_price(request, product):
     if request.user.is_authenticated:
         price = product.logged_in_price
         price -= round(price * request.user.sale / 100, 2)
-        print(request.user.sale)
         return price
 
     return product.get_final_price

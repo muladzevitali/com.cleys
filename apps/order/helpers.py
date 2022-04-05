@@ -21,9 +21,10 @@ class MollieClient:
     def create_payment(self, request, order):
         metadata = dict(order_number=order.order_number, first_name=order.first_name,
                         last_name=order.last_name, email=order.email)
+
         payment = self.__client.payments.create(
             {
-                "amount": {"currency": "EUR", "value": str(float(order.order_total))},
+                "amount": {"currency": "EUR", "value": f'{float(order.order_total):0.2f}'},
                 "description": order.address,
                 "redirectUrl": self.__redirect_url(request, order.order_number),
                 "metadata": metadata,
