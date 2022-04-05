@@ -1,6 +1,7 @@
-from django.contrib.auth.models import (AbstractUser, PermissionsMixin, BaseUserManager)
+from django.contrib.auth.models import (AbstractUser, PermissionsMixin)
 from django.db import models
 from django.utils.translation import gettext as _
+from django.contrib.auth.base_user import BaseUserManager
 
 
 class UserManager(BaseUserManager):
@@ -48,6 +49,7 @@ class User(AbstractUser, PermissionsMixin):
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=100, null=True, blank=True)
     phone_number = models.CharField(max_length=25)
+    username = models.CharField(max_length=25, null=True, blank=True)
 
     password = models.CharField(max_length=20)
     email = models.EmailField(unique=True)

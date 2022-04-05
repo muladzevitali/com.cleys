@@ -79,17 +79,19 @@
                                     </div>
                                     <div class="col col-1">
                                         <input type="password" name="password" placeholder="Wachtwoord" autocomplete="current-password" required="">
-                                        <p class="small text-right"><a href="#">Wachtwoord vergeten?</a></p>
+                                        <p class="small text-right"><a href="{% url 'password_reset' %}">Wachtwoord vergeten?</a></p>
                                     </div>
                                     <div class="col col-1 submit-col">
                                         <button type="submit" class="btn --btn-orange --btn-full">Inloggen</button>
                                     </div>
+
                                     <div class="col col-1">
                                         <p class="small text-center">Reeds gereserveerd? <a href="{% url 'registration' %}">Maak account</a></p>
                                     </div>
                                 </div>
                             </form>
                         </div>
+
                         {% if user.is_authenticated %}
                         <!-- NOTE show this div only for users who logged in (and hide for guests) -->
                          <div class="login-top__user-info">
@@ -153,5 +155,9 @@
     <span></span>
     <span></span>
 </div>
-
+{% if messages %}
+    {% for message in messages|slice:":1" %}
+        <script>window.alert('{{ message }}')</script>
+    {% endfor %}
+{% endif %}
 <div id="menu-overlay" class="overlay"></div>

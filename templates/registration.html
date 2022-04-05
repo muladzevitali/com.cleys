@@ -31,7 +31,7 @@
             <div class="container">
                 <h1 class="like-h2 --color-dark">Account maken</h1>
 
-                <form action="" method="post" id="registration-form">
+                <form action="{% url 'registration' %}" method="post" id="registration-form">
                     {% csrf_token %}
                     <div class="registration__wrapper">
                         <div class="registration__left">
@@ -59,7 +59,7 @@
                                                    name="{{ form.company_name.name }}"
                                                    value="{{ form.company_name.value|default_if_none:'' }}">
                                         </div>
-
+                                        {{ form.error }}
                                         <div class="col col-2">
                                             <label for="f_btw" class="label">BTW-nummer</label>
                                             <input type="text" placeholder="BTW-nummer" required="" id="f_btw"
@@ -114,8 +114,8 @@
                                         <div class="col col-2">
                                             <label for="c_name" class="label">Naam*</label>
                                             <input type="text" placeholder="Naam" required="" id="c_name"
-                                                   name="{{ form.name.name }}"
-                                                   value="{{ form.name.value|default_if_none:'' }}">
+                                                   name="{{ form.last_name.name }}"
+                                                   value="{{ form.last_name.value|default_if_none:'' }}">
                                         </div>
 
                                         <div class="col col-2">
@@ -157,7 +157,8 @@
                                             <label for="user_agr">Ik ga akkoord met de <a href="#" target="_blank">privacy
                                                 policy</a>.*</label>
                                         </div>
-
+                                        <div>errors</div>
+                                        {{ form.password.errors }}
                                         <div class="col col-1 submit-col">
                                             <button type="submit" class="btn --btn-orange">Registreer</button>
                                         </div>

@@ -123,6 +123,7 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
 EMAIL_CONTACT_FORM_RECEIVER = env('EMAIL_CONTACT_FORM_RECEIVER')
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MOLLIE_CLIENT_API = env('MOLLIE_CLIENT_API')
 TAX = round(decimal.Decimal(env.float('TAX'), CONTEXT), 2)
