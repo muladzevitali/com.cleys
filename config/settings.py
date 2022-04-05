@@ -13,7 +13,6 @@ DEBUG = env.bool('DJANGO_DEBUG')
 
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -85,6 +84,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 AUTH_USER_MODEL = "user.User"
+SESSION_ENGINE = 'apps.cart.session_backend'
 
 LANGUAGE_CODE = 'nl'
 

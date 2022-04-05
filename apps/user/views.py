@@ -25,7 +25,6 @@ class ClientLoginView(View):
         return HttpResponseRedirect(self.success_url)
 
     def post(self, request):
-        print(request.user.is_authenticated)
         if request.user.is_authenticated:
             return HttpResponseRedirect(reverse_lazy('login'))
         else:

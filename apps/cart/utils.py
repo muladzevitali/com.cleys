@@ -1,14 +1,10 @@
 from django.conf import settings
 
-from apps.cart.models import (Cart, CartItem, get_cart_id)
+from apps.cart.models import (Cart, CartItem)
 
 
 def get_cart(request):
-    if request.user.is_authenticated:
-        cart, _ = Cart.objects.get_or_create(user_id=request.user.pk)
-    else:
-        cart, _ = Cart.objects.get_or_create(cart_id=get_cart_id(request))
-
+    cart = Cart.from_request(request)
     return cart
 
 
