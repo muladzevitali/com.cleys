@@ -161,8 +161,12 @@ jQuery(document).ready(function ($) {
     });
 
     //popup
-    $('.js-popup-content').wrap('<div class="popup"><div class="popup__inner"></div></div>')
-        .before('<button class="js-popup__close close-btn --black" aria-label="Close"><i class="far fa-times"></i></button>');
+    $('.js-popup-content').each(function (i) {
+        if ($(this).data('popupclass')) popupclass = $(this).data('popupclass');
+        else popupclass = 'basic-popup';
+        $(this).wrap('<div class="popup ' + popupclass + '"><div class="popup__inner"></div></div>')
+            .before('<button class="js-popup__close close-btn --black" aria-label="Close"><i class="far fa-times"></i></button>');
+    });
 
     $('.js-popup-open').click(function (e) {
         e.preventDefault();

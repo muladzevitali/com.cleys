@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{% url 'cart-index' %}" class="cart-top">
+                <a href="{% url 'cart-index' %}" class="cart-top js-popup-open" data-popupid="#cart-popup"">
                     <span {% if num_items_in_cart <= 0 %}class=empty"{% endif %}>{{ num_items_in_cart }}</span>
                     <i class="far fa-shopping-cart"></i>
                 </a>
@@ -104,7 +104,7 @@
             </div>
         </div>
     </div>
-    <a href="{% url 'cart-index' %}" class="cart-top">
+    <a href="{% url 'cart-index' %}" class="cart-top js-popup-open" data-popupid="#cart-popup"">
         <span {% if num_items_in_cart <= 0 %}class=empty"{% endif %}>{{ num_items_in_cart }}</span>
         <i class="far fa-shopping-cart"></i>
     </a>

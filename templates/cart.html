@@ -112,7 +112,6 @@
                                                 <div class="price">€ {{ cart_item.product.logged_in_price }}</div>
                                             {% else %}
                                                 <div class="price">€ {{ cart_item.product.get_final_price }}</div>
-
                                             {% endif %}
                                         </div>
                                     </div>
@@ -176,7 +175,7 @@
     <footer id="footer-page">
         {% include 'includes/footer.html' %}
     </footer>
-
+    {% include 'includes/popup-cart.html' %}
 </div>
 </body>
 </html>
