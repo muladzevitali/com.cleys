@@ -40,87 +40,108 @@
             <div class="container">
                 <h1 class="like-h2">Winkelwagen</h1>
 
-                <form action="" method="post" id="checkout-cart">
+                <form action="{% url 'cart-activate-promo-code' %}" method="post" id="checkout-cart">
+
                     <div class="checkout__wrapper">
                         <div class="checkout__left">
-
                             <div class="cart-items">
-
                                 <div class="cart-items__row --title">
                                     <div class="cart-items__col">Product</div>
                                     <div class="cart-items__col text-center">Aaantal</div>
                                     <div class="cart-items__col text-right">Prijs</div>
                                 </div>
                                 {% for cart_item in cart_items %}
-                                <div class="cart-items__row">
-                                    <div class="cart-items__col">
-                                        <div class="cart-items__mobiletitle">Product</div>
-                                        <div class="cart-items__product">
-                                            <div href="{{ cart_item.product.url }}" class="img">
-                                                <img src="{{ cart_item.product.image.url }}" alt="">
-                                            </div>
-                                            <div class="content">
-                                                <a href="{{ cart_item.product.url }}" class="title">
-                                                    <h5>{{ cart_item.product.name }}</h5>
-                                                </a>
-                                                {% if cart_item.variation %}
-                                                    <div class="extra-option">{{ cart_item.variation.name }}</div>
-                                                {% endif %}
+                                    <div class="cart-items__row">
+                                        <div class="cart-items__col">
+                                            <div class="cart-items__mobiletitle">Product</div>
+                                            <div class="cart-items__product">
+                                                <div href="{{ cart_item.product.url }}" class="img">
+                                                    <img src="{{ cart_item.product.image.url }}" alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <a href="{{ cart_item.product.url }}" class="title">
+                                                        <h5>{{ cart_item.product.name }}</h5>
+                                                    </a>
+                                                    {% if cart_item.variation %}
+                                                        <div class="extra-option">{{ cart_item.variation.name }}</div>
+                                                    {% endif %}
 
-                                                {% settings_value 'LIMITED_QUANTITY' as thresh %}
-                                                {% if  cart_item.product.stock > thresh %}
-                                                    <div class="stock --green"><i class="fas fa-check"></i> Op voorraad
-                                                    </div>
-                                                {% elif cart_item.product.stock < 10 and cart_item.product.stock > 0 %}
-                                                    <div class="stock --orange"><i
-                                                            class="fas fa-exclamation-triangle"></i>
-                                                        Beperkte voorraad
-                                                    </div>
-                                                {% else %}
-                                                    <div class="stock --red"><i
-                                                            class="fas fa-exclamation-triangle"></i>
-                                                        Out of stock
-                                                    </div>
-                                                {% endif %}
+                                                    {% settings_value 'LIMITED_QUANTITY' as thresh %}
+                                                    {% if  cart_item.product.stock > thresh %}
+                                                        <div class="stock --green"><i class="fas fa-check"></i> Op
+                                                            voorraad
+                                                        </div>
+                                                    {% elif cart_item.product.stock < 10 and cart_item.product.stock > 0 %}
+                                                        <div class="stock --orange"><i
+                                                                class="fas fa-exclamation-triangle"></i>
+                                                            Beperkte voorraad
+                                                        </div>
+                                                    {% else %}
+                                                        <div class="stock --red"><i
+                                                                class="fas fa-exclamation-triangle"></i>
+                                                            Out of stock
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cart-items__col text-center">
-                                        <div class="cart-items__mobiletitle">Aaantal</div>
-                                        <div class="js-like-number like-number">
-                                            <div class="like-number__m" data-minval="0">
-                                                <a href="{% url 'cart-decrement-item'  cart_item_id=cart_item.pk %}"><i
-                                                        class="far fa-minus"></i></a>
+                                        <div class="cart-items__col text-center">
+                                            <div class="cart-items__mobiletitle">Aaantal</div>
+                                            <div class="js-like-number like-number">
+                                                <div class="like-number__m" data-minval="0">
+                                                    <a href="{% url 'cart-decrement-item'  cart_item_id=cart_item.pk %}"><i
+                                                            class="far fa-minus"></i></a>
 
+                                                </div>
+                                                <input type="text" name="amount" value="{{ cart_item.quantity }}"
+                                                       pattern="^[ 0-9]+$">
+                                                <div class="like-number__p">
+                                                    <a href="{% url 'cart-increment-item'  cart_item_id=cart_item.pk %}">
+                                                        <i class="far fa-plus"></i>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <input type="text" name="amount" value="{{ cart_item.quantity }}"
-                                                   pattern="^[ 0-9]+$">
-                                            <div class="like-number__p">
-                                                <a href="{% url 'cart-increment-item'  cart_item_id=cart_item.pk %}">
-                                                    <i class="far fa-plus"></i>
-                                                </a>
-                                            </div>
+                                            <a href="{% url 'cart-remove-item' cart_item_id=cart_item.pk %}"
+                                               class="cart-item__remove js-cart-item-remove"
+                                               data-cart-row="1">Verwijderen</a>
                                         </div>
-                                        <a href="{% url 'cart-remove-item' cart_item_id=cart_item.pk %}"
-                                           class="cart-item__remove js-cart-item-remove"
-                                           data-cart-row="1">Verwijderen</a>
-                                    </div>
-                                    <div class="cart-items__col text-right">
-                                        <div class="cart-items__mobiletitle">Prijs</div>
-                                        {% product_price request cart_item.product.pk as price %}
-                                    {{ price }}
-                                        {% if request.user.is_authenticated %}
-                                            <div class="price">€ {{ cart_item.product.logged_in_price }}</div>
-                                        {% else %}
-                                            <div class="price">€ {{ cart_item.product.get_final_price }}</div>
+                                        <div class="cart-items__col text-right">
+                                            <div class="cart-items__mobiletitle">Prijs</div>
+                                            {% product_price request cart_item.product.pk as price %}
+                                            {% if request.user.is_authenticated %}
+                                                <div class="price">€ {{ cart_item.product.logged_in_price }}</div>
+                                            {% else %}
+                                                <div class="price">€ {{ cart_item.product.get_final_price }}</div>
 
-                                        {% endif %}
+                                            {% endif %}
+                                        </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
                             </div>
+                            {% if not cart.promo_code %}
+                                <div class="voucher-field">
+                                    <h5>Kortingscode?</h5>
+
+                                    <script>
+                                        const error = "{{ form.code.errors.as_text }}";
+                                        if (error) {
+                                            alert(error)
+                                        }
+                                    </script>
+                                    {% csrf_token %}
+
+                                    <input type="text" class="voucher-field__input js-voucher-field-input promo-code"
+                                           value=""
+                                           name="code" aria-label="Kortingscode">
+                                    <button type="submit" class="btn --btn-orange submit-promo-code"
+                                    >Activeer
+                                    </button>
+                                </div>
+                            {% endif %}
 
                         </div>
+
+
                         <div class="checkout__right">
                             <div class="checkout__right-inner --with-shadow">
                                 <div class="subtotal">

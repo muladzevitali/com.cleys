@@ -10,4 +10,6 @@ urlpatterns = [
          name='cart-increment-item'),
     path('decrement-item-quantity/<int:cart_item_id>', views.decrement_cart_item_quantity,
          name='cart-decrement-item'),
+    path('activate-promo-code/', views.PromoCodeActivationFormView.as_view(),
+         name='cart-activate-promo-code'),
 ]

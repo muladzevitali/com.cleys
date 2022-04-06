@@ -1,3 +1,8 @@
+import datetime
+import decimal
+
+from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.urls import reverse
 from model_utils.models import TimeStampedModel
@@ -13,6 +18,14 @@ def get_cart_id(request):
 class Cart(TimeStampedModel):
     cart_id = models.CharField(max_length=255, blank=True)
     user = models.ForeignKey('user.User', on_delete=models.CASCADE, related_name='cart', null=True)
+    promo_code = models.ForeignKey('cart.PromoCode', on_delete=models.DO_NOTHING, related_name='cart', null=True)
+
+    def clear(self):
+        for cart_item in self.items.all():
+            cart_item.delete()
+
+        self.promo_code = None
+        self.save()
 
     @classmethod
     def from_request(cls, request):
@@ -91,3 +104,50 @@ class CartItem(TimeStampedModel):
     @property
     def total(self):
         return self.product.price * self.quantity
+
+
+def only_isalnum(value):
+    if not value.isalnum():
+        raise ValidationError('Code should only contain alpha and numerical values')
+
+
+class PromoCode(TimeStampedModel):
+    class TypeChoices(models.TextChoices):
+        FIXED = 'fixed'
+        PERCENTAGE = 'percentage'
+
+    class TargetChoices(models.TextChoices):
+        PRIVATE = 'private'
+        PROFESSION = 'profession'
+        BOTH = 'both'
+
+    code = models.CharField(max_length=6, validators=(only_isalnum,))
+    valid_until = models.DateField()
+    discount = models.DecimalField(max_digits=8, decimal_places=2,
+                                   validators=(MinValueValidator(decimal.Decimal('0.0')),))
+    type = models.CharField(max_length=32, choices=TypeChoices.choices)
+    min_order = models.PositiveIntegerField()
+    total_uses = models.PositiveIntegerField(default=1)
+    target = models.CharField(max_length=32, choices=TargetChoices.choices)
+    times_used = models.PositiveIntegerField(default=0)
+
+    def is_valid(self, request, total_amount: int):
+        if self.valid_until < datetime.date.today():
+            return False
+
+        if self.times_used > self.total_uses:
+            return False
+
+        if self.target == 'profession' and not request.user.is_authenticated:
+            return False
+
+        if self.target == 'private' and request.user.is_authenticated:
+            return False
+
+        if total_amount < self.min_order:
+            return False
+
+        return True
+
+    def __str__(self):
+        return f'{self.code} - {self.total_uses}'

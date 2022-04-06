@@ -20,6 +20,13 @@ def get_cart_info(request):
     cart, cart_items = get_cart_items(request)
 
     total = sum(get_product_price(request, cart_item.product) * cart_item.quantity for cart_item in cart_items)
+
+    if cart.promo_code and cart.promo_code.is_valid(request, total):
+        if cart.promo_code.type == 'fixed':
+            total -= cart.promo_code.discount
+        if cart.promo_code.type == 'percentage':
+            total -= total * cart.promo_code.discount / 100
+
     quantity = sum(cart_item.quantity for cart_item in cart_items)
     tax = settings.TAX * total
     grand_total = total + tax

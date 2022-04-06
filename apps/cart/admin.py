@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import (Cart, CartItem)
+from .models import (Cart, CartItem, PromoCode)
 
 
 class CartItemInline(admin.TabularInline):
@@ -15,6 +15,12 @@ class CartAdmin(admin.ModelAdmin):
 
 class CartItemAdmin(admin.ModelAdmin):
     list_display = ('product', 'cart', 'quantity', 'is_active')
+
+
+@admin.register(PromoCode)
+class PromoCodeAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'code', 'discount')
+    readonly_fields = ('times_used',)
 
 
 admin.site.register(Cart, CartAdmin)

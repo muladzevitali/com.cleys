@@ -67,7 +67,8 @@ def post_payment(request, order_number):
     cart_info = get_cart_info(request)
     utils.finalize_order(request, order, payment, cart_info['cart_items'])
     utils.notify_on_completion(request, order, cart_info)
-    cart_info['cart_items'].delete()
+
+    cart_info['cart'].clear()
 
     context = dict(order=order)
     return render(request, 'payment-success.html', context=context)

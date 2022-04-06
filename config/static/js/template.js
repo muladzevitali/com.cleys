@@ -72,6 +72,7 @@ jQuery(document).ready(function ($) {
             $('.js-login-top').removeClass('open');
         }
     });
+
     //submenu
     function submenuClick() {
         $('.submenu > a').click(function (e) {
@@ -271,13 +272,6 @@ jQuery(document).ready(function ($) {
     });
 
 
-
-    //cart update qty
-    $('#checkout-cart .js-like-number input').change(function (e) {
-        e.preventDefault();
-        alert('change')
-        $('#checkout-cart').submit();
-    });
     // $('#checkout-cart .js-like-number input').on('change', function () {
     // 	$('#checkout-cart').submit();
     // });
@@ -365,6 +359,7 @@ jQuery(document).ready(function ($) {
         });
 
     }
+
 
     wrapMedia();
 
