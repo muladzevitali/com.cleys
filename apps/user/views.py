@@ -10,6 +10,8 @@ from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.views.generic import View, CreateView
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
 
 from .forms import RegisterForm
 from .models import User
@@ -21,6 +23,16 @@ class ClientView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'registration.html'
     model = User
+
+    def form_valid(self, form):
+        user = form.save(commit=False)  # Do not save to table yet
+        password = form.cleaned_data['password']
+        try:
+            validate_password(password, user)
+        except ValidationError as e:
+            form.add_error('password', e)  # to be displayed with the field's errors
+            return render(self.request, self.template_name, {'form': form})
+        return super().form_valid(form)
 
 
 class ClientLoginView(View):
