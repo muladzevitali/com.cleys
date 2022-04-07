@@ -44,7 +44,7 @@ class User(AbstractUser, PermissionsMixin):
     street_name = models.CharField(max_length=100)
     house_number = models.CharField(max_length=50)
     postal_code = models.CharField(max_length=10)
-    township = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
     country = models.ForeignKey('order.Country', on_delete=models.DO_NOTHING, related_name='users', null=True)
 
     first_name = models.CharField(max_length=25)
