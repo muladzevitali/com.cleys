@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mijn account – bestelling detail</title>
+    <meta name="description" content="">
+    <!--font, css, js -->
+    {% include 'includes/head.html' %}
+</head>
+
+<body>
+<div class="wrapper account-order-detail-page in-login">
+
+    <header id="header-menu">
+        {% if request.user.is_authenticated %}
+            {% include 'includes/header-menu-logged-in.html' %}
+        {% else %}
+            {% include 'includes/header-menu.html' %}
+        {% endif %}
+    </header>
+
+
+    <main>
+
+        <section class="account-header">
+            <div class="account-header__inner">
+                <div class="account-header__left">
+                    <h2>Welkom terug, Simmie!</h2>
+                    <ul class="account-header__menu">
+                        <li><a href="{% url 'order-index' %}">Overzicht</a></li>
+                        <li class="active"><a href="{% url 'order-list' %}">Mijn bestellingen</a></li>
+                        <li><a href="/mijn-account-mijn-gegevens.php">Mijn gegevens</a></li>
+                        <li><a href="#">Opgeslagen offertes</a></li>
+                        <li><a href="{% url 'logout' %}">Uitloggen</a></li>
+                    </ul>
+                </div>
+                <div class="account-header__right">
+                    <a href="https://wa.me/320412345678" class="whatsapp-link">
+                        <div class="whatsapp-link__icon-text">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>Whatsapp ondersteuning<span>+32 (0)412 345 678</span></div>
+                        </div>
+                        <div>Elke werkdag van 07:00 tot 17:00</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="order-detail">
+            <div class="container">
+                <a href="{% url 'order-list' %}" class="order-detail__btn-back btn-back"><span>Terug</span></a>
+                <div class="section-title">
+                    <h3>Order {{ object.order_number }}</h3>
+                </div>
+
+                <div class="order-detail__row">
+                    <div class="order-detail__col">
+                        <div class="title">Datum</div>
+                        <div class="value">{{ object.created|date:"d-m-Y" }}</div>
+                    </div>
+                    <div class="order-detail__col">
+                        <div class="title">Status</div>
+                        <div class="value">Online betaald</div>
+                    </div>
+                    <div class="order-detail__col">
+                        <div class="title">Bedrag</div>
+                        <div class="value">€ {{ object.order_grand_total }}</div>
+                    </div>
+                    <div class="order-detail__col">
+                        <div class="title">Factuur</div>
+                        <div class="value">
+                            <a href="{% url 'order-invoice'  pk=object.pk %}" class="download" target="_blank">Download factuur</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-detail__cart-items">
+
+                    <div class="cart-items__row --title">
+                        <div class="cart-items__col">Product</div>
+                        <div class="cart-items__col text-right">Prijs</div>
+                    </div>
+                    {% for order_product in object.order_products.all %}
+                        <div class="cart-items__row">
+                            <div class="cart-items__col">
+                                <div class="cart-items__product">
+                                    <div href="{{ order_product.product.url }}" class="img">
+                                        <img src="{{ order_product.product.image.url }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <a href="{{ order_product.product.url }}" class="title">
+                                            <h5>{{ order_product.product.name }}</h5>
+                                        </a>
+                                        {% if order_product.variation %}
+                                            <div class="extra-option">{{ order_product.variation.name }}</div>
+                                        {% endif %}
+                                        <div class="aantal">Aantal: {{ order_product.quantity }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-items__col text-right">
+                                <div class="price">€ {{ order_product.product_price }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+
+                <div class="order-detail__subtotal subtotal">
+                    <div class="subtotal__row">
+                        <div class="subtotal__col">Subtotaal (excl. BTW)</div>
+                        <div class="subtotal__col">€ {{ object.order_total }}</div>
+                    </div>
+                    <div class="subtotal__row">
+                        <div class="subtotal__col">21% BTW</div>
+                        <div class="subtotal__col">€ {{ object.tax }}</div>
+                    </div>
+                    <div class="subtotal__row --total">
+                        <div class="subtotal__col">Totaal (incl. BTW)</div>
+                        <div class="subtotal__col">€ {{ object.order_grand_total }}</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer-page">
+        {% include 'includes/footer.html' %}
+    </footer>
+    {% include 'includes/popup-cart.html' %}
+</div>
+</body>
+</html>

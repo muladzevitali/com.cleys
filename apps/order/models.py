@@ -75,9 +75,12 @@ class Order(TimeStampedModel):
 
     order_type = models.CharField(max_length=50, choices=OrderTypeChoices.choices)
     order_note = models.TextField(null=True, blank=True)
+    order_grand_total = models.DecimalField(max_digits=8, decimal_places=2)
     order_total = models.DecimalField(max_digits=8, decimal_places=2)
     tax = models.DecimalField(max_digits=8, decimal_places=2)
     status = models.CharField(max_length=10, choices=OrderStatusChoices.choices, default=OrderStatusChoices.NEW)
+
+    user = models.ForeignKey('user.User', on_delete=models.CASCADE, related_name='orders', null=True, blank=True)
     ip = models.CharField(max_length=20, blank=True)
     is_ordered = models.BooleanField(default=False)
 

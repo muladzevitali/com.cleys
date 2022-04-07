@@ -104,7 +104,11 @@
                                         </div>
                                         <div class="product-single__info">{{ product.info }}</div>
                                         <div class="product-single__price">
-                                            <span class="cur-price">€ {{ product.get_final_price }}</span>
+                                            {% if request.user.is_authenticated %}
+                                                <span class="cur-price">€ {{ product.logged_in_price }}</span>
+                                            {% else %}
+                                                <span class="cur-price">€ {{ product.get_final_price }}</span>
+                                            {% endif %}
                                             {% if product.sale > 0 %}
                                                 <span class="old-price">€ {{ product.price }}</span>
                                             {% endif %}

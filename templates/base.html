@@ -186,73 +186,32 @@
                         <h2>Producten in de kijker</h2>
                     </div>
                     <div class="spotlight__list col-4-list">
+                        {% for product in popular_products %}
+                            <a href="{{ product.url }}"
+                               class="product-single {% if product.sale > 0 %}--with-label --label-promo {% endif %}">
+                                <div class="product-single__label">Promo</div>
+                                <div class="product-single__img">
+                                    <img src="{{ product.image.url }}" alt="">
+                                </div>
+                                <div class="product-single__title">
+                                    <h3 class="like-h5">{{ product.name }}</h3>
+                                </div>
+                                <div class="product-single__info">{{ product.info }}</div>
+                                <div class="product-single__price">
+                                    {% if request.user.is_authenticated %}
+                                        <span class="cur-price">€ {{ product.logged_in_price }}</span>
+                                    {% else %}
+                                        <span class="cur-price">€ {{ product.get_final_price }}</span>
+                                    {% endif %}
+                                    {% if product.sale > 0 %}
+                                        <span class="old-price">€ {{ product.price }}</span>
+                                    {% endif %}
 
-                        <!-- NOTE for promo required class="--with-label --label-promo", and added blocks product-single__label, old-price (block exist on aanbod.php page) -->
-                        <!-- <a href="/product-detail.php" class="product-single --with-label --label-promo">
-                            <div class="product-single__label">Promo</div>
-                            <div class="product-single__img">
-                                <img src="/images/product-single__img-1.jpg" alt="">
-                            </div>
-                            <div class="product-single__title">
-                                <h3 class="like-h5">Spuitkurk - Normale korrel - 20 kleuren</h3>
-                            </div>
-                            <div class="product-single__info">Corticyte - 15 L</div>
-                            <div class="product-single__price">
-                                <span class="cur-price">€ 29,65</span>
-                                <span class="old-price">€ 29,65</span>
-                            </div>
-                        </a> -->
+                                </div>
+                            </a>
 
-                        <a href="/product-detail.php" class="product-single">
-                            <div class="product-single__img">
-                                <img src="{% static 'images/product-single__img-1.jpg' %}" alt="">
-                            </div>
-                            <div class="product-single__title">
-                                <h3 class="like-h5">Spuitkurk - Normale korrel - 20 kleuren</h3>
-                            </div>
-                            <div class="product-single__info">Corticyte - 15 L</div>
-                            <div class="product-single__price">
-                                <span class="cur-price">€ 29,65</span>
-                            </div>
-                        </a>
 
-                        <a href="/product-detail.php" class="product-single">
-                            <div class="product-single__img">
-                                <img src="{% static 'images/product-single__img-2.jpg' %}" alt="">
-                            </div>
-                            <div class="product-single__title">
-                                <h3 class="like-h5">Kleurboek - 20 kleuren</h3>
-                            </div>
-                            <div class="product-single__info">Corticyte</div>
-                            <div class="product-single__price">
-                                <span class="cur-price">€ 29,65</span>
-                            </div>
-                        </a>
-
-                        <a href="/product-detail.php" class="product-single">
-                            <div class="product-single__img">
-                                <img src="{% static 'images/product-single__img-3.jpg' %}" alt="">
-                            </div>
-                            <div class="product-single__title">
-                                <h3 class="like-h5">PVC Afdekfolie</h3>
-                            </div>
-                            <div class="product-single__price">
-                                <span class="cur-price">€ 16,65</span>
-                            </div>
-                        </a>
-
-                        <a href="/product-detail.php" class="product-single">
-                            <div class="product-single__img">
-                                <img src="{% static 'images/product-single__img-4.jpg' %}" alt="">
-                            </div>
-                            <div class="product-single__title">
-                                <h3 class="like-h5">Compressor 10 bar</h3>
-                            </div>
-                            <div class="product-single__info">Michelin</div>
-                            <div class="product-single__price">
-                                <span class="cur-price">€ 949,85</span>
-                            </div>
-                        </a>
+                        {% endfor %}
 
                     </div>
                     <a href="{% url 'store-index' %}" class="spotlight__btn btn --btn-orange">Bekijk volledig aanbod</a>
@@ -315,7 +274,7 @@
                     </div>
                     <div class="cta__btn btn-block">
                         <a href="{% url 'faq-index' %}" class="btn --btn-orange">Bekijk onze FAQ</a>
-                        <a href="{% url '' %}" class="btn --btn-white-border">Contacteer ons</a>
+                        <a href="#" class="btn --btn-white-border">Contacteer ons</a>
                     </div>
                 </div>
             </div>
