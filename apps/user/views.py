@@ -58,13 +58,13 @@ class ClientLogoutView(View):
 class PasswordResetView(View):
     success_url = reverse_lazy('password_reset')
     template_name = 'password/password_reset.html'
+    password_reset_form = PasswordResetForm
 
     def get(self, request):
-        print('get')
-        return render(request, self.template_name)
+        return render(request, self.template_name, context={"password_reset_form": self.password_reset_form()})
 
     def post(self, request):
-        password_reset_form = PasswordResetForm(request.POST)
+        password_reset_form = self.password_reset_form(request.POST)
         if password_reset_form.is_valid():
             data = password_reset_form.cleaned_data['email']
             associated_users = User.objects.filter(Q(email=data))
