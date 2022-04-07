@@ -2,7 +2,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.translation import gettext as _
 
-from apps.cart.utils import get_product_price
+from apps.store.utils import get_product_price
 from apps.order import models
 
 

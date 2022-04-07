@@ -1,8 +1,10 @@
 from django.shortcuts import (render, get_object_or_404, redirect)
 from django.views.decorators.http import require_http_methods
+from django.views.generic import FormView
 
-from apps.cart import (forms, utils)
-from apps.cart.models import (CartItem)
+from apps.cart import utils
+from apps.cart.forms import PromoCodeActivationForm, AddToCartForm
+from apps.cart.models import (CartItem, PromoCode)
 from apps.store.models import Product, ProductVariation
 
 
@@ -15,7 +17,7 @@ def index(request):
 @require_http_methods(request_method_list=['POST'])
 def add_to_cart(request, product_uuid):
     product = get_object_or_404(Product, uuid=product_uuid, stock__gt=0)
-    form = forms.AddToCartForm(request.POST)
+    form = AddToCartForm(request.POST)
     if not form.is_valid():
         return redirect(product.url)
 
@@ -93,3 +95,27 @@ def decrement_cart_item_quantity(request, cart_item_id):
         cart_item.delete()
 
     return redirect('cart-index')
+
+
+class PromoCodeActivationFormView(FormView):
+    form_class = PromoCodeActivationForm
+    template_name = 'cart.html'
+    success_url = 'cart-index'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cart_context = utils.get_cart_info(self.request)
+        context.update(cart_context)
+
+        return context
+
+    def form_valid(self, form):
+        promo_code = PromoCode.objects.filter(code=form.cleaned_data['code'].lower()).first()
+        cart = utils.get_cart(self.request)
+        cart.promo_code = promo_code
+        cart.save()
+
+        promo_code.times_used += 1
+        promo_code.save()
+
+        return redirect(self.success_url)

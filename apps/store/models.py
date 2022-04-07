@@ -70,6 +70,15 @@ class ProductGallery(models.Model):
         return f'{self.product.name}'
 
 
+class ProductAttachment(TimeStampedModel):
+    name = models.CharField(max_length=512)
+    file = models.FileField(upload_to='files/products')
+    product = models.ForeignKey('store.Product', on_delete=models.CASCADE, related_name='attachments')
+
+    def __str__(self):
+        return self.name
+
+
 class ProductVariationManager(models.Manager):
     def colors(self):
         return super().filter(category='color', is_active=True)

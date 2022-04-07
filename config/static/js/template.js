@@ -72,6 +72,7 @@ jQuery(document).ready(function ($) {
             $('.js-login-top').removeClass('open');
         }
     });
+
     //submenu
     function submenuClick() {
         $('.submenu > a').click(function (e) {
@@ -160,8 +161,12 @@ jQuery(document).ready(function ($) {
     });
 
     //popup
-    $('.js-popup-content').wrap('<div class="popup"><div class="popup__inner"></div></div>')
-        .before('<button class="js-popup__close close-btn --black" aria-label="Close"><i class="far fa-times"></i></button>');
+    $('.js-popup-content').each(function (i) {
+        if ($(this).data('popupclass')) popupclass = $(this).data('popupclass');
+        else popupclass = 'basic-popup';
+        $(this).wrap('<div class="popup ' + popupclass + '"><div class="popup__inner"></div></div>')
+            .before('<button class="js-popup__close close-btn --black" aria-label="Close"><i class="far fa-times"></i></button>');
+    });
 
     $('.js-popup-open').click(function (e) {
         e.preventDefault();
@@ -271,13 +276,6 @@ jQuery(document).ready(function ($) {
     });
 
 
-
-    //cart update qty
-    $('#checkout-cart .js-like-number input').change(function (e) {
-        e.preventDefault();
-        alert('change')
-        $('#checkout-cart').submit();
-    });
     // $('#checkout-cart .js-like-number input').on('change', function () {
     // 	$('#checkout-cart').submit();
     // });
@@ -365,6 +363,7 @@ jQuery(document).ready(function ($) {
         });
 
     }
+
 
     wrapMedia();
 

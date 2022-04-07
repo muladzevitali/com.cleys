@@ -1,7 +1,7 @@
 import admin_thumbnails
 from django.contrib import admin
 
-from .models import (Product, ProductGallery, ProductVariation)
+from .models import (Product, ProductGallery, ProductVariation, ProductAttachment)
 
 
 @admin_thumbnails.thumbnail('image')
@@ -15,12 +15,17 @@ class ProductVariationInline(admin.TabularInline):
     extra = 1
 
 
+class ProductAttachmentInline(admin.TabularInline):
+    model = ProductAttachment
+    extra = 1
+
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'price', 'stock', 'category', 'modified', 'is_available', 'get_views']
     list_editable = ('is_available',)
     prepopulated_fields = {'slug': ('name',)}
-    inlines = (ProductGalleryInline, ProductVariationInline)
+    inlines = (ProductGalleryInline, ProductVariationInline, ProductAttachmentInline)
     search_fields = ('name',)
 
     def get_views(self, obj):

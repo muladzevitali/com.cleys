@@ -38,8 +38,9 @@
             <div class="container">
                 <h1 class="like-h2">Overzicht</h1>
 
-                <form action="{% url 'order-payment' order_number=order.order_number%}" method="post" id="checkout-overview">
-                {% csrf_token %}
+                <form action="{% url 'order-payment' order_number=order.order_number %}" method="post"
+                      id="checkout-overview">
+                    {% csrf_token %}
                     <div class="checkout__wrapper">
                         <div class="checkout__left">
 
@@ -225,8 +226,8 @@
                                     </div>
 
                                     <div class="subtotal__buttons">
-{#                                        <!-- TODO Link only for demo layout. Replace to submit button for production -->#}
-{#                                        <a href="checkout-step4.php" class="btn --btn-orange">Naar checkout</a>#}
+                                        {#                                        <!-- TODO Link only for demo layout. Replace to submit button for production -->#}
+                                        {#                                        <a href="checkout-step4.php" class="btn --btn-orange">Naar checkout</a>#}
                                         <button type="submit" class="btn --btn-orange">Naar checkout</button>
                                     </div>
                                 </div>
@@ -247,7 +248,7 @@
     <footer id="footer-page">
         {% include 'includes/footer.html' %}
     </footer>
-
+    {% include 'includes/popup-cart.html' %}
 </div>
 </body>
 </html>
