@@ -2,6 +2,7 @@ from django.contrib.auth.models import (AbstractUser, PermissionsMixin, BaseUser
 from django.core.validators import (MinValueValidator, MaxValueValidator)
 from django.db import models
 from django.utils.translation import gettext as _
+from django.contrib.auth.base_user import BaseUserManager
 
 
 class UserManager(BaseUserManager):
@@ -43,7 +44,7 @@ class User(AbstractUser, PermissionsMixin):
     street_name = models.CharField(max_length=100)
     house_number = models.CharField(max_length=50)
     postal_code = models.CharField(max_length=10)
-    city = models.CharField(max_length=50)
+    township = models.CharField(max_length=50)
     country = models.ForeignKey('order.Country', on_delete=models.DO_NOTHING, related_name='users', null=True)
 
     first_name = models.CharField(max_length=25)
@@ -51,6 +52,7 @@ class User(AbstractUser, PermissionsMixin):
     phone_number = models.CharField(max_length=25)
     sale = models.PositiveIntegerField(default=0, validators=(MinValueValidator(0), MaxValueValidator(100)))
     password = models.CharField(max_length=256)
+    username = models.CharField(max_length=25, null=True, blank=True)
     email = models.EmailField(unique=True)
     timezone = models.CharField(default=DEFAULT_TIMEZONE, max_length=10)
     is_staff = models.BooleanField(default=False)
