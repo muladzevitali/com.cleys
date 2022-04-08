@@ -1,0 +1,136 @@
+{% load static %}
+{% load paginator_tags %}
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Academy</title>
+    <meta name="description" content="">
+    <!--font, css, js -->
+    {% include 'includes/head.html' %}
+</head>
+
+<body>
+<div class="wrapper academy-overzicht-page">
+
+    <header id="header-menu">
+        {% if request.user.is_authenticated %}
+            {% include 'includes/header-menu-logged-in.html' %}
+        {% else %}
+            {% include 'includes/header-menu.html' %}
+        {% endif %}
+    </header>
+
+    <main>
+
+        <section class="header-content">
+            <div class="header-content__image">
+                <img src="{% static 'images/header-text-img-1.jpg' %}" alt="">
+            </div>
+            <div class="container">
+                <div class="header-content__text">
+                    <h1 class="like-h2">Spuitkurk Academy</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus
+                        vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque
+                        suscipit dolor, in feugiat nulla velit sit amet justo. Maecenas vel mauris eu dui lacinia tempus
+                        sed nec lectus. Pellentesque placerat varius dolor, ac pellentesque lectus suscipit nec.</p>
+                    <a class="header-content__scrollto js-scroll-to" href="#academy">
+                        <i class="fal fa-angle-double-down"></i>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="academy" id="academy">
+            <div class="container">
+                <div class="academy__inner">
+                    <div class="category-list">
+                        <ul>
+                            <li {% if not view.kwargs.category_slug %}class="active"{% endif %}><a
+                                    href="{% url 'academy-list' %}">alles</a></li>
+                            {% for category in academy_categories %}
+                                <li {% if view.kwargs.category_slug == category.slug %}class="active"{% endif %}>
+                                    <a href="{% url 'academy-list-by-category' category_slug=category.slug %}">{{ category.name }}</a>
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    <div class="academy__list">
+                        {% for object in object_list %}
+                            <a href="{{ object.url }}"
+                               class="academy-single {% if object.category.slug == 'videos' %}--video{% endif %}">
+                                <div class="academy-single__img">
+                                    <div class="academy-single__label">{{ object.category.name }}</div>
+                                    <img src="{{ object.image.url }}" alt="">
+                                </div>
+                                <div class="academy-single__title">
+                                    <h3>{{ object.title }}</h3>
+                                </div>
+                            </a>
+                        {% endfor %}
+
+                    </div>
+                    <nav role="navigation" aria-label="Pagination Navigation">
+                        <ul class="pagination">
+                            {% get_proper_elided_page_range paginator page_obj.number 2 2 as page_range %}
+                            {% if page_obj.has_previous %}
+                                <li class="prev">
+                                    <a href="?page={{ page_obj.previous_page_number }}"
+                                       aria-label="Previous Page"><i
+                                            class="far fa-chevron-left"></i></a>
+                                </li>
+                            {% else %}
+                                <li class="prev">
+                                    <a href="?page=1"
+                                       aria-label="Previous Page"><i
+                                            class="far fa-chevron-left"></i></a>
+                                </li>
+                            {% endif %}
+                            {% for page_num in page_range %}
+                                {% if page_obj.number == page_num %}
+                                    <li class="active"><a href="#" aria-current="true">{{ page_num }}</a></li>
+                                {% else %}
+                                    {% if page_num == paginator.ELLIPSIS %}
+                                        <li>
+                                            <span>...</span>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <a href="?page={{ page_num }}">{{ page_num }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+
+                            <li class="next">
+                                {% if page_obj.has_next %}
+                                    <a href="?page={{ page_obj.next_page_number }}" aria-label="Next Page"><i
+                                            class="far fa-chevron-right"></i>
+                                    </a>
+                                {% else %}
+                                    <a href="?page={{ page_obj.paginator.num_pages }}" aria-label="Next Page"><i
+                                            class="far fa-chevron-right"></i>
+                                    </a>
+                                {% endif %}
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer-page">
+        {% include 'includes/footer.html' %}
+    </footer>
+    {% include 'includes/popup-cart.html' %}
+
+</div>
+</body>
+</html>

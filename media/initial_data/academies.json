@@ -1,0 +1,157 @@
+[
+  {
+    "model": "academy.Academy",
+    "pk": 1,
+    "fields": {
+      "title": "Hoe spuitkurk aanbrengen?",
+      "category": 2,
+      "image": "photos/academies/1/academy-single__img-2.jpg",
+      "content": "<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href=\"#\">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<video src=\"/media/files/video_example.mp4\" width=\"900\" controls=\"\"></video>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>\n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<img src=\"/media/photos/academies/1/academy-single__img-1.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</p> \n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mxesac55Puo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>\n\t\t\t\t\t\t\t</p>\t\t"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 2,
+    "fields": {
+      "title": "Voordelen van spuitkurk",
+      "category": 1,
+      "image": "photos/academies/1/academy-single__img-1.jpg",
+      "content": "<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href=\"#\">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<video src=\"/media/files/video_example.mp4\" width=\"900\" controls=\"\"></video>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>\n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<img src=\"/media/photos/academies/1/academy-single__img-1.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</p> \n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mxesac55Puo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>\n\t\t\t\t\t\t\t</p>\t\t"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 3,
+    "fields": {
+      "title": "Hoe spuitkurk mengen?",
+      "category": 3,
+      "image": "photos/academies/1/academy-single__img-3.jpg",
+      "content": "<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href=\"#\">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<video src=\"/media/files/video_example.mp4\" width=\"900\" controls=\"\"></video>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>\n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<img src=\"/media/photos/academies/1/academy-single__img-1.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</p> \n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mxesac55Puo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>\n\t\t\t\t\t\t\t</p>\t\t"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 4,
+    "fields": {
+      "title": "Voorbereiding gevel",
+      "category": 3,
+      "image": "photos/academies/1/academy-single__img-4.jpg",
+      "content": "<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href=\"#\">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<video src=\"/media/files/video_example.mp4\" width=\"900\" controls=\"\"></video>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>\n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<img src=\"/media/photos/academies/1/academy-single__img-1.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</p> \n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mxesac55Puo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>\n\t\t\t\t\t\t\t</p>\t\t"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 5,
+    "fields": {
+      "title": "Tips & Tricks",
+      "category": 1,
+      "image": "photos/academies/1/academy-single__img-5.jpg",
+      "content": "<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href=\"#\">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<video src=\"/media/files/video_example.mp4\" width=\"900\" controls=\"\"></video>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>\n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<img src=\"/media/photos/academies/1/academy-single__img-1.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</p> \n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mxesac55Puo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>\n\t\t\t\t\t\t\t</p>\t\t"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 6,
+    "fields": {
+      "title": "Hoe spuitkurk mengen?",
+      "category": 3,
+      "image": "photos/academies/1/academy-single__img-6.jpg",
+      "content": "<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href=\"#\">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<video src=\"/media/files/video_example.mp4\" width=\"900\" controls=\"\"></video>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>\n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<img src=\"/media/photos/academies/1/academy-single__img-1.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</p> \n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mxesac55Puo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>\n\t\t\t\t\t\t\t</p>\t\t"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 7,
+    "fields": {
+      "title": "Voorbereiding gevel",
+      "category": 3,
+      "image": "photos/academies/1/academy-single__img-7.jpg",
+      "content": "<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href=\"#\">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<video src=\"/media/files/video_example.mp4\" width=\"900\" controls=\"\"></video>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>\n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<img src=\"/media/photos/academies/1/academy-single__img-1.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</p> \n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mxesac55Puo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>\n\t\t\t\t\t\t\t</p>\t\t"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 8,
+    "fields": {
+      "title": "Tips & Tricks",
+      "category": 1,
+      "image": "photos/academies/1/academy-single__img-8.jpg",
+      "content": "<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href=\"#\">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<video src=\"/media/files/video_example.mp4\" width=\"900\" controls=\"\"></video>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>\n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<img src=\"/media/photos/academies/1/academy-single__img-1.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</p> \n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mxesac55Puo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>\n\t\t\t\t\t\t\t</p>\t\t"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 9,
+    "fields": {
+      "title": "Hoe spuitkurk aanbrengen?",
+      "category": 2,
+      "image": "photos/academies/1/academy-single__img-2.jpg",
+      "content": "<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href=\"#\">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<video src=\"/media/files/video_example.mp4\" width=\"900\" controls=\"\"></video>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>\n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<img src=\"/media/photos/academies/1/academy-single__img-1.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</p> \n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mxesac55Puo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>\n\t\t\t\t\t\t\t</p>\t\t"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 10,
+    "fields": {
+      "title": "Voordelen van spuitkurk",
+      "category": 1,
+      "image": "photos/academies/1/academy-single__img-1.jpg",
+      "content": "<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href=\"#\">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<video src=\"/media/files/video_example.mp4\" width=\"900\" controls=\"\"></video>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>\n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<img src=\"/media/photos/academies/1/academy-single__img-1.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</p> \n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mxesac55Puo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>\n\t\t\t\t\t\t\t</p>\t\t"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 11,
+    "fields": {
+      "title": "Hoe spuitkurk mengen?",
+      "category": 3,
+      "image": "photos/academies/1/academy-single__img-3.jpg",
+      "content": "<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href=\"#\">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<video src=\"/media/files/video_example.mp4\" width=\"900\" controls=\"\"></video>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>\n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<img src=\"/media/photos/academies/1/academy-single__img-1.jpg\" alt=\"\">\n\t\t\t\t\t\t\t</p> \n\t\t\t\t\t\t\t <p>\n\t\t\t\t\t\t\t\t<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Mxesac55Puo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\"></iframe>\n\t\t\t\t\t\t\t</p>\t\t"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 12,
+    "fields": {
+      "title": "Voorbereiding gevel",
+      "category": 3,
+      "image": "photos/academies/1/academy-single__img-4.jpg"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 13,
+    "fields": {
+      "title": "Tips & Tricks",
+      "category": 1,
+      "image": "photos/academies/1/academy-single__img-5.jpg"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 14,
+    "fields": {
+      "title": "Hoe spuitkurk mengen?",
+      "category": 3,
+      "image": "photos/academies/1/academy-single__img-6.jpg"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 15,
+    "fields": {
+      "title": "Voorbereiding gevel",
+      "category": 3,
+      "image": "photos/academies/1/academy-single__img-7.jpg"
+    }
+  },
+  {
+    "model": "academy.Academy",
+    "pk": 16,
+    "fields": {
+      "title": "Tips & Tricks",
+      "category": 1,
+      "image": "photos/academies/1/academy-single__img-8.jpg"
+    }
+  }
+]

@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    'ckeditor_uploader',
     'apps.user',
     'apps.category',
     'apps.store',
@@ -28,6 +29,7 @@ INSTALLED_APPS = [
     'apps.order',
     'apps.faq',
     'apps.inspiration',
+    'apps.academy',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +58,7 @@ TEMPLATES = [
                 'apps.category.context_processors.categories_list',
                 'apps.cart.context_processors.cart_item_counter',
                 'apps.cart.context_processors.cart_context',
+                'apps.academy.context_processors.academy_categories',
             ],
         },
     },
@@ -103,7 +106,8 @@ STATIC_ROOT = BASE_DIR.joinpath('static')
 MEDIA_ROOT = BASE_DIR.joinpath('media')
 MEDIA_URL = 'media/'
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
-CKEDITOR_ALLOW_NONIMAGE_FILES = False
+CKEDITOR_ALLOW_NONIMAGE_FILES = True
+CKEDITOR_UPLOAD_PATH = 'files/ckeditor'
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
@@ -113,7 +117,8 @@ CKEDITOR_CONFIGS = {
             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft',
              'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ['Link', 'Unlink'],
-            ['RemoveFormat', 'Source']
+            ['RemoveFormat', 'Source'],
+            ['Image', 'Youtube', 'Iframe', 'Html5video'],
         ],
     }
 }

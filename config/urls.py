@@ -8,6 +8,7 @@ from config import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', views.index, name='index'),
     path('user/', include('apps.user.urls')),
     path('store/', include('apps.store.urls')),
@@ -24,6 +25,7 @@ urlpatterns = [
          auth_views.PasswordResetCompleteView.as_view(template_name='password/password_reset_complete.html'),
          name='password_reset_complete'),
     path('inspiration/', include('apps.inspiration.urls')),
+    path('academy/', include('apps.academy.urls')),
 
 ]
 

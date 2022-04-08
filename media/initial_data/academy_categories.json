@@ -1,0 +1,26 @@
+[
+  {
+    "model": "academy.AcademyCategory",
+    "pk": 1,
+    "fields": {
+      "name": "TIPS & TRICKS",
+      "slug": "tips-tricks"
+    }
+  },
+  {
+    "model": "academy.AcademyCategory",
+    "pk": 2,
+    "fields": {
+      "name": "VIDEO’S",
+      "slug": "videos"
+    }
+  },
+  {
+    "model": "academy.AcademyCategory",
+    "pk": 3,
+    "fields": {
+      "name": "HANDLEIDINGEN",
+      "slug": "handleidingen"
+    }
+  }
+]

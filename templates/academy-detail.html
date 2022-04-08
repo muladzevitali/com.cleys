@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Academy</title>
+    <meta name="description" content="">
+    {% include 'includes/head.html' %}
+</head>
+
+<body>
+<div class="wrapper academy-overzicht-page">
+
+    <header id="header-menu">
+        {% if request.user.is_authenticated %}
+            {% include 'includes/header-menu-logged-in.html' %}
+        {% else %}
+            {% include 'includes/header-menu.html' %}
+        {% endif %}
+    </header>
+
+    <main>
+
+        <section class="header-img">
+            <img src="{% static 'images/header-img-3.jpg' %}" alt="">
+        </section>
+
+        <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+            <div class="container">
+                <ul aria-label="breadcrumbs">
+                    <li><a href="{% url 'academy-list' %}">Spuitkurk Academy</a></li>
+                    <li><a href="{% url 'academy-list-by-category'  category_slug=object.category.slug %}">Video’s</a>
+                    </li>
+                    <li><a href="{{ object.url }}" aria-current="page">{{ object.title }}</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="academy-detail article-template --dark-title">
+            <div class="container --grid">
+                <div class="article-template__share">
+                    <span>share</span>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com" target="_blank"
+                       rel="noopener noreferrer" aria-label="Share to Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://example.com"
+                       target="_blank" rel="noopener noreferrer" aria-label="Share to Linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="whatsapp://send?text=https://example.com" data-action="share/whatsapp/share"
+                       target="_blank" rel="noopener noreferrer" aria-label="Share to Whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:info@example.com?&amp;subject=&amp;cc=&amp;bcc=&amp;body=https://example.com%0A"
+                       target="_blank" rel="noopener noreferrer" aria-label="Share to mail">
+                        <i class="fal fa-envelope"></i>
+                    </a>
+                </div>
+                <article class="article-template__block">
+                    <header class="article-template__header">
+                        <h1 class="like-h2">{{ object.title }}</h1>
+
+                    </header>
+                    <section class="article-template__body --content js-article-body">
+                        {{ object.content|safe }}
+                    </section>
+                    <footer class="article-template__footer">
+                        <a href="/contact.php" class="btn --btn-orange">Contacteer ons</a>
+                    </footer>
+                </article>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer id="footer-page">
+        {% include 'includes/footer.html' %}
+    </footer>
+    {% include 'includes/popup-cart.html' %}
+
+</div>
+</body>
+</html>

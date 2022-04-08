@@ -226,42 +226,20 @@
                 </div>
             </div>
             <div class="academy-slider__slider flex-slider js-academy-slider">
-
-                <div class="academy-slider__item">
-                    <a href="/academy-detail.php" class="academy-single --video">
-                        <div class="academy-single__img">
-                            <div class="academy-single__label">video’s</div>
-                            <img src="{% static 'images/academy-single__img-2.jpg' %}" alt="">
-                        </div>
-                        <div class="academy-single__title">
-                            <h3>Hoe spuitkurk aanbrengen?</h3>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="academy-slider__item">
-                    <a href="/academy-detail.php" class="academy-single">
-                        <div class="academy-single__img">
-                            <div class="academy-single__label">Tips & Tricks</div>
-                            <img src="{% static 'images/academy-single__img-1.jpg' %}" alt="">
-                        </div>
-                        <div class="academy-single__title">
-                            <h3>Voordelen van spuitkurk</h3>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="academy-slider__item">
-                    <a href="/academy-detail.php" class="academy-single --video">
-                        <div class="academy-single__img">
-                            <div class="academy-single__label">video’s</div>
-                            <img src="{% static 'images/academy-single__img-1.jpg' %}" alt="">
-                        </div>
-                        <div class="academy-single__title">
-                            <h3>Voordelen van spuitkurk</h3>
-                        </div>
-                    </a>
-                </div>
+                {% for academy in academies %}
+                    <div class="academy-slider__item">
+                        <a href="{{ academy.url }}"
+                           class="academy-single {% if academy.category.slug == 'videos' %}--video{% endif %}">
+                            <div class="academy-single__img">
+                                <div class="academy-single__label">{{ academy.category.name }}</div>
+                                <img src="{{ academy.image.url }}" alt="">
+                            </div>
+                            <div class="academy-single__title">
+                                <h3>{{ academy.title }}</h3>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
 
             </div>
         </section>

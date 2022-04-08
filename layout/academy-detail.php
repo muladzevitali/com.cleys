@@ -60,22 +60,16 @@
 						<section class="article-template__body --content js-article-body">
 							<p>Lorem ipsum <i>dolor</i> sit amet, consectetur adipiscing elit. <strong>Maecenas quis</strong> fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec <a href="#">eleifend</a>, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>
 							<p>
-								<video src="/media/video_example.mp4" width="900" controls=""></video>
+								<video src="/media/files/video_example.mp4" width="900" controls=""></video>
 							</p>
 							<h6>Maecenas quis fringilla leo.</h6>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo. </p>
-							<!-- NOTE Example of img -->
-							<!-- <p>
-								<img src="/images/inspiratie-detail-img-1.jpg" alt="">
-							</p> -->
-							<!-- NOTE Example of video -->
-							<!-- <p>
-								<video src="/media/video_example.mp4" width="900" controls=""></video>
-							</p> -->
-							<!-- NOTE Example of youtube video-->
-							<!-- <p>
+							 <p>
+								<img src="photos/academies/1/academy-single__img-1.jpg" alt="">
+							</p>
+							 <p>
 								<iframe width="560" height="315" src="https://www.youtube.com/embed/Mxesac55Puo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-							</p> -->							
+							</p>
 						</section>
 						<footer class="article-template__footer">
 							<a href="/contact.php" class="btn --btn-orange">Contacteer ons</a>
