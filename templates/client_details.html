@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Mijn account – Mijn gegevens</title>
+	<meta name="description" content="">
+	<!--font, css, js -->
+    {% include 'includes/head.html' %}
+</head>
+
+<body>
+	<div class="wrapper account-pd-page in-login">
+
+		<header id="header-menu">
+			{% include 'includes/header-menu-logged-in.html' %}
+		</header>
+
+		<main>
+
+			<section class="account-header">
+				<div class="account-header__inner">
+					<div class="account-header__left">
+						<h2>Welkom terug, {{ user.first_name }}!</h2>
+						<ul class="account-header__menu">
+							<li><a href="/mijn-account-overzicht.php">Overzicht</a></li>
+							<li class="active"><a href="/mijn-account-mijn-bestellingen.php">Mijn bestellingen</a></li>
+							<li><a href="{% url 'update_details' %}">Mijn gegevens</a></li>
+							<li><a href="#">Opgeslagen offertes</a></li>
+							<li><a href="#">Uitloggen</a></li>
+						</ul>
+					</div>
+					<div class="account-header__right">
+						<a href="https://wa.me/320412345678" class="whatsapp-link">
+							<div class="whatsapp-link__icon-text">
+								<i class="fab fa-whatsapp"></i>
+								<div>Whatsapp ondersteuning<span>+32 (0)412 345 678</span></div>
+							</div>
+							<div>Elke werkdag van 07:00 tot 17:00</div>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="personal-data">
+				<div class="container">
+					<div class="personal-data__inner">
+
+						<div class="personal-data__block">
+
+							<div class="personal-data__title">
+								<h3>Je bedrijfsgegevens</h3>
+								<a href="#" class="edit-btn js-edit-r-details" data-toggleclass="js-personal-data-1">Wijzigen</a>
+							</div>
+
+							<div class="personal-data__row js-personal-data-1">
+
+								<div class="personal-data__row-inner">
+									<div class="name">Bedrijfsnaam</div>
+									<div class="value">{{ user.company_name }}</div>
+								</div>
+
+								<div class="personal-data__row-inner">
+									<div class="name">BTW nummer</div>
+									<div class="value">{{ user.vat_number}}</div>
+								</div>
+
+								<div class="personal-data__row-inner">
+									<div class="name">Adres</div>
+									<div class="value">
+										<ul>
+											<li>{{ user.street_name }} {{ user.house_number }}</li>
+											<li>{{ user.postal_code }} {{ user.township }} </li>
+											<li>{{ user.country }}</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+
+							<form action="{% url 'update_details' %}" method="POST" class="personal-data__row --form js-personal-data-1">
+								{% csrf_token %}
+								<div class="personal-data__row-inner">
+									<div class="name">Bedrijfsnaam</div>
+									<div class="value">
+										<div class="form-row">
+											<div class="col col-1">
+												<input type="text" name="company_name" value="{{ user.company_name }}">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="personal-data__row-inner">
+									<div class="name">BTW nummer</div>
+									<div class="value">
+										<div class="form-row">
+											<div class="col col-1">
+												<input type="text" name="vat_number" value="{{ user.vat_number}}">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="personal-data__row-inner">
+									<div class="name">Adres</div>
+									<div class="value">
+										<div class="form-row">
+											<div class="col col-70">
+												<input type="text" name="street_name" value="{{ user.street_name }}">
+											</div>
+											<div class="col col-30">
+												<input type="text" name="house_number" value="{{ user.house_number }}">
+											</div>
+											<div class="col col-30">
+												<input type="text" name="postal_code" value="{{ user.postal_code }}">
+											</div>
+											<div class="col col-70">
+												<input type="text" name="township" value="{{ user.township }}">
+											</div>
+											<div class="col col-1">
+												<select name="country" id="f_country">
+													<option value="{{ user.country }}" selected disabled hidden>Select an Option</option>
+
+                                                {% for country in countries %}
+                                                    <option value="{{ country }}">{{ country }}</option>
+                                                {% endfor %}
+                                            </select>
+											</div>
+											<div class="col col-1 submit">
+												<button type="submit" class="btn --btn-orange">Opslaan</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</form>
+
+						</div>
+
+						<div class="personal-data__block">
+
+							<div class="personal-data__title">
+								<h3>Je contactgegevens</h3>
+								<a href="#" class="edit-btn js-edit-r-details" data-toggleclass="js-personal-data-2">Wijzigen</a>
+							</div>
+
+							<div class="personal-data__row js-personal-data-2">
+
+								<div class="personal-data__row-inner">
+									<div class="name">Naam</div>
+									<div class="value">{{ user.last_name }}</div>
+								</div>
+
+								<div class="personal-data__row-inner">
+									<div class="name">Voornaam</div>
+									<div class="value">{{ user.first_name }}</div>
+								</div>
+
+								<div class="personal-data__row-inner">
+									<div class="name">Telefoonnummer</div>
+									<div class="value">{{ user.phone_number }}</div>
+								</div>
+
+							</div>
+
+							<form action="{% url 'update_details' %}" method="POST" class="personal-data__row --form js-personal-data-2">
+								{% csrf_token %}
+								<div class="personal-data__row-inner">
+									<div class="name">Naam</div>
+									<div class="value">
+										<div class="form-row">
+											<div class="col col-1">
+												<input type="text" name="last_name" value="{{ user.last_name }}">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="personal-data__row-inner">
+									<div class="name">Voornaam</div>
+									<div class="value">
+										<div class="form-row">
+											<div class="col col-1">
+												<input type="text" name="first_name" value="{{ user.first_name }}">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="personal-data__row-inner">
+									<div class="name">Telefoonnummer</div>
+									<div class="value">
+										<div class="form-row">
+											<div class="col col-1">
+												<input type="tel" name="phone_number" value="{{ user.phone_number }}">
+											</div>
+											<div class="col col-1 submit">
+												<button type="submit" class="btn --btn-orange">Opslaan</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</form>
+
+						</div>
+
+						<div class="personal-data__block">
+
+							<div class="personal-data__title">
+								<h3>Je logingegevens</h3>
+								<a href="#" class="edit-btn js-edit-r-details" data-toggleclass="js-personal-data-3">Wijzigen</a>
+							</div>
+
+							<div class="personal-data__row js-personal-data-3">
+
+								<div class="personal-data__row-inner">
+									<div class="name">E-mailadres</div>
+									<div class="value">{{ user.email }}</div>
+								</div>
+
+								<div class="personal-data__row-inner">
+									<div class="name">Wachtwoord</div>
+									<div class="value">**********</div>
+								</div>
+
+							</div>
+
+							<form action="{% url 'update_details' %}" method="POST" class="personal-data__row --form js-personal-data-3">
+								{% csrf_token %}
+								<div class="personal-data__row-inner">
+									<div class="name">E-mailadres</div>
+									<div class="value">
+										<div class="form-row">
+											<div class="col col-1">
+												<input type="email" name="email" value="{{ user.email }}">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="personal-data__row-inner">
+									<div class="name">Wachtwoord</div>
+									<div class="value">
+										<div class="form-row">
+											<div class="col col-1">
+												<input type="password" name="password" value="*****" >
+											</div>
+											<div class="col col-1 submit">
+												<button type="submit" class="btn --btn-orange">Opslaan</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								{% if messages %}
+									{% for message in messages|slice:":1" %}
+										<script>window.alert('{{ message }}')</script>
+									{% endfor %}
+								{% endif %}
+							</form>
+
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<footer id="footer-page">
+			{% include 'includes/footer.html' %}
+		</footer>
+
+	</div>
+	</body>
+</html>
