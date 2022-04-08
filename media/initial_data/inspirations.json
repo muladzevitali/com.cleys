@@ -1,0 +1,243 @@
+[
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 1,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-1.jpg",
+      "thumbnail": "photos/inspirations/1/1.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 2,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-2.jpg",
+      "thumbnail": "photos/inspirations/1/14.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 3,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-3.jpg",
+      "thumbnail": "photos/inspirations/1/12.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 4,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-4.jpg",
+      "thumbnail": "photos/inspirations/1/7.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 5,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/5.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 6,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/6.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 7,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/7.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 8,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/8.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 9,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/9.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 10,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/10.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 11,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/11.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 12,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/12.jpg"
+    }
+  },
+    {
+    "model": "inspiration.Inspiration",
+    "pk": 13,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-1.jpg",
+      "thumbnail": "photos/inspirations/1/13.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 14,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-2.jpg",
+      "thumbnail": "photos/inspirations/1/14.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 15,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-3.jpg",
+      "thumbnail": "photos/inspirations/1/16.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 16,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-4.jpg",
+      "thumbnail": "photos/inspirations/1/4.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 17,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/15.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 18,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/5.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 19,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/17.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 20,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/5.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 21,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/5.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 22,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/5.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 23,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/15.jpg"
+    }
+  },
+  {
+    "model": "inspiration.Inspiration",
+    "pk": 24,
+    "fields": {
+      "title": "Titel van deze realisatie",
+      "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "thumbnail": "photos/inspirations/1/5.jpg"
+    }
+  }
+
+]

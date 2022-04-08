@@ -17,6 +17,8 @@ class Command(BaseCommand):
         call_command('loaddata', 'media/initial_data/countries.json')
         call_command('loaddata', 'media/initial_data/faq_categories.json')
         call_command('loaddata', 'media/initial_data/faq.json')
+        call_command('loaddata', 'media/initial_data/inspirations.json')
+        call_command('loaddata', 'media/initial_data/inspiration_gallery.json')
         self._create_admin_if_not_exist()
 
     def _create_admin_if_not_exist(self):

@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Inspiratie - overzicht</title>
+    <meta name="description" content="">
+    <!--font, css, js -->
+    {% include 'includes/head.html' %}
+</head>
+
+<body>
+<div class="wrapper inspiratie-overzicht-page">
+
+    <header id="header-menu">
+        {% if request.user.is_authenticated %}
+            {% include 'includes/header-menu-logged-in.html' %}
+        {% else %}
+            {% include 'includes/header-menu.html' %}
+        {% endif %}
+    </header>
+
+    <main>
+
+        <section class="header-content">
+            <div class="header-content__image">
+                <img src="{% static 'images/header-text-img-1.jpg' %}" alt="">
+            </div>
+            <div class="container">
+                <div class="header-content__text">
+                    <h1 class="like-h2">Inspiratie</h1>
+                    <p>Quis totam pariatur voluptatem ea consequuntur. Tempore sunt vel cupiditate quo. Eveniet quia
+                        facere dolorum incidunt incidunt doloribus aliquam. Molestiae est veritatis quibusdam aperiam
+                        magnam rerum amet. Adipisci magnam eum voluptate.</p>
+                    <a class="header-content__scrollto js-scroll-to" href="#masonry-gallery">
+                        <i class="fal fa-angle-double-down"></i>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="masonry-gallery" id="masonry-gallery">
+            <div class="container">
+                <div class="masonry-layout js-masonry-layout" id="infinite-container">
+                    {% for object in object_list %}
+                        <a href="{% url 'inspiration-detail' pk=object.pk %}" class="masonry-layout__item">
+                            <div class="masonry-layout__img">
+                                <img src="{{ object.thumbnail.url }}" alt="">
+                            </div>
+                            <div class="masonry-layout__details">
+                                <div class="photo-number">
+                                    <i class="far fa-camera"></i> {{ object.gallery.all|length }}
+                                </div>
+                                <div class="photo-title">{{ object.title }}</div>
+                            </div>
+                        </a>
+                    {% endfor %}
+
+                </div>
+                <div class="masonry-loadmore spinner-border">
+                    {% if page_obj.has_next %}
+                        <button data-url_root="?page={{ page_obj.next_page_number }}"
+                           class="btn --btn-orange-border js-masonry-loadmore" id="infinite-more-link">
+                            Meer weergeven</button>
+                    {% endif %}
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer-page">
+        {% include 'includes/footer.html' %}
+    </footer>
+    {% include 'includes/popup-cart.html' %}
+
+</div>
+</body>
+</html>

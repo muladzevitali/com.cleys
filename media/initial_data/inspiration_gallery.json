@@ -1,0 +1,92 @@
+[
+  {
+    "model": "inspiration.InspirationGallery",
+    "pk": 1,
+    "fields": {
+      "name": "Titel van deze realisatie",
+      "image": "photos/inspirations/1/inspiratie-detail-img-1.jpg",
+      "inspiration": 1
+    }
+  },
+  {
+    "model": "inspiration.InspirationGallery",
+    "pk": 2,
+    "fields": {
+      "name": "Titel van deze realisatie",
+      "image": "photos/inspirations/1/inspiratie-detail-img-2.jpg",
+      "inspiration": 1
+    }
+  },
+  {
+    "model": "inspiration.InspirationGallery",
+    "pk": 3,
+    "fields": {
+      "name": "Titel van deze realisatie",
+      "image": "photos/inspirations/1/inspiratie-detail-img-3.jpg",
+      "inspiration": 1
+    }
+  },
+  {
+    "model": "inspiration.InspirationGallery",
+    "pk": 4,
+    "fields": {
+      "name": "Titel van deze realisatie",
+      "image": "photos/inspirations/1/inspiratie-detail-img-4.jpg",
+      "inspiration": 1
+    }
+  },
+  {
+    "model": "inspiration.InspirationGallery",
+    "pk": 5,
+    "fields": {
+      "name": "Titel van deze realisatie",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "inspiration": 1
+    }
+  },
+  {
+    "model": "inspiration.InspirationGallery",
+    "pk": 6,
+    "fields": {
+      "name": "Titel van deze realisatie",
+      "image": "photos/inspirations/1/inspiratie-detail-img-1.jpg",
+      "inspiration": 2
+    }
+  },
+  {
+    "model": "inspiration.InspirationGallery",
+    "pk": 7,
+    "fields": {
+      "name": "Titel van deze realisatie",
+      "image": "photos/inspirations/1/inspiratie-detail-img-2.jpg",
+      "inspiration": 2
+    }
+  },
+  {
+    "model": "inspiration.InspirationGallery",
+    "pk": 8,
+    "fields": {
+      "name": "Titel van deze realisatie",
+      "image": "photos/inspirations/1/inspiratie-detail-img-3.jpg",
+      "inspiration": 3
+    }
+  },
+  {
+    "model": "inspiration.InspirationGallery",
+    "pk": 10,
+    "fields": {
+      "name": "Titel van deze realisatie",
+      "image": "photos/inspirations/1/inspiratie-detail-img-4.jpg",
+      "inspiration": 4
+    }
+  },
+  {
+    "model": "inspiration.InspirationGallery",
+    "pk": 9,
+    "fields": {
+      "name": "Titel van deze realisatie",
+      "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
+      "inspiration": 5
+    }
+  }
+]

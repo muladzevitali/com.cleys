@@ -364,7 +364,34 @@ jQuery(document).ready(function ($) {
 
     }
 
+    $('#infinite-more-link').click(function (e) {
+        e.preventDefault();
+        const nextUrl = $('#infinite-more-link').data('url_root');
+        if (!nextUrl) {
+            return null;
+        }
+        $.ajax({
+            url: nextUrl,
+            method: 'get',
+            success: function (result) {
+                const response = $.parseHTML(result)
+                const inspirationItems = $(response).find('#infinite-container').children();
+                $('#infinite-container').append(inspirationItems)
+                    .masonry('appended', inspirationItems)
+                const newNextUrl = $(response).find('#infinite-more-link').data('url_root');
+                if (newNextUrl === undefined) {
+                    $('#infinite-more-link').remove()
+                    return null;
+                }
+                $('#infinite-more-link').data('url_root', newNextUrl);
+            },
+            error: function (error) {
+                console.log(error)
+            }
 
+        })
+
+    })
     wrapMedia();
 
 });
