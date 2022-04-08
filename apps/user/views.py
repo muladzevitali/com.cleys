@@ -13,12 +13,10 @@ from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
-from django.views.generic import TemplateView
 from django.views.generic import View, CreateView
 
-from .forms import RegisterForm, UpdateCompanyDetailsForm, UpdateLoginDetailsForm, UpdateContactDetailsForm
+from .forms import RegisterForm, UpdateAddressDetailsForm, UpdateLoginDetailsForm, UpdateContactDetailsForm
 from .models import User
-from ..order.models import Country
 
 
 class ClientView(CreateView):
@@ -36,47 +34,6 @@ class ClientView(CreateView):
             form.add_error('password', e)  # to be displayed with the field's errors
             return render(self.request, self.template_name, {'form': form})
         return super().form_valid(form)
-
-
-class UpdateClientView(TemplateView):
-    template_name = 'client_details.html'
-
-    def get_context_data(self, *args, **kwargs):
-        context = super(UpdateClientView, self).get_context_data(*args, **kwargs)
-        countries = Country.objects.all()
-        context['countries'] = countries
-        return context
-
-
-class UpdateCompanyDetailsView(View):
-    success_url = reverse_lazy('update_client')
-    company_form = UpdateCompanyDetailsForm
-    contact_form = UpdateContactDetailsForm
-    login_form = UpdateLoginDetailsForm
-
-    def post(self, request):
-        if 'company_name' in request.POST:
-            form = self.company_form(request.POST)
-        elif 'first_name' in request.POST:
-            form = self.contact_form(request.POST)
-        else:
-            form = self.login_form(request.POST)
-        if not form.is_valid():
-            return HttpResponseRedirect(self.success_url)
-        email = request.user.email
-        user = User.objects.get(email=email)
-        for key, value in form.cleaned_data.items():
-            if key == 'country':
-                user.country = Country.objects.get(name=value)
-            elif key == 'password':
-                if len(value) >= 8:
-                    user.set_password(value)
-                else:
-                    messages.error(request, "Password is too short!")
-            else:
-                setattr(user, key, value)
-        user.save()
-        return HttpResponseRedirect(self.success_url)
 
 
 class ClientLoginView(View):
@@ -143,3 +100,59 @@ class PasswordResetView(View):
                   fail_silently=True)
 
         return redirect("/password_reset/done/")
+
+
+class UpdateClientBase(View):
+    success_url = reverse_lazy('update_client')
+
+    def form_invalid(self, request, form):
+        error_msg = '\n'.join(' '.join(msg for msg in error) for error in form.errors.values())
+        messages.error(request, error_msg)
+        return HttpResponseRedirect(self.success_url)
+
+
+class UpdateClientAddressView(UpdateClientBase):
+
+    def post(self, request):
+        form = UpdateAddressDetailsForm(data=request.POST, instance=request.user)
+        if not form.is_valid():
+            self.form_invalid(request, form)
+
+        form.save()
+        return HttpResponseRedirect(self.success_url)
+
+
+class UpdateContactDetailView(UpdateClientBase):
+
+    def post(self, request):
+        form = UpdateContactDetailsForm(data=request.POST, instance=request.user)
+        if not form.is_valid():
+            self.form_invalid(request, form)
+
+        form.save()
+        return HttpResponseRedirect(self.success_url)
+
+
+class UpdateLoginDetailView(UpdateClientBase):
+
+    def post(self, request):
+        form = UpdateLoginDetailsForm(data=request.POST, instance=request.user)
+        if not form.is_valid():
+            self.form_invalid(request, form)
+
+        request.user.set_password(form.cleaned_data['password'])
+
+        return HttpResponseRedirect(self.success_url)
+
+
+class UpdateClientView(View):
+    template_name = 'client_details.html'
+    success_url = reverse_lazy('update_client')
+
+    def get(self, request):
+        address_form = UpdateAddressDetailsForm()
+        contact_form = UpdateContactDetailsForm()
+        login_form = UpdateLoginDetailsForm()
+
+        context = dict(address_form=address_form, contact_form=contact_form, login_form=login_form)
+        return render(request, self.template_name, context=context)

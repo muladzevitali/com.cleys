@@ -31,7 +31,7 @@
                     <ul class="account-header__menu">
                         <li><a href="{% url 'order-index' %}">Overzicht</a></li>
                         <li class="active"><a href="{% url 'order-list' %}">Mijn bestellingen</a></li>
-                        <li><a href="/mijn-account-mijn-gegevens.php">Mijn gegevens</a></li>
+                        <li><a href="{% url 'update_client' %}">Mijn gegevens</a></li>
                         <li><a href="#">Opgeslagen offertes</a></li>
                         <li><a href="{% url 'logout' %}">Uitloggen</a></li>
                     </ul>
@@ -71,7 +71,8 @@
                     <div class="order-detail__col">
                         <div class="title">Factuur</div>
                         <div class="value">
-                            <a href="{% url 'order-invoice'  pk=object.pk %}" class="download" target="_blank">Download factuur</a>
+                            <a href="{% url 'order-invoice'  pk=object.pk %}" class="download" target="_blank">Download
+                                factuur</a>
                         </div>
                     </div>
                 </div>

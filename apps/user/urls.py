@@ -1,13 +1,14 @@
 from django.urls import path
-from apps.user.views import ClientView, ClientLoginView, ClientLogoutView, \
-    PasswordResetView, UpdateClientView, UpdateCompanyDetailsView
+from apps.user import views
 
 
 urlpatterns = [
-    path('', ClientView.as_view(), name='registration'),
-    path('login/', ClientLoginView.as_view(), name='login'),
-    path('logout/', ClientLogoutView.as_view(), name='logout'),
-    path('password_reset/', PasswordResetView.as_view(), name='password_reset'),
-    path('update_client/', UpdateClientView.as_view(), name='update_client'),
-    path('update_details/', UpdateCompanyDetailsView.as_view(), name='update_details'),
+    path('', views.ClientView.as_view(), name='registration'),
+    path('login/', views.ClientLoginView.as_view(), name='login'),
+    path('logout/', views.ClientLogoutView.as_view(), name='logout'),
+    path('password_reset/', views.PasswordResetView.as_view(), name='password_reset'),
+    path('update_client/', views.UpdateClientView.as_view(), name='update_client'),
+    path('update-client-address/', views.UpdateClientAddressView.as_view(), name='update-client-address'),
+    path('update-client-contact/', views.UpdateContactDetailView.as_view(), name='update-client-contact'),
+    path('update-client-login/', views.UpdateLoginDetailView.as_view(), name='update-client-login'),
 ]
