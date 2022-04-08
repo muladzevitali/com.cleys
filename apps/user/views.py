@@ -1,6 +1,9 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.tokens import default_token_generator
+from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.db.models.query_utils import Q
 from django.http import HttpResponseRedirect, BadHeaderError, HttpResponse
@@ -10,13 +13,9 @@ from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.views.generic import View, CreateView, TemplateView
-from django.contrib.auth.password_validation import validate_password
-from django.core.exceptions import ValidationError
 
 from .forms import RegisterForm, UpdateCompanyDetailsForm, UpdateLoginDetailsForm, UpdateContactDetailsForm
 from .models import User
-from django.contrib.auth.forms import PasswordResetForm
-
 from ..order.models import Country
 
 
@@ -71,7 +70,7 @@ class UpdateCompanyDetailsView(View):
                 if len(value) >= 8:
                     user.set_password(value)
                 else:
-                    messages.error("Password is too short!")
+                    messages.error(request, "Password is too short!")
             else:
                 setattr(user, key, value)
         user.save()
@@ -98,8 +97,6 @@ class ClientLoginView(View):
             else:
                 messages.info(request, 'Email or password is incorrect')
                 return HttpResponseRedirect(self.failure_url)
-        context = {}
-        return render(request, 'login.html', context)
 
 
 class ClientLogoutView(View):
