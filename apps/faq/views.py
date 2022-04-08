@@ -1,6 +1,9 @@
-from django.views.generic import ListView
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import ListView, FormView
 
 from apps.faq import models
+from apps.faq.forms import ContactForm
 
 
 class FAQListView(ListView):
@@ -21,3 +24,14 @@ class FAQListView(ListView):
         self.queryset = self.queryset.filter(category__slug=category_slug)
 
         return self.queryset
+
+
+class ContactFormView(FormView):
+    template_name = 'contact.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('contact')
+
+    def form_valid(self, form):
+        form.save()
+        form.send_email()
+        return render(self.request, self.template_name)

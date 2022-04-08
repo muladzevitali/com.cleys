@@ -71,3 +71,21 @@ class User(AbstractUser, PermissionsMixin):
 
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
+
+
+class ContactModel(models.Model):
+    SUBJECT_CHOICES = (
+        ('Algemene vraag', 'Algemene vraag'), ('Facturatie', 'Facturatie'), ('Mijn bestelling', 'Mijn bestelling'),
+        ('Andere', 'Andere'))
+    company_name = models.CharField(max_length=256)
+    vat_number = models.CharField(max_length=256)
+    last_name = models.CharField(max_length=256)
+    first_name = models.CharField(max_length=256)
+    phone_number = models.CharField(max_length=256)
+    email = models.EmailField(max_length=256)
+    subject = models.CharField(max_length=256, choices=SUBJECT_CHOICES)
+    message = models.TextField()
+
+    class Meta:
+        verbose_name = _('Contact')
+        verbose_name_plural = _('Contacts')
