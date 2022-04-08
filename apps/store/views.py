@@ -8,8 +8,9 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
 
+from apps.academy.models import Academy
 from apps.category.models import Category
-from apps.store import models
+from apps.store import models, utils
 
 
 class StoreListView(ListView):
@@ -56,8 +57,11 @@ class ProductDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        random_product_ids = self.get_random_items(4)
+        random_product_ids = utils.get_random_indices(self.model, 4)
         context['related_products'] = self.model.objects.filter(pk__in=random_product_ids)
+
+        random_academy_ids = utils.get_random_indices(Academy, 2)
+        context['academies'] = Academy.objects.filter(pk__in=random_academy_ids)
 
         product_views, _ = models.ProductView.objects.get_or_create(product=self.object)
         product_views.increase_by_one()

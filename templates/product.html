@@ -172,26 +172,18 @@
                     <h2>Interessante artikels</h2>
                 </div>
                 <div class="interesting-articles__list col-2-list">
-
-                    <a href="/academy-detail.php" class="academy-single --video">
+                    {% for academy in academies %}
+                    <a href="{{ academy.url }}" class="academy-single {% if academy.category.slug == 'videos' %}--video{% endif %}">
                         <div class="academy-single__img">
-                            <div class="academy-single__label">video’s</div>
-                            <img src="/images/academy-single__img-2.jpg" alt="">
+                            <div class="academy-single__label">{{ academy.category.slug}}</div>
+                            <img src="{{ academy.image.url }}" alt="">
                         </div>
                         <div class="academy-single__title">
-                            <h3>Hoe spuitkurk aanbrengen?</h3>
+                            <h3>{{ academy.title }}</h3>
                         </div>
                     </a>
+                    {% endfor %}
 
-                    <a href="/academy-detail.php" class="academy-single">
-                        <div class="academy-single__img">
-                            <div class="academy-single__label">Tips &amp; Tricks</div>
-                            <img src="/images/academy-single__img-1.jpg" alt="">
-                        </div>
-                        <div class="academy-single__title">
-                            <h3>Voordelen van spuitkurk</h3>
-                        </div>
-                    </a>
 
                 </div>
             </div>

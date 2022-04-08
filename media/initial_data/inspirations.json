@@ -4,9 +4,12 @@
     "pk": 1,
     "fields": {
       "title": "Titel van deze realisatie",
+      "intro": "Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten.\n                                    Ecologisch , dampdoorlatend.",
       "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
       "image": "photos/inspirations/1/inspiratie-detail-img-1.jpg",
-      "thumbnail": "photos/inspirations/1/1.jpg"
+      "thumbnail": "photos/inspirations/1/1.jpg",
+      "use_in_slider": true,
+      "slider_image": "photos/inspirations/1/showcase-slider-img-1.jpg"
     }
   },
   {
@@ -14,9 +17,12 @@
     "pk": 2,
     "fields": {
       "title": "Titel van deze realisatie",
+      "intro": "Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten.\n                                    Ecologisch , dampdoorlatend.",
       "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
       "image": "photos/inspirations/1/inspiratie-detail-img-2.jpg",
-      "thumbnail": "photos/inspirations/1/14.jpg"
+      "thumbnail": "photos/inspirations/1/14.jpg",
+      "use_in_slider": true,
+      "slider_image": "photos/inspirations/1/showcase-slider-img-1.jpg"
     }
   },
   {
@@ -24,9 +30,12 @@
     "pk": 3,
     "fields": {
       "title": "Titel van deze realisatie",
+      "intro": "Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten.\n                                    Ecologisch , dampdoorlatend.",
       "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
       "image": "photos/inspirations/1/inspiratie-detail-img-3.jpg",
-      "thumbnail": "photos/inspirations/1/12.jpg"
+      "thumbnail": "photos/inspirations/1/12.jpg",
+      "use_in_slider": true,
+      "slider_image": "photos/inspirations/1/showcase-slider-img-1.jpg"
     }
   },
   {
@@ -34,9 +43,12 @@
     "pk": 4,
     "fields": {
       "title": "Titel van deze realisatie",
+      "intro": "Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten.\n                                    Ecologisch , dampdoorlatend.",
       "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
       "image": "photos/inspirations/1/inspiratie-detail-img-4.jpg",
-      "thumbnail": "photos/inspirations/1/7.jpg"
+      "thumbnail": "photos/inspirations/1/7.jpg",
+      "use_in_slider": true,
+      "slider_image": "photos/inspirations/1/showcase-slider-img-1.jpg"
     }
   },
   {
@@ -46,7 +58,9 @@
       "title": "Titel van deze realisatie",
       "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
       "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
-      "thumbnail": "photos/inspirations/1/5.jpg"
+      "thumbnail": "photos/inspirations/1/5.jpg",
+      "use_in_slider": true,
+      "slider_image": "photos/inspirations/1/showcase-slider-img-1.jpg"
     }
   },
   {
@@ -56,7 +70,9 @@
       "title": "Titel van deze realisatie",
       "description": "<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t\t\t<h6>Maecenas quis fringilla leo.</h6>\n\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis fringilla leo. Phasellus vel sodales dolor, et posuere nisl. Donec eleifend, magna id ultricies tincidunt, tellus neque suscipit dolor, in feugiat nulla velit sit amet justo.</p>\n\t\t\t\t\t",
       "image": "photos/inspirations/1/inspiratie-detail-img-5.jpg",
-      "thumbnail": "photos/inspirations/1/6.jpg"
+      "thumbnail": "photos/inspirations/1/6.jpg",
+      "use_in_slider": true,
+      "slider_image": "photos/inspirations/1/showcase-slider-img-1.jpg"
     }
   },
   {
@@ -119,7 +135,7 @@
       "thumbnail": "photos/inspirations/1/12.jpg"
     }
   },
-    {
+  {
     "model": "inspiration.Inspiration",
     "pk": 13,
     "fields": {
@@ -239,5 +255,4 @@
       "thumbnail": "photos/inspirations/1/5.jpg"
     }
   }
-
 ]

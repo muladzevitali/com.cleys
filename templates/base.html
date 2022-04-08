@@ -26,27 +26,28 @@
         <section class="showcase">
 
             <div class="showcase__slider flex-slider js-showcase-slider">
-
-                <div class="showcase__slider-item">
-                    <div class="showcase__slider-img">
-                        <img src="{% static 'images/showcase-slider-img-1.jpg' %}" alt="">
-                    </div>
-                    <div class="container">
-                        <div class="showcase__slider-content">
-                            <h1>Spuitkurkshop voor professionals</h1>
-                            <div class="intro">Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten.
-                                Ecologisch , dampdoorlatend.
+                {% for inspiration in inspirations %}
+                    <div class="showcase__slider-item">
+                        <div class="showcase__slider-img">
+                            <img src="{{ inspiration.slider_image.url }}" alt="">
+                        </div>
+                        <div class="container">
+                            <div class="showcase__slider-content">
+                                <h1>{{ inspiration.title }}</h1>
+                                <div class="intro">{{ inspiration.intro }}
+                                </div>
+                                <a href="{% url 'inspiration-detail'  pk=inspiration.pk %}" class="btn --btn-orange">Bekijk
+                                    aanbods</a>
                             </div>
-                            <a href="#" class="btn --btn-orange">Bekijk aanbods</a>
                         </div>
                     </div>
-                </div>
-
+                {% endfor %}
                 <div class="showcase__slider-item">
                     <div class="showcase__slider-img">
-                        <img src="{% static 'images/showcase-slider-img-1.jpg' %}" alt="">
+                        <img src="" alt="">
                     </div>
                     <div class="container">
+
                         <div class="showcase__slider-content">
                             <h1>2</h1>
                             <div class="intro">Kurk in spuitvorm - een mix van kurk granulaten, harsen en pigmenten.
