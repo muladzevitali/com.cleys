@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 
+from apps.faq.urls import contact_url_patterns
 from config import views
 
 urlpatterns = [
@@ -15,6 +16,7 @@ urlpatterns = [
     path('cart/', include('apps.cart.urls')),
     path('order/', include('apps.order.urls')),
     path('faq/', include('apps.faq.urls')),
+    path('contact/', include(contact_url_patterns)),
     path('password_reset/done/',
          auth_views.PasswordResetDoneView.as_view(template_name='password/password_reset_done.html'),
          name='password_reset_done'),
