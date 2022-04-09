@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.shortcuts import redirect, render
 from django.views.generic import ListView, FormView
 
 from apps.faq import models
@@ -29,12 +28,14 @@ class FAQListView(ListView):
 class ContactFormView(FormView):
     template_name = 'contact.html'
     form_class = ContactForm
-    success_url = reverse_lazy('contact')
+    success_url = 'contact'
 
     def form_invalid(self, form):
         print(form.errors)
+        super().form_invalid(form)
+        return render(self.request, self.template_name, context=dict(form=form))
 
     def form_valid(self, form):
         form.save()
         form.send_email()
-        return render(self.request, self.template_name)
+        return redirect(self.success_url)

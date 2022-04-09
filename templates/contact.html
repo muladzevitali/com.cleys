@@ -71,49 +71,84 @@
 
                                         <div class="col col-2">
                                             <label for="f_btw" class="label">BTW-nummer</label>
-                                            <input type="text" name="vat_number" placeholder="BTW-nummer" required=""
+                                            <input type="text" name="vat_number" placeholder="BTW-nummer"
                                                    id="f_btw">
                                         </div>
 
                                         <div class="col col-2">
                                             <label for="c_name" class="label">Naam*</label>
-                                            <input type="text" name="last_name" placeholder="Naam" required=""
+                                            <input type="text" name="first_name" placeholder="Naam" required=""
                                                    id="c_name">
+                                            {% if form.errors %}
+                                                {% for error in form.first_name.errors %}
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ error|escape }}</strong>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
                                         </div>
 
                                         <div class="col col-2">
                                             <label for="c_surname" class="label">Voornaam*</label>
-                                            <input type="text" name="first_name" placeholder="Voornaam" required=""
+                                            <input type="text" name="last_name" placeholder="Voornaam" required=""
                                                    id="c_surname">
+                                            {% if form.errors %}
+                                                {% for error in form.last_name.errors %}
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ error|escape }}</strong>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
                                         </div>
 
                                         <div class="col col-2">
                                             <label for="c_phone" class="label">Telefoonnummer</label>
                                             <input type="text" name="phone_number" placeholder="Telefoonnummer"
                                                    id="c_phone">
+
                                         </div>
 
                                         <div class="col col-2">
                                             <label for="c_email" class="label">E-mailadres*</label>
-                                            <input type="text" name="email" placeholder="E-mailadres" required
+                                            <input type="email" name="email" placeholder="E-mailadres" required
                                                    id="c_email">
+                                            {% if form.errors %}
+                                                {% for error in form.phone_number.errors %}
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ error|escape }}</strong>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
                                         </div>
 
                                         <div class="col col-1">
                                             <label for="c_theme" class="label">Onderwerp*</label>
-                                            <select name="subject" id="c_theme">
+                                            <select name="subject" id="c_theme" required>
                                                 <option value="0" selected disabled>Selecteer onderwerp</option>
                                                 <option value="Algemene vraag">Algemene vraag</option>
                                                 <option value="Facturatie">Facturatie</option>
                                                 <option value="Mijn bestelling">Mijn bestelling</option>
                                                 <option value="Andere">Andere</option>
                                             </select>
+                                            {% if form.errors %}
+                                                {% for error in form.subject.errors %}
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ error|escape }}</strong>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
                                         </div>
-
                                         <div class="col col-1">
                                             <label for="c_message" class="label">Je vraag*</label>
-                                            <textarea name="message" id="c_message" cols="30" rows="10"
+                                            <textarea name="message" id="c_message" cols="30" rows="10" required
                                                       placeholder="Je vraag"></textarea>
+                                            {% if form.errors %}
+                                                {% for error in form.message.errors %}
+                                                    <li class="alert alert-danger">
+                                                        <strong>{{ error|escape }}</strong>
+                                                    </li>
+                                                {% endfor %}
+                                            {% endif %}
                                         </div>
 
                                         <div class="col col-1 checkbox-col">
