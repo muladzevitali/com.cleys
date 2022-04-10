@@ -23,9 +23,6 @@ class OrderView(FormView):
         context.update(cart_info)
         return context
 
-    def form_invalid(self, form):
-        super().form_invalid(form)
-
     def form_valid(self, form):
         cart_info = get_cart_info(self.request)
         order = form.save(commit=False)

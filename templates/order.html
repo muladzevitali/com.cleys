@@ -37,7 +37,7 @@
             <div class="container">
                 <h1 class="like-h2">Gegevens</h1>
 
-                <form action="{% url 'order-index' %}" method="post" id="checkout-form">
+                <form action="{% url 'order' %}" method="post" id="checkout-form">
                     {% csrf_token %}
                     <div class="checkout__wrapper">
                         <div class="checkout__left">
