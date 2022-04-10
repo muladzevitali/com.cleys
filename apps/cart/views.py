@@ -92,7 +92,7 @@ def decrement_cart_item_quantity(request, cart_item_id):
         cart_item.quantity -= 1
         cart_item.save()
     else:
-        cart_item.delete()
+        ...
 
     return redirect('cart-index')
 
