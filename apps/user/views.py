@@ -21,17 +21,17 @@ from .models import User
 
 class ClientView(CreateView):
     form_class = RegisterForm
-    success_url = reverse_lazy('login')
+    success_url = 'login'
     template_name = 'registration.html'
     model = User
 
     def form_valid(self, form):
-        user = form.save(commit=False)  # Do not save to table yet
+        user = form.save(commit=False)
         password = form.cleaned_data['password']
         try:
             validate_password(password, user)
         except ValidationError as e:
-            form.add_error('password', e)  # to be displayed with the field's errors
+            form.add_error('password', e)
             return render(self.request, self.template_name, {'form': form})
         return super().form_valid(form)
 
@@ -106,6 +106,7 @@ class UpdateClientBase(View):
     success_url = reverse_lazy('update_client')
 
     def form_invalid(self, request, form):
+
         error_msg = '\n'.join(' '.join(msg for msg in error) for error in form.errors.values())
         messages.error(request, error_msg)
         return HttpResponseRedirect(self.success_url)

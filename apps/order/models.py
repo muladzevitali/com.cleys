@@ -80,7 +80,7 @@ class Order(TimeStampedModel):
     tax = models.DecimalField(max_digits=8, decimal_places=2)
     status = models.CharField(max_length=10, choices=OrderStatusChoices.choices, default=OrderStatusChoices.NEW)
 
-    user = models.ForeignKey('user.User', on_delete=models.CASCADE, related_name='orders', null=True, blank=True)
+    user = models.ForeignKey('user.User', on_delete=models.DO_NOTHING, related_name='orders', null=True, blank=True)
     ip = models.CharField(max_length=20, blank=True)
     is_ordered = models.BooleanField(default=False)
 
@@ -109,7 +109,8 @@ class OrderProduct(TimeStampedModel):
     product = models.ForeignKey('store.Product', on_delete=models.CASCADE, related_name='product_orders')
     variation = models.ForeignKey('store.ProductVariation', on_delete=models.DO_NOTHING, related_name='order_products',
                                   blank=True, null=True)
-    user = models.ForeignKey('user.User', on_delete=models.DO_NOTHING, null=True, blank=True)
+    user = models.ForeignKey('user.User', on_delete=models.DO_NOTHING, related_name='order_products', null=True,
+                             blank=True)
     quantity = models.SmallIntegerField()
     product_price = models.DecimalField(max_digits=8, decimal_places=2)
     is_ordered = models.BooleanField(default=False)

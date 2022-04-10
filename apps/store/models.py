@@ -21,7 +21,7 @@ class Product(TimeStampedModel):
                                validators=(MinValueValidator(0), MaxValueValidator(100)))
     stock = models.IntegerField()
     is_available = models.BooleanField(default=True)
-    category = models.ForeignKey('category.Category', on_delete=models.DO_NOTHING)
+    category = models.ForeignKey('category.Category', on_delete=models.DO_NOTHING, null=True)
 
     usage_per_unit = models.FloatField(verbose_name='Volume required for 1 m2', blank=True, null=True)
     volume_of_unit = models.FloatField(verbose_name='Volume of product', blank=True, null=True)

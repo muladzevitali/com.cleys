@@ -6,7 +6,7 @@ from django.contrib.auth.base_user import BaseUserManager
 
 
 class UserManager(BaseUserManager):
-    use_in_migration = True
+    use_in_migration = False
 
     def _create_user(self, email, password, **extra_fields):
         if not email:
@@ -39,8 +39,8 @@ class UserManager(BaseUserManager):
 class User(AbstractUser, PermissionsMixin):
     DEFAULT_TIMEZONE = "UTC+4"
 
-    company_name = models.CharField(max_length=150, null=True)
-    vat_number = models.CharField(max_length=150)
+    company_name = models.CharField(max_length=150, null=True, blank=True)
+    vat_number = models.CharField(max_length=150, null=True, blank=True)
     street_name = models.CharField(max_length=100)
     house_number = models.CharField(max_length=50)
     postal_code = models.CharField(max_length=10)

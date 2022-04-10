@@ -70,7 +70,7 @@ class Cart(TimeStampedModel):
 
 class CartItem(TimeStampedModel):
     cart = models.ForeignKey('cart.Cart', on_delete=models.CASCADE, related_name='items', null=True)
-    user = models.ForeignKey('user.User', on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey('user.User', on_delete=models.DO_NOTHING, null=True)
     product = models.ForeignKey('store.Product', on_delete=models.CASCADE)
     variation = models.ForeignKey('store.ProductVariation', on_delete=models.CASCADE, related_name='carts', null=True,
                                   blank=True)

@@ -58,12 +58,12 @@
 
                             <div class="personal-data__row-inner">
                                 <div class="name">Bedrijfsnaam</div>
-                                <div class="value">{{ user.company_name }}</div>
+                                <div class="value">{{ request.user.company_name|default_if_none:'' }}</div>
                             </div>
 
                             <div class="personal-data__row-inner">
                                 <div class="name">BTW nummer</div>
-                                <div class="value">{{ user.vat_number }}</div>
+                                <div class="value">{{ request.user.vat_number|default_if_none:'' }}</div>
                             </div>
 
                             <div class="personal-data__row-inner">
@@ -87,8 +87,8 @@
                                 <div class="value">
                                     <div class="form-row">
                                         <div class="col col-1">
-                                            <input type="text" name="{{ address_form.company_name.name }}"
-                                                   value="{{ request.user.company_name }}">
+                                            <input type="text" name="{{ address_form.company_name.name }}" placeholder="{{ request.user.company_name|default_if_none:'' }}"
+                                                   value="{{ request.user.company_name|default_if_none:'' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                     <div class="form-row">
                                         <div class="col col-1">
                                             <input type="text" name="{{ address_form.vat_number.name }}"
-                                                   value="{{ request.user.vat_number }}">
+                                                   value="{{ request.vat_number.company_name|default_if_none:'' }}">
                                         </div>
                                     </div>
                                 </div>
