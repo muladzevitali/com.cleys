@@ -56,7 +56,7 @@
                         <div class="js-accordion">
                             {% for faq in object_list %}
                                 <div class="acc-row">
-                                    <div class="acc-head js-acc-head active">{{ faq.question }}</div>
+                                    <div class="acc-head js-acc-head ">{{ faq.question }}</div>
                                     <div class="acc-body js-acc-body">
                                         <p>{{ faq.answer|safe }}</p>
                                     </div>

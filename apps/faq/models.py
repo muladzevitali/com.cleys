@@ -21,7 +21,7 @@ class FAQ(TimeStampedModel):
         return f'FAQ({self.pk}) - {self.category.name}'
 
 
-class Contact(models.Model):
+class Contact(TimeStampedModel):
     SUBJECT_CHOICES = (
         ('Algemene vraag', 'Algemene vraag'), ('Facturatie', 'Facturatie'), ('Mijn bestelling', 'Mijn bestelling'),
         ('Andere', 'Andere'))
