@@ -83,7 +83,7 @@ def post_payment(request, order_number):
     if not status == 'paid':
         order.status = models.Order.OrderStatusChoices.CANCELED
         order.save()
-        return redirect(reverse('order-index'))
+        return redirect(reverse('order'))
 
     cart_info = get_cart_info(request)
     utils.finalize_order(request, order, payment, cart_info['cart_items'])

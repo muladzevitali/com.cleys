@@ -49,18 +49,39 @@
                                     <div class="col col-2">
                                         <label for="c_name" class="label">Naam*</label>
                                         <input type="text" name="first_name" placeholder="Naam" required="" id="c_name">
+                                        {% if form.errors %}
+                                            {% for error in form.first_name.errors %}
+                                                <li class="alert alert-danger errors">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
 
                                     <div class="col col-2">
                                         <label for="c_surname" class="label">Voornaam*</label>
                                         <input type="text" name="last_name" placeholder="Voornaam" required=""
                                                id="c_surname">
+                                        {% if form.errors %}
+                                            {% for error in form.last_name.errors %}
+                                                <li class="alert alert-danger errors">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
 
                                     <div class="col col-2">
                                         <label for="c_email" class="label">E-mailadres*</label>
-                                        <input type="text" name="email" placeholder="E-mailadres" required=""
+                                        <input type="email" name="email" placeholder="E-mailadres" required=""
                                                id="c_email">
+                                        {% if form.errors %}
+                                            {% for error in form.email.errors %}
+                                                <li class="alert alert-danger errors">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
 
                                     <div class="col col-2">
@@ -79,34 +100,76 @@
                                     <div class="col col-2">
                                         <label for="f_company" class="label">Bedrijfsnaam</label>
                                         <input type="text" name="company" placeholder="Naam" id="f_company">
+                                        {% if form.errors %}
+                                            {% for error in form.company.errors %}
+                                                <li class="alert alert-danger errors">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
 
                                     <div class="col col-2">
                                         <label for="f_btw" class="label">BTW-nummer</label>
                                         <input type="text" name="vat_number" placeholder="BTW-nummer" id="f_btw">
+                                        {% if form.errors %}
+                                            {% for error in form.vat_number.errors %}
+                                                <li class="alert alert-danger errors">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
 
                                     <div class="col col-70">
                                         <label for="f_street" class="label">Straatnaam*</label>
                                         <input type="text" name="street_name" placeholder="Straatnaam" required=""
                                                id="f_street">
+                                        {% if form.errors %}
+                                            {% for error in form.street_name.errors %}
+                                                <li class="alert alert-danger errors">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
 
                                     <div class="col col-30">
                                         <label for="f_housenr" class="label">Huisnummer*</label>
                                         <input type="text" name="house_number" placeholder="Huisnummer" required=""
                                                id="f_housenr">
+                                        {% if form.errors %}
+                                            {% for error in form.house_number.errors %}
+                                                <li class="alert alert-danger errors">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
 
                                     <div class="col col-30">
                                         <label for="f_zip" class="label">Postcode*</label>
                                         <input type="text" name="postal_code" placeholder="Postcode" required=""
                                                id="f_zip">
+                                        {% if form.errors %}
+                                            {% for error in form.postal_code.errors %}
+                                                <li class="alert alert-danger errors">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
 
                                     <div class="col col-70">
                                         <label for="f_city" class="label">Gemeente*</label>
                                         <input type="text" name="city" placeholder="Gemeente" required="" id="f_city">
+                                        {% if form.errors %}
+                                            {% for error in form.city.errors %}
+                                                <li class="alert alert-danger errors">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
 
                                     <div class="col col-1">
@@ -117,6 +180,13 @@
                                                 <option value="{{ country.pk }}">{{ country.name }}</option>
                                             {% endfor %}
                                         </select>
+                                        {% if form.errors %}
+                                            {% for error in form.country.errors %}
+                                                <li class="alert alert-danger errors">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
 
                                 </div>
@@ -126,7 +196,7 @@
                                 <h3 class="legend">Je order:</h3>
                                 <div class="form-row">
                                     <div class="col col-1 radio-col">
-                                        <input type="radio" name="order_type" id="in_store" value="in_store"
+                                        <input type="radio" name="order_type" id="delivery_type1" value="in_store"
                                                required="" checked>
                                         <label for="delivery_type1">Afhalen in ons magazijn in Waasmunster<br>
                                             <span><i class="fas fa-check"></i> direct beschikbaar</span> tijdens
